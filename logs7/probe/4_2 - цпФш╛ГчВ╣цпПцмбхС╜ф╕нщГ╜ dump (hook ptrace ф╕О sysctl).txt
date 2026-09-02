@@ -1,0 +1,41 @@
+﻿2026-09-02T08:44:43.5438060Z ##[group]Run set +e
+2026-09-02T08:44:43.5439450Z [36;1mset +e[0m
+2026-09-02T08:44:43.5439980Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:44:43.5440300Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:44:43.5440660Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:44:43.5441170Z [36;1m  -o "breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1" \[0m
+2026-09-02T08:44:43.5441610Z [36;1m  -o "breakpoint set --name sysctl" \[0m
+2026-09-02T08:44:43.5442120Z [36;1m  -o "breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 2" \[0m
+2026-09-02T08:44:43.5442610Z [36;1m  -o "breakpoint set --address 0x100002358" \[0m
+2026-09-02T08:44:43.5443270Z [36;1m  -o "breakpoint command add --script-type command -o 'memory read --size 1 --format x --count 16 $x29-0x90' -o 'memory read --size 1 --format x --count 16 $x29-0xb0' -o 'continue' 3" \[0m
+2026-09-02T08:44:43.5444130Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:44:43.5444710Z [36;1m  -o "process continue" \[0m
+2026-09-02T08:44:43.5444960Z [36;1m  > out/02-cmp-all.txt 2>&1[0m
+2026-09-02T08:44:43.5445180Z [36;1mecho "--- hits ---"[0m
+2026-09-02T08:44:43.5445570Z [36;1mgrep -c "0x16fdf" out/02-cmp-all.txt || true[0m
+2026-09-02T08:44:43.5445840Z [36;1mhead -c 40000 out/02-cmp-all.txt[0m
+2026-09-02T08:44:43.5486290Z shell: /bin/bash -e {0}
+2026-09-02T08:44:43.5486540Z env:
+2026-09-02T08:44:43.5486710Z   TC: 
+2026-09-02T08:44:43.5486940Z ##[endgroup]
+2026-09-02T08:44:47.1791500Z --- hits ---
+2026-09-02T08:44:47.2070730Z 0
+2026-09-02T08:44:47.2110550Z (lldb) target create bin/challenge.bin
+2026-09-02T08:44:47.2111960Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:44:47.2113520Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:44:47.2114930Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:44:47.2116380Z (lldb) breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1
+2026-09-02T08:44:47.2117370Z (lldb) breakpoint set --name sysctl
+2026-09-02T08:44:47.2117800Z Breakpoint 2: where = libsystem_c.dylib`sysctl, address = 0x0000000180309710
+2026-09-02T08:44:47.2118320Z (lldb) breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 2
+2026-09-02T08:44:47.2118800Z (lldb) breakpoint set --address 0x100002358
+2026-09-02T08:44:47.2119100Z Breakpoint 3: address = 0x0000000100002358
+2026-09-02T08:44:47.2119790Z (lldb) breakpoint command add --script-type command -o 'memory read --size 1 --format x --count 16 -0x90' -o 'memory read --size 1 --format x --count 16 -0xb0' -o 'continue' 3
+2026-09-02T08:44:47.2120730Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:44:47.2121150Z (lldb)  continue
+2026-09-02T08:44:47.2126160Z Process 1733 resuming
+2026-09-02T08:44:47.2126780Z Command #1 'continue' continued the target.
+2026-09-02T08:44:47.2128010Z Process 1733 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:44:47.2129210Z Process 1733 exited with status = 45 (0x0000002d)
+2026-09-02T08:44:47.2130010Z (lldb) process continue
+2026-09-02T08:44:47.2130630Z error: Process must be launched.
