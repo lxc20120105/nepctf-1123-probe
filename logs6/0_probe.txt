@@ -1,0 +1,2461 @@
+﻿2026-09-02T08:40:17.1135180Z Current runner version: '2.336.0'
+2026-09-02T08:40:17.1152370Z ##[group]Runner Image Provisioner
+2026-09-02T08:40:17.1152960Z Hosted Compute Agent
+2026-09-02T08:40:17.1153340Z Version: 20260707.563
+2026-09-02T08:40:17.1153750Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-09-02T08:40:17.1154220Z Build Date: 2026-07-07T19:33:50Z
+2026-09-02T08:40:17.1154670Z Worker ID: {f50e1681-84b5-40f4-b911-7273e3aa43cd}
+2026-09-02T08:40:17.1155140Z Azure Region: westus
+2026-09-02T08:40:17.1155530Z ##[endgroup]
+2026-09-02T08:40:17.1156620Z ##[group]Operating System
+2026-09-02T08:40:17.1157020Z macOS
+2026-09-02T08:40:17.1157350Z 15.7.7
+2026-09-02T08:40:17.1157690Z 24G720
+2026-09-02T08:40:17.1158030Z ##[endgroup]
+2026-09-02T08:40:17.1158390Z ##[group]Runner Image
+2026-09-02T08:40:17.1158770Z Image: macos-15-arm64
+2026-09-02T08:40:17.1159160Z Version: 20260727.0256.1
+2026-09-02T08:40:17.1160000Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20260727.0256/images/macos/macos-15-arm64-Readme.md
+2026-09-02T08:40:17.1161140Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20260727.0256
+2026-09-02T08:40:17.1161810Z ##[endgroup]
+2026-09-02T08:40:17.1162610Z ##[group]GITHUB_TOKEN Permissions
+2026-09-02T08:40:17.1163800Z Contents: read
+2026-09-02T08:40:17.1164170Z Metadata: read
+2026-09-02T08:40:17.1164530Z Packages: read
+2026-09-02T08:40:17.1164890Z ##[endgroup]
+2026-09-02T08:40:17.1166320Z Secret source: Actions
+2026-09-02T08:40:17.1166960Z Prepare workflow directory
+2026-09-02T08:40:17.1419450Z Prepare all required actions
+2026-09-02T08:40:17.1454860Z Getting action download info
+2026-09-02T08:40:17.6600900Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-02T08:40:17.9899560Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-02T08:40:18.1956490Z Complete job name: probe
+2026-09-02T08:40:18.2463280Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T08:40:18.2470220Z ##[group]Run actions/checkout@v4
+2026-09-02T08:40:18.2470720Z with:
+2026-09-02T08:40:18.2471080Z   repository: lxc20120105/nepctf-1123-probe
+2026-09-02T08:40:18.2474460Z   token: ***
+2026-09-02T08:40:18.2474800Z   ssh-strict: true
+2026-09-02T08:40:18.2475130Z   ssh-user: git
+2026-09-02T08:40:18.2475460Z   persist-credentials: true
+2026-09-02T08:40:18.2475820Z   clean: true
+2026-09-02T08:40:18.2476150Z   sparse-checkout-cone-mode: true
+2026-09-02T08:40:18.2476540Z   fetch-depth: 1
+2026-09-02T08:40:18.2476860Z   fetch-tags: false
+2026-09-02T08:40:18.2477190Z   show-progress: true
+2026-09-02T08:40:18.2477520Z   lfs: false
+2026-09-02T08:40:18.2477880Z   submodules: false
+2026-09-02T08:40:18.2478210Z   set-safe-directory: true
+2026-09-02T08:40:18.2478600Z   allow-unsafe-pr-checkout: false
+2026-09-02T08:40:18.2479420Z ##[endgroup]
+2026-09-02T08:40:18.6169950Z Syncing repository: lxc20120105/nepctf-1123-probe
+2026-09-02T08:40:18.6175980Z ##[group]Getting Git version info
+2026-09-02T08:40:18.6177980Z Working directory is '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe'
+2026-09-02T08:40:18.6180620Z [command]/opt/homebrew/bin/git version
+2026-09-02T08:40:18.6776010Z git version 2.55.0
+2026-09-02T08:40:18.6797860Z ##[endgroup]
+2026-09-02T08:40:18.6805030Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/9dca6549-9da1-4e8b-9f9d-7fe0a24b37d5/.gitconfig'
+2026-09-02T08:40:18.6813410Z Temporarily overriding HOME='/Users/runner/work/_temp/9dca6549-9da1-4e8b-9f9d-7fe0a24b37d5' before making global git config changes
+2026-09-02T08:40:18.6814540Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-02T08:40:18.6820240Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T08:40:18.6938740Z Deleting the contents of '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe'
+2026-09-02T08:40:18.6941990Z ##[group]Initializing the repository
+2026-09-02T08:40:18.6947360Z [command]/opt/homebrew/bin/git init /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T08:40:18.7149220Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-02T08:40:18.7150510Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-02T08:40:18.7151380Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-02T08:40:18.7151940Z hint: call:
+2026-09-02T08:40:18.7152260Z hint:
+2026-09-02T08:40:18.7152650Z hint: 	git config --global init.defaultBranch <name>
+2026-09-02T08:40:18.7153170Z hint:
+2026-09-02T08:40:18.7153630Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-02T08:40:18.7154290Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-02T08:40:18.7154820Z hint:
+2026-09-02T08:40:18.7155140Z hint: 	git branch -m <name>
+2026-09-02T08:40:18.7156750Z hint:
+2026-09-02T08:40:18.7157240Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-02T08:40:18.7158100Z Initialized empty Git repository in /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/.git/
+2026-09-02T08:40:18.7166140Z [command]/opt/homebrew/bin/git remote add origin https://github.com/lxc20120105/nepctf-1123-probe
+2026-09-02T08:40:18.7242920Z ##[endgroup]
+2026-09-02T08:40:18.7243630Z ##[group]Disabling automatic garbage collection
+2026-09-02T08:40:18.7245690Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+2026-09-02T08:40:18.7316810Z ##[endgroup]
+2026-09-02T08:40:18.7317390Z ##[group]Setting up auth
+2026-09-02T08:40:18.7318750Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-02T08:40:18.7415520Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-02T08:40:18.8561520Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-02T08:40:18.8622380Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-02T08:40:18.9440910Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-02T08:40:18.9572400Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-02T08:40:19.0536710Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-02T08:40:19.0627640Z ##[endgroup]
+2026-09-02T08:40:19.0630140Z ##[group]Fetching the repository
+2026-09-02T08:40:19.0635100Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +dbfb28d1343b531e2329d312b9b5709b6cf42c85:refs/remotes/origin/main
+2026-09-02T08:40:19.5543670Z From https://github.com/lxc20120105/nepctf-1123-probe
+2026-09-02T08:40:19.5545250Z  * [new ref]         dbfb28d1343b531e2329d312b9b5709b6cf42c85 -> origin/main
+2026-09-02T08:40:19.5555410Z ##[endgroup]
+2026-09-02T08:40:19.5556800Z ##[group]Determining the checkout info
+2026-09-02T08:40:19.5558050Z ##[endgroup]
+2026-09-02T08:40:19.5559180Z [command]/opt/homebrew/bin/git sparse-checkout disable
+2026-09-02T08:40:19.5635110Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-02T08:40:19.5701280Z ##[group]Checking out the ref
+2026-09-02T08:40:19.5704640Z [command]/opt/homebrew/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-02T08:40:19.5989870Z Switched to a new branch 'main'
+2026-09-02T08:40:19.5999510Z branch 'main' set up to track 'origin/main'.
+2026-09-02T08:40:19.6006450Z ##[endgroup]
+2026-09-02T08:40:19.6128010Z [command]/opt/homebrew/bin/git log -1 --format=%H
+2026-09-02T08:40:19.6202590Z dbfb28d1343b531e2329d312b9b5709b6cf42c85
+2026-09-02T08:40:19.6445290Z ##[group]Run mkdir -p out
+2026-09-02T08:40:19.6446160Z [36;1mmkdir -p out[0m
+2026-09-02T08:40:19.6447050Z [36;1mTC=$(command -v gtimeout || command -v timeout || echo "")[0m
+2026-09-02T08:40:19.6448100Z [36;1mecho "TC=$TC" >> $GITHUB_ENV[0m
+2026-09-02T08:40:19.6448870Z [36;1mxattr -cr bin/ 2>&1 || true[0m
+2026-09-02T08:40:19.6449940Z [36;1mcodesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T08:40:19.6450940Z [36;1mchmod +x bin/challenge.bin[0m
+2026-09-02T08:40:19.6451760Z [36;1msw_vers 2>&1 | tee out/01-env.txt[0m
+2026-09-02T08:40:19.6452830Z [36;1msysctl -n machdep.cpu.brand_string 2>&1 | tee -a out/01-env.txt[0m
+2026-09-02T08:40:19.6454450Z [36;1msudo softwareupdate --install-rosetta --agree-to-license 2>&1 | tee out/01-rosetta.txt || true[0m
+2026-09-02T08:40:19.6498560Z shell: /bin/bash -e {0}
+2026-09-02T08:40:19.6499290Z ##[endgroup]
+2026-09-02T08:40:19.6993530Z bin/challenge.bin: replacing existing signature
+2026-09-02T08:40:19.7157980Z ProductName:		macOS
+2026-09-02T08:40:19.7158830Z ProductVersion:		15.7.7
+2026-09-02T08:40:19.7159580Z BuildVersion:		24G720
+2026-09-02T08:40:19.7350030Z Apple M1 (Virtual)
+2026-09-02T08:40:20.5704500Z 2026-09-02 08:40:20.569 softwareupdate[2686:11879] Package Authoring Error: 122-77923: Package reference com.apple.pkg.RosettaUpdateAuto is missing installKBytes attribute
+2026-09-02T08:40:20.6380110Z By using the agreetolicense option, you are agreeing that you have run this tool with the license only option and have read and agreed to the terms.
+2026-09-02T08:40:20.6383560Z If you do not agree, press CTRL-C and cancel this process immediately.
+2026-09-02T08:40:20.6387630Z 
+2026-09-02T08:40:20.6391260Z Installing: 0.0%
+2026-09-02T08:40:20.7121020Z Installing: 0.0%
+2026-09-02T08:40:20.7122560Z Installing: 100.0%
+2026-09-02T08:40:20.9773050Z Installing: 100.0%
+2026-09-02T08:40:21.5443760Z Installing: -1.0%
+2026-09-02T08:40:22.0419390Z Installing: 88.7%
+2026-09-02T08:40:22.1824540Z Installing: 88.7%
+2026-09-02T08:40:22.1869490Z Installing: 100.0%
+2026-09-02T08:40:22.1870700Z Install of Rosetta 2 finished successfully
+2026-09-02T08:40:22.2176320Z ##[group]Run set +e
+2026-09-02T08:40:22.2176650Z [36;1mset +e[0m
+2026-09-02T08:40:22.2176970Z [36;1mecho "### no arg"[0m
+2026-09-02T08:40:22.2177340Z [36;1m./bin/challenge.bin < /dev/null 2>&1 | head -3[0m
+2026-09-02T08:40:22.2177700Z [36;1mecho "### candidate"[0m
+2026-09-02T08:40:22.2178200Z [36;1m./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null 2>&1 | head -3[0m
+2026-09-02T08:40:22.2178660Z [36;1mecho "### all zero"[0m
+2026-09-02T08:40:22.2179100Z [36;1m./bin/challenge.bin 'NepCTF{00000000000000000000000000000000}' < /dev/null 2>&1 | head -3[0m
+2026-09-02T08:40:22.2227030Z shell: /bin/bash -e {0}
+2026-09-02T08:40:22.2227430Z env:
+2026-09-02T08:40:22.2227780Z   TC: 
+2026-09-02T08:40:22.2228010Z ##[endgroup]
+2026-09-02T08:40:22.2947100Z ### no arg
+2026-09-02T08:40:23.1799100Z usage: challenge NepCTF{...}
+2026-09-02T08:40:23.1807900Z ### candidate
+2026-09-02T08:40:23.4350830Z Access Denied
+2026-09-02T08:40:23.4417600Z ### all zero
+2026-09-02T08:40:23.7452280Z Access Denied
+2026-09-02T08:40:23.7748080Z ##[group]Run set +e
+2026-09-02T08:40:23.7748460Z [36;1mset +e[0m
+2026-09-02T08:40:23.7748680Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:40:23.7749130Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:40:23.7749470Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:40:23.7749980Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:40:23.7750440Z [36;1m  -o "thread return 0" \[0m
+2026-09-02T08:40:23.7750790Z [36;1m  -o "breakpoint delete 1" \[0m
+2026-09-02T08:40:23.7752610Z [36;1m  -o "breakpoint set --address 0x100002358" \[0m
+2026-09-02T08:40:23.7752890Z [36;1m  -o "continue" \[0m
+2026-09-02T08:40:23.7753160Z [36;1m  -o 'expr unsigned long $L = $x29 - 0x90' \[0m
+2026-09-02T08:40:23.7753510Z [36;1m  -o 'expr unsigned long $R = $x29 - 0xb0' \[0m
+2026-09-02T08:40:23.7753860Z [36;1m  -o 'memory read --size 1 --format x --count 16 $L' \[0m
+2026-09-02T08:40:23.7754290Z [36;1m  -o 'memory read --size 1 --format x --count 16 $R' \[0m
+2026-09-02T08:40:23.7754770Z [36;1m  -o 'register read x29 sp pc' \[0m
+2026-09-02T08:40:23.7755120Z [36;1m  -o 'bt' \[0m
+2026-09-02T08:40:23.7755400Z [36;1m  > out/03-lldb-cmp.txt 2>&1[0m
+2026-09-02T08:40:23.7755800Z [36;1mhead -c 30000 out/03-lldb-cmp.txt[0m
+2026-09-02T08:40:23.7807600Z shell: /bin/bash -e {0}
+2026-09-02T08:40:23.7808480Z env:
+2026-09-02T08:40:23.7808800Z   TC: 
+2026-09-02T08:40:23.7809040Z ##[endgroup]
+2026-09-02T08:40:27.8999020Z (lldb) target create bin/challenge.bin
+2026-09-02T08:40:27.9001770Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:40:27.9003580Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:40:27.9005130Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:40:27.9006080Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:40:27.9007020Z Process 2848 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:40:27.9007690Z Process 2848 stopped
+2026-09-02T08:40:27.9008110Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:40:27.9008740Z     frame #0: 0x000000019db5e80c libsystem_kernel.dylib`__ptrace
+2026-09-02T08:40:27.9009080Z libsystem_kernel.dylib`__ptrace:
+2026-09-02T08:40:27.9009450Z ->  0x19db5e80c <+0>:  adrp   x9, 450538
+2026-09-02T08:40:27.9009790Z     0x19db5e810 <+4>:  add    x9, x9, #0x948            ; errno
+2026-09-02T08:40:27.9010240Z     0x19db5e814 <+8>:  str    wzr, [x9]
+2026-09-02T08:40:27.9010630Z     0x19db5e818 <+12>: mov    x16, #0x1a                ; =26 
+2026-09-02T08:40:27.9010950Z Target 0: (challenge.bin) stopped.
+2026-09-02T08:40:27.9011280Z (lldb) thread return 0
+2026-09-02T08:40:27.9011570Z (lldb) breakpoint delete 1
+2026-09-02T08:40:27.9011970Z 1 breakpoints deleted; 0 breakpoint locations disabled.
+2026-09-02T08:40:27.9012400Z (lldb) breakpoint set --address 0x100002358
+2026-09-02T08:40:27.9012980Z Breakpoint 2: where = challenge.bin`___lldb_unnamed_symbol28 + 6456, address = 0x0000000100002358
+2026-09-02T08:40:27.9013390Z (lldb) continue
+2026-09-02T08:40:27.9013760Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:40:27.9014290Z     frame #0: 0x0000000100000a5c challenge.bin`___lldb_unnamed_symbol28 + 60
+2026-09-02T08:40:27.9014670Z challenge.bin`___lldb_unnamed_symbol28:
+2026-09-02T08:40:27.9015060Z ->  0x100000a5c <+60>: mov    w0, #0x0                  ; =0 
+2026-09-02T08:40:27.9015500Z     0x100000a60 <+64>: bl     0x100002b8c               ; symbol stub for: _dyld_get_image_header
+2026-09-02T08:40:27.9015970Z     0x100000a64 <+68>: ldr    w8, [x0, #0x10]
+2026-09-02T08:40:27.9016290Z     0x100000a68 <+72>: cbz    w8, 0x100000ac8           ; <+168>
+2026-09-02T08:40:27.9016620Z Process 2848 resuming
+2026-09-02T08:40:27.9016810Z Process 2848 stopped
+2026-09-02T08:40:27.9018740Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 2.1
+2026-09-02T08:40:27.9020400Z     frame #0: 0x0000000100002358 challenge.bin`___lldb_unnamed_symbol28 + 6456
+2026-09-02T08:40:27.9021340Z challenge.bin`___lldb_unnamed_symbol28:
+2026-09-02T08:40:27.9022230Z ->  0x100002358 <+6456>: ldrb   w19, [sp, #0x9c]
+2026-09-02T08:40:27.9023510Z     0x10000235c <+6460>: stp    xzr, xzr, [x29, #-0x80]
+2026-09-02T08:40:27.9023980Z     0x100002360 <+6464>: stur   xzr, [x20, #0x15]
+2026-09-02T08:40:27.9024380Z     0x100002364 <+6468>: stur   xzr, [x29, #-0x70]
+2026-09-02T08:40:27.9024690Z Target 0: (challenge.bin) stopped.
+2026-09-02T08:40:27.9029070Z (lldb) expr unsigned long $L = $x29 - 0x90
+2026-09-02T08:40:27.9029340Z (lldb) expr unsigned long $R = $x29 - 0xb0
+2026-09-02T08:40:27.9029710Z (lldb) memory read --size 1 --format x --count 16 $L
+2026-09-02T08:40:27.9030040Z 0x16fdfdaf0: 0x25 0x67 0x78 0x1b 0xa0 0x68 0xb2 0x80
+2026-09-02T08:40:27.9030450Z 0x16fdfdaf8: 0x14 0xa0 0xd7 0xe2 0x5d 0x78 0x72 0x0e
+2026-09-02T08:40:27.9030800Z (lldb) memory read --size 1 --format x --count 16 $R
+2026-09-02T08:40:27.9031200Z 0x16fdfdad0: 0x90 0xc0 0x45 0xf3 0x6c 0xf5 0x6e 0xeb
+2026-09-02T08:40:27.9031510Z 0x16fdfdad8: 0x5f 0x16 0x28 0x00 0x05 0x35 0x39 0x82
+2026-09-02T08:40:27.9031880Z (lldb) register read x29 sp pc
+2026-09-02T08:40:27.9032120Z       fp = 0x000000016fdfdb80
+2026-09-02T08:40:27.9032430Z       sp = 0x000000016fdfd630
+2026-09-02T08:40:27.9032820Z       pc = 0x0000000100002358  challenge.bin`___lldb_unnamed_symbol28 + 6456
+2026-09-02T08:40:27.9033170Z (lldb) bt
+2026-09-02T08:40:27.9033520Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 2.1
+2026-09-02T08:40:27.9033990Z   * frame #0: 0x0000000100002358 challenge.bin`___lldb_unnamed_symbol28 + 6456
+2026-09-02T08:40:27.9034450Z     frame #1: 0x000000019d7f6b98 dyld`start + 6076
+2026-09-02T08:40:27.9148850Z ##[group]Run set +e
+2026-09-02T08:40:27.9149160Z [36;1mset +e[0m
+2026-09-02T08:40:27.9149370Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:40:27.9149630Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:40:27.9149950Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:40:27.9150500Z [36;1m  -o "breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1" \[0m
+2026-09-02T08:40:27.9151830Z [36;1m  -o "breakpoint set --name strncmp" \[0m
+2026-09-02T08:40:27.9153010Z [36;1m  -o "breakpoint command add --script-type command -o 'memory read --size 1 --format c --count 64 $x0' -o 'memory read --size 1 --format c --count 64 $x1' -o 'register read x2' -o 'continue' 2" \[0m
+2026-09-02T08:40:27.9153680Z [36;1m  -o "breakpoint set --name memcmp" \[0m
+2026-09-02T08:40:27.9154480Z [36;1m  -o "breakpoint command add --script-type command -o 'memory read --size 1 --format x --count 32 $x0' -o 'memory read --size 1 --format x --count 32 $x1' -o 'register read x2' -o 'continue' 3" \[0m
+2026-09-02T08:40:27.9155200Z [36;1m  -o "breakpoint set --name strcmp" \[0m
+2026-09-02T08:40:27.9155840Z [36;1m  -o "breakpoint command add --script-type command -o 'memory read --size 1 --format c --count 64 $x0' -o 'memory read --size 1 --format c --count 64 $x1' -o 'continue' 4" \[0m
+2026-09-02T08:40:27.9157000Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:40:27.9157330Z [36;1m  -o "process continue" \[0m
+2026-09-02T08:40:27.9157540Z [36;1m  > out/04-lldb-cmpfn.txt 2>&1[0m
+2026-09-02T08:40:27.9159090Z [36;1mhead -c 60000 out/04-lldb-cmpfn.txt[0m
+2026-09-02T08:40:27.9228760Z shell: /bin/bash -e {0}
+2026-09-02T08:40:27.9229050Z env:
+2026-09-02T08:40:27.9229280Z   TC: 
+2026-09-02T08:40:27.9229490Z ##[endgroup]
+2026-09-02T08:40:43.7861960Z (lldb) target create bin/challenge.bin
+2026-09-02T08:40:43.7863150Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:40:43.7865160Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:40:43.7865630Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:40:43.7866350Z (lldb) breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1
+2026-09-02T08:40:43.7866890Z (lldb) breakpoint set --name strncmp
+2026-09-02T08:40:43.7867600Z Breakpoint 2: re-exported target = libsystem_platform.dylib`_platform_strncmp, address = 0x00000001804aa954
+2026-09-02T08:40:43.7868540Z (lldb) breakpoint command add --script-type command -o 'memory read --size 1 --format c --count 64 ' -o 'memory read --size 1 --format c --count 64 ' -o 'register read x2' -o 'continue' 2
+2026-09-02T08:40:43.7869360Z (lldb) breakpoint set --name memcmp
+2026-09-02T08:40:43.7870950Z Breakpoint 3: re-exported target = libsystem_platform.dylib`_platform_memcmp, address = 0x00000001804aae90
+2026-09-02T08:40:43.7871920Z (lldb) breakpoint command add --script-type command -o 'memory read --size 1 --format x --count 32 ' -o 'memory read --size 1 --format x --count 32 ' -o 'register read x2' -o 'continue' 3
+2026-09-02T08:40:43.7872610Z (lldb) breakpoint set --name strcmp
+2026-09-02T08:40:43.7873110Z Breakpoint 4: re-exported target = libsystem_platform.dylib`_platform_strcmp, address = 0x00000001804aa8e0
+2026-09-02T08:40:43.7873990Z (lldb) breakpoint command add --script-type command -o 'memory read --size 1 --format c --count 64 ' -o 'memory read --size 1 --format c --count 64 ' -o 'continue' 4
+2026-09-02T08:40:43.7874830Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:40:43.7875150Z (lldb)  continue
+2026-09-02T08:40:43.7875420Z Process 2860 resuming
+2026-09-02T08:40:43.7875700Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7876540Z (lldb)  continue
+2026-09-02T08:40:43.7876790Z Process 2860 resuming
+2026-09-02T08:40:43.7877180Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7877480Z (lldb)  continue
+2026-09-02T08:40:43.7879150Z Process 2860 resuming
+2026-09-02T08:40:43.7880480Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7881590Z (lldb)  continue
+2026-09-02T08:40:43.7882770Z Process 2860 resuming
+2026-09-02T08:40:43.7884940Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7885460Z (lldb)  continue
+2026-09-02T08:40:43.7885670Z Process 2860 resuming
+2026-09-02T08:40:43.7888470Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7889210Z (lldb)  continue
+2026-09-02T08:40:43.7892940Z Process 2860 resuming
+2026-09-02T08:40:43.7894010Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7895240Z (lldb)  continue
+2026-09-02T08:40:43.7896050Z Process 2860 resuming
+2026-09-02T08:40:43.7897650Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7897980Z (lldb)  continue
+2026-09-02T08:40:43.7898740Z Process 2860 resuming
+2026-09-02T08:40:43.7899910Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7901220Z (lldb)  continue
+2026-09-02T08:40:43.7902050Z Process 2860 resuming
+2026-09-02T08:40:43.7904640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7905220Z (lldb)  continue
+2026-09-02T08:40:43.7906710Z Process 2860 resuming
+2026-09-02T08:40:43.7908530Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7910230Z (lldb)  continue
+2026-09-02T08:40:43.7910820Z Process 2860 resuming
+2026-09-02T08:40:43.7911640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7912080Z (lldb)  continue
+2026-09-02T08:40:43.7914390Z Process 2860 resuming
+2026-09-02T08:40:43.7915560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7917320Z (lldb)  continue
+2026-09-02T08:40:43.7918040Z Process 2860 resuming
+2026-09-02T08:40:43.7918590Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7919590Z (lldb)  continue
+2026-09-02T08:40:43.7920100Z Process 2860 resuming
+2026-09-02T08:40:43.7921070Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7921450Z (lldb)  continue
+2026-09-02T08:40:43.7922110Z Process 2860 resuming
+2026-09-02T08:40:43.7922870Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7924920Z (lldb)  continue
+2026-09-02T08:40:43.7925740Z Process 2860 resuming
+2026-09-02T08:40:43.7926720Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7927470Z (lldb)  continue
+2026-09-02T08:40:43.7928290Z Process 2860 resuming
+2026-09-02T08:40:43.7929220Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7929860Z (lldb)  continue
+2026-09-02T08:40:43.7930370Z Process 2860 resuming
+2026-09-02T08:40:43.7930870Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7931650Z (lldb)  continue
+2026-09-02T08:40:43.7932360Z Process 2860 resuming
+2026-09-02T08:40:43.7933290Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7936460Z (lldb)  continue
+2026-09-02T08:40:43.7936890Z Process 2860 resuming
+2026-09-02T08:40:43.7937570Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7938670Z (lldb)  continue
+2026-09-02T08:40:43.7939340Z Process 2860 resuming
+2026-09-02T08:40:43.7940400Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7941080Z (lldb)  continue
+2026-09-02T08:40:43.7943760Z Process 2860 resuming
+2026-09-02T08:40:43.7945650Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7946380Z (lldb)  continue
+2026-09-02T08:40:43.7946840Z Process 2860 resuming
+2026-09-02T08:40:43.7948920Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7949540Z (lldb)  continue
+2026-09-02T08:40:43.7949970Z Process 2860 resuming
+2026-09-02T08:40:43.7950700Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7952500Z (lldb)  continue
+2026-09-02T08:40:43.7952920Z Process 2860 resuming
+2026-09-02T08:40:43.7953550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7953990Z (lldb)  continue
+2026-09-02T08:40:43.7955700Z Process 2860 resuming
+2026-09-02T08:40:43.7956540Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7956890Z (lldb)  continue
+2026-09-02T08:40:43.7958180Z Process 2860 resuming
+2026-09-02T08:40:43.7958530Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7959320Z (lldb)  continue
+2026-09-02T08:40:43.7961040Z Process 2860 resuming
+2026-09-02T08:40:43.7962800Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7964250Z (lldb)  continue
+2026-09-02T08:40:43.7965790Z Process 2860 resuming
+2026-09-02T08:40:43.7966260Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7966870Z (lldb)  continue
+2026-09-02T08:40:43.7968820Z Process 2860 resuming
+2026-09-02T08:40:43.7969350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7970140Z (lldb)  continue
+2026-09-02T08:40:43.7972310Z Process 2860 resuming
+2026-09-02T08:40:43.7972640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7972910Z (lldb)  continue
+2026-09-02T08:40:43.7973470Z Process 2860 resuming
+2026-09-02T08:40:43.7973760Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7976910Z (lldb)  continue
+2026-09-02T08:40:43.7977190Z Process 2860 resuming
+2026-09-02T08:40:43.7977580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7979000Z (lldb)  continue
+2026-09-02T08:40:43.7979290Z Process 2860 resuming
+2026-09-02T08:40:43.7979590Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7980260Z (lldb)  continue
+2026-09-02T08:40:43.7981530Z Process 2860 resuming
+2026-09-02T08:40:43.7982090Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7985190Z (lldb)  continue
+2026-09-02T08:40:43.7986080Z Process 2860 resuming
+2026-09-02T08:40:43.7987090Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7987470Z (lldb)  continue
+2026-09-02T08:40:43.7987930Z Process 2860 resuming
+2026-09-02T08:40:43.7988780Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7992400Z (lldb)  continue
+2026-09-02T08:40:43.7992690Z Process 2860 resuming
+2026-09-02T08:40:43.7994130Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7994440Z (lldb)  continue
+2026-09-02T08:40:43.7994730Z Process 2860 resuming
+2026-09-02T08:40:43.7995230Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7995900Z (lldb)  continue
+2026-09-02T08:40:43.7996400Z Process 2860 resuming
+2026-09-02T08:40:43.7996710Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.7996970Z (lldb)  continue
+2026-09-02T08:40:43.7997740Z Process 2860 resuming
+2026-09-02T08:40:43.7999900Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8000440Z (lldb)  continue
+2026-09-02T08:40:43.8000880Z Process 2860 resuming
+2026-09-02T08:40:43.8001330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8003550Z (lldb)  continue
+2026-09-02T08:40:43.8003920Z Process 2860 resuming
+2026-09-02T08:40:43.8004230Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8005230Z (lldb)  continue
+2026-09-02T08:40:43.8007380Z Process 2860 resuming
+2026-09-02T08:40:43.8007970Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8008910Z (lldb)  continue
+2026-09-02T08:40:43.8010990Z Process 2860 resuming
+2026-09-02T08:40:43.8012140Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8014710Z (lldb)  continue
+2026-09-02T08:40:43.8015640Z Process 2860 resuming
+2026-09-02T08:40:43.8017580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8017860Z (lldb)  continue
+2026-09-02T08:40:43.8018120Z Process 2860 resuming
+2026-09-02T08:40:43.8019480Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8019850Z (lldb)  continue
+2026-09-02T08:40:43.8020090Z Process 2860 resuming
+2026-09-02T08:40:43.8088110Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8088600Z (lldb)  continue
+2026-09-02T08:40:43.8088860Z Process 2860 resuming
+2026-09-02T08:40:43.8089080Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8089380Z (lldb)  continue
+2026-09-02T08:40:43.8089640Z Process 2860 resuming
+2026-09-02T08:40:43.8089880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8090210Z (lldb)  continue
+2026-09-02T08:40:43.8090980Z Process 2860 resuming
+2026-09-02T08:40:43.8091230Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8091550Z (lldb)  continue
+2026-09-02T08:40:43.8091680Z Process 2860 resuming
+2026-09-02T08:40:43.8091860Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8092120Z (lldb)  continue
+2026-09-02T08:40:43.8092250Z Process 2860 resuming
+2026-09-02T08:40:43.8092420Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8092740Z (lldb)  continue
+2026-09-02T08:40:43.8092950Z Process 2860 resuming
+2026-09-02T08:40:43.8093250Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8093500Z (lldb)  continue
+2026-09-02T08:40:43.8093760Z Process 2860 resuming
+2026-09-02T08:40:43.8093930Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8094130Z (lldb)  continue
+2026-09-02T08:40:43.8094340Z Process 2860 resuming
+2026-09-02T08:40:43.8094550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8094860Z (lldb)  continue
+2026-09-02T08:40:43.8095000Z Process 2860 resuming
+2026-09-02T08:40:43.8095180Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8095440Z (lldb)  continue
+2026-09-02T08:40:43.8095570Z Process 2860 resuming
+2026-09-02T08:40:43.8095740Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8095940Z (lldb)  continue
+2026-09-02T08:40:43.8096200Z Process 2860 resuming
+2026-09-02T08:40:43.8096370Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8096690Z (lldb)  continue
+2026-09-02T08:40:43.8096860Z Process 2860 resuming
+2026-09-02T08:40:43.8097130Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8097440Z (lldb)  continue
+2026-09-02T08:40:43.8097580Z Process 2860 resuming
+2026-09-02T08:40:43.8097800Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8098080Z (lldb)  continue
+2026-09-02T08:40:43.8098310Z Process 2860 resuming
+2026-09-02T08:40:43.8098530Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8098820Z (lldb)  continue
+2026-09-02T08:40:43.8098950Z Process 2860 resuming
+2026-09-02T08:40:43.8099170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8099370Z (lldb)  continue
+2026-09-02T08:40:43.8099580Z Process 2860 resuming
+2026-09-02T08:40:43.8099800Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8099990Z (lldb)  continue
+2026-09-02T08:40:43.8100190Z Process 2860 resuming
+2026-09-02T08:40:43.8100360Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8100550Z (lldb)  continue
+2026-09-02T08:40:43.8100690Z Process 2860 resuming
+2026-09-02T08:40:43.8100850Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8101040Z (lldb)  continue
+2026-09-02T08:40:43.8101180Z Process 2860 resuming
+2026-09-02T08:40:43.8101350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8101540Z (lldb)  continue
+2026-09-02T08:40:43.8101940Z Process 2860 resuming
+2026-09-02T08:40:43.8102110Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8102300Z (lldb)  continue
+2026-09-02T08:40:43.8102430Z Process 2860 resuming
+2026-09-02T08:40:43.8102600Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8102800Z (lldb)  continue
+2026-09-02T08:40:43.8102930Z Process 2860 resuming
+2026-09-02T08:40:43.8103100Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8103290Z (lldb)  continue
+2026-09-02T08:40:43.8103420Z Process 2860 resuming
+2026-09-02T08:40:43.8103590Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8103780Z (lldb)  continue
+2026-09-02T08:40:43.8103910Z Process 2860 resuming
+2026-09-02T08:40:43.8104080Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8104270Z (lldb)  continue
+2026-09-02T08:40:43.8104400Z Process 2860 resuming
+2026-09-02T08:40:43.8104570Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8104760Z (lldb)  continue
+2026-09-02T08:40:43.8104900Z Process 2860 resuming
+2026-09-02T08:40:43.8105070Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8105260Z (lldb)  continue
+2026-09-02T08:40:43.8105400Z Process 2860 resuming
+2026-09-02T08:40:43.8105670Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8105880Z (lldb)  continue
+2026-09-02T08:40:43.8106010Z Process 2860 resuming
+2026-09-02T08:40:43.8106180Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8106380Z (lldb)  continue
+2026-09-02T08:40:43.8106510Z Process 2860 resuming
+2026-09-02T08:40:43.8106680Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8106880Z (lldb)  continue
+2026-09-02T08:40:43.8107020Z Process 2860 resuming
+2026-09-02T08:40:43.8107180Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8107370Z (lldb)  continue
+2026-09-02T08:40:43.8107510Z Process 2860 resuming
+2026-09-02T08:40:43.8107670Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8107870Z (lldb)  continue
+2026-09-02T08:40:43.8108010Z Process 2860 resuming
+2026-09-02T08:40:43.8108180Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8108370Z (lldb)  continue
+2026-09-02T08:40:43.8108500Z Process 2860 resuming
+2026-09-02T08:40:43.8108680Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8108870Z (lldb)  continue
+2026-09-02T08:40:43.8109010Z Process 2860 resuming
+2026-09-02T08:40:43.8109180Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8109370Z (lldb)  continue
+2026-09-02T08:40:43.8109510Z Process 2860 resuming
+2026-09-02T08:40:43.8109680Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8109870Z (lldb)  continue
+2026-09-02T08:40:43.8110000Z Process 2860 resuming
+2026-09-02T08:40:43.8110170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8110370Z (lldb)  continue
+2026-09-02T08:40:43.8110500Z Process 2860 resuming
+2026-09-02T08:40:43.8110670Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8110860Z (lldb)  continue
+2026-09-02T08:40:43.8111000Z Process 2860 resuming
+2026-09-02T08:40:43.8111170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8111360Z (lldb)  continue
+2026-09-02T08:40:43.8111490Z Process 2860 resuming
+2026-09-02T08:40:43.8111660Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8111850Z (lldb)  continue
+2026-09-02T08:40:43.8111990Z Process 2860 resuming
+2026-09-02T08:40:43.8112160Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8112350Z (lldb)  continue
+2026-09-02T08:40:43.8112490Z Process 2860 resuming
+2026-09-02T08:40:43.8112650Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8112850Z (lldb)  continue
+2026-09-02T08:40:43.8112980Z Process 2860 resuming
+2026-09-02T08:40:43.8113150Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8113340Z (lldb)  continue
+2026-09-02T08:40:43.8113470Z Process 2860 resuming
+2026-09-02T08:40:43.8113640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8113840Z (lldb)  continue
+2026-09-02T08:40:43.8114180Z Process 2860 resuming
+2026-09-02T08:40:43.8114350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8114540Z (lldb)  continue
+2026-09-02T08:40:43.8114680Z Process 2860 resuming
+2026-09-02T08:40:43.8114850Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8115050Z (lldb)  continue
+2026-09-02T08:40:43.8115190Z Process 2860 resuming
+2026-09-02T08:40:43.8115360Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8115610Z (lldb)  continue
+2026-09-02T08:40:43.8115740Z Process 2860 resuming
+2026-09-02T08:40:43.8115910Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8116110Z (lldb)  continue
+2026-09-02T08:40:43.8116240Z Process 2860 resuming
+2026-09-02T08:40:43.8116410Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8116600Z (lldb)  continue
+2026-09-02T08:40:43.8116740Z Process 2860 resuming
+2026-09-02T08:40:43.8116900Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8117100Z (lldb)  continue
+2026-09-02T08:40:43.8117230Z Process 2860 resuming
+2026-09-02T08:40:43.8117400Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8117600Z (lldb)  continue
+2026-09-02T08:40:43.8117730Z Process 2860 resuming
+2026-09-02T08:40:43.8118230Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8118460Z (lldb)  continue
+2026-09-02T08:40:43.8118600Z Process 2860 resuming
+2026-09-02T08:40:43.8118770Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8118960Z (lldb)  continue
+2026-09-02T08:40:43.8119100Z Process 2860 resuming
+2026-09-02T08:40:43.8119270Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8119470Z (lldb)  continue
+2026-09-02T08:40:43.8119600Z Process 2860 resuming
+2026-09-02T08:40:43.8119770Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8119960Z (lldb)  continue
+2026-09-02T08:40:43.8120100Z Process 2860 resuming
+2026-09-02T08:40:43.8120260Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8120460Z (lldb)  continue
+2026-09-02T08:40:43.8120590Z Process 2860 resuming
+2026-09-02T08:40:43.8120760Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8120960Z (lldb)  continue
+2026-09-02T08:40:43.8121100Z Process 2860 resuming
+2026-09-02T08:40:43.8121270Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8121470Z (lldb)  continue
+2026-09-02T08:40:43.8121610Z Process 2860 resuming
+2026-09-02T08:40:43.8121770Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8121970Z (lldb)  continue
+2026-09-02T08:40:43.8122100Z Process 2860 resuming
+2026-09-02T08:40:43.8122270Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8122460Z (lldb)  continue
+2026-09-02T08:40:43.8122590Z Process 2860 resuming
+2026-09-02T08:40:43.8122760Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8122950Z (lldb)  continue
+2026-09-02T08:40:43.8123080Z Process 2860 resuming
+2026-09-02T08:40:43.8123250Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8123440Z (lldb)  continue
+2026-09-02T08:40:43.8123570Z Process 2860 resuming
+2026-09-02T08:40:43.8123750Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8123950Z (lldb)  continue
+2026-09-02T08:40:43.8124080Z Process 2860 resuming
+2026-09-02T08:40:43.8124250Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8124450Z (lldb)  continue
+2026-09-02T08:40:43.8124580Z Process 2860 resuming
+2026-09-02T08:40:43.8124750Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8124940Z (lldb)  continue
+2026-09-02T08:40:43.8125080Z Process 2860 resuming
+2026-09-02T08:40:43.8125240Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8125440Z (lldb)  continue
+2026-09-02T08:40:43.8125570Z Process 2860 resuming
+2026-09-02T08:40:43.8125740Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8125930Z (lldb)  continue
+2026-09-02T08:40:43.8126070Z Process 2860 resuming
+2026-09-02T08:40:43.8126230Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8126420Z (lldb)  continue
+2026-09-02T08:40:43.8126680Z Process 2860 resuming
+2026-09-02T08:40:43.8126850Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8127050Z (lldb)  continue
+2026-09-02T08:40:43.8127190Z Process 2860 resuming
+2026-09-02T08:40:43.8127360Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8127550Z (lldb)  continue
+2026-09-02T08:40:43.8127690Z Process 2860 resuming
+2026-09-02T08:40:43.8127860Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8128050Z (lldb)  continue
+2026-09-02T08:40:43.8128190Z Process 2860 resuming
+2026-09-02T08:40:43.8128370Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8128570Z (lldb)  continue
+2026-09-02T08:40:43.8128700Z Process 2860 resuming
+2026-09-02T08:40:43.8128870Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8129060Z (lldb)  continue
+2026-09-02T08:40:43.8129190Z Process 2860 resuming
+2026-09-02T08:40:43.8129360Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8129550Z (lldb)  continue
+2026-09-02T08:40:43.8129690Z Process 2860 resuming
+2026-09-02T08:40:43.8129860Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8130060Z (lldb)  continue
+2026-09-02T08:40:43.8130190Z Process 2860 resuming
+2026-09-02T08:40:43.8130590Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8130880Z (lldb)  continue
+2026-09-02T08:40:43.8131020Z Process 2860 resuming
+2026-09-02T08:40:43.8131190Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8131390Z (lldb)  continue
+2026-09-02T08:40:43.8131690Z Process 2860 resuming
+2026-09-02T08:40:43.8131930Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8132320Z (lldb)  continue
+2026-09-02T08:40:43.8132540Z Process 2860 resuming
+2026-09-02T08:40:43.8132880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8133140Z (lldb)  continue
+2026-09-02T08:40:43.8133440Z Process 2860 resuming
+2026-09-02T08:40:43.8133750Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8134120Z (lldb)  continue
+2026-09-02T08:40:43.8134320Z Process 2860 resuming
+2026-09-02T08:40:43.8134660Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8134990Z (lldb)  continue
+2026-09-02T08:40:43.8135280Z Process 2860 resuming
+2026-09-02T08:40:43.8135540Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8135900Z (lldb)  continue
+2026-09-02T08:40:43.8136110Z Process 2860 resuming
+2026-09-02T08:40:43.8136430Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8136720Z (lldb)  continue
+2026-09-02T08:40:43.8142420Z Process 2860 resuming
+2026-09-02T08:40:43.8142610Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8142810Z (lldb)  continue
+2026-09-02T08:40:43.8142960Z Process 2860 resuming
+2026-09-02T08:40:43.8143130Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8143330Z (lldb)  continue
+2026-09-02T08:40:43.8143460Z Process 2860 resuming
+2026-09-02T08:40:43.8143620Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8143820Z (lldb)  continue
+2026-09-02T08:40:43.8143950Z Process 2860 resuming
+2026-09-02T08:40:43.8144130Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8144330Z (lldb)  continue
+2026-09-02T08:40:43.8144460Z Process 2860 resuming
+2026-09-02T08:40:43.8144630Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8144830Z (lldb)  continue
+2026-09-02T08:40:43.8144960Z Process 2860 resuming
+2026-09-02T08:40:43.8145140Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8145340Z (lldb)  continue
+2026-09-02T08:40:43.8145480Z Process 2860 resuming
+2026-09-02T08:40:43.8145660Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8145860Z (lldb)  continue
+2026-09-02T08:40:43.8145990Z Process 2860 resuming
+2026-09-02T08:40:43.8146160Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8146360Z (lldb)  continue
+2026-09-02T08:40:43.8146500Z Process 2860 resuming
+2026-09-02T08:40:43.8146670Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8146880Z (lldb)  continue
+2026-09-02T08:40:43.8147020Z Process 2860 resuming
+2026-09-02T08:40:43.8147980Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8148180Z (lldb)  continue
+2026-09-02T08:40:43.8148320Z Process 2860 resuming
+2026-09-02T08:40:43.8148510Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8148730Z (lldb)  continue
+2026-09-02T08:40:43.8148870Z Process 2860 resuming
+2026-09-02T08:40:43.8149040Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8149450Z (lldb)  continue
+2026-09-02T08:40:43.8149600Z Process 2860 resuming
+2026-09-02T08:40:43.8149820Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8150100Z (lldb)  continue
+2026-09-02T08:40:43.8150240Z Process 2860 resuming
+2026-09-02T08:40:43.8150410Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8150630Z (lldb)  continue
+2026-09-02T08:40:43.8150770Z Process 2860 resuming
+2026-09-02T08:40:43.8152200Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8152950Z (lldb)  continue
+2026-09-02T08:40:43.8153460Z Process 2860 resuming
+2026-09-02T08:40:43.8154170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8154940Z (lldb)  continue
+2026-09-02T08:40:43.8155520Z Process 2860 resuming
+2026-09-02T08:40:43.8160930Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8161790Z (lldb)  continue
+2026-09-02T08:40:43.8162590Z Process 2860 resuming
+2026-09-02T08:40:43.8163370Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8164630Z (lldb)  continue
+2026-09-02T08:40:43.8165230Z Process 2860 resuming
+2026-09-02T08:40:43.8166090Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8167220Z (lldb)  continue
+2026-09-02T08:40:43.8167470Z Process 2860 resuming
+2026-09-02T08:40:43.8167890Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8168300Z (lldb)  continue
+2026-09-02T08:40:43.8168650Z Process 2860 resuming
+2026-09-02T08:40:43.8168980Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8169310Z (lldb)  continue
+2026-09-02T08:40:43.8169550Z Process 2860 resuming
+2026-09-02T08:40:43.8169740Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8170030Z (lldb)  continue
+2026-09-02T08:40:43.8170420Z Process 2860 resuming
+2026-09-02T08:40:43.8170750Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8171060Z (lldb)  continue
+2026-09-02T08:40:43.8172040Z Process 2860 resuming
+2026-09-02T08:40:43.8173220Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8174490Z (lldb)  continue
+2026-09-02T08:40:43.8175600Z Process 2860 resuming
+2026-09-02T08:40:43.8175890Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8177000Z (lldb)  continue
+2026-09-02T08:40:43.8177870Z Process 2860 resuming
+2026-09-02T08:40:43.8178380Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8178680Z (lldb)  continue
+2026-09-02T08:40:43.8178910Z Process 2860 resuming
+2026-09-02T08:40:43.8179140Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8179370Z (lldb)  continue
+2026-09-02T08:40:43.8179520Z Process 2860 resuming
+2026-09-02T08:40:43.8179700Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8179900Z (lldb)  continue
+2026-09-02T08:40:43.8180040Z Process 2860 resuming
+2026-09-02T08:40:43.8180210Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8180420Z (lldb)  continue
+2026-09-02T08:40:43.8180560Z Process 2860 resuming
+2026-09-02T08:40:43.8180730Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8180930Z (lldb)  continue
+2026-09-02T08:40:43.8181070Z Process 2860 resuming
+2026-09-02T08:40:43.8181240Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8181430Z (lldb)  continue
+2026-09-02T08:40:43.8181570Z Process 2860 resuming
+2026-09-02T08:40:43.8181740Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8181930Z (lldb)  continue
+2026-09-02T08:40:43.8182070Z Process 2860 resuming
+2026-09-02T08:40:43.8182240Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8182430Z (lldb)  continue
+2026-09-02T08:40:43.8182680Z Process 2860 resuming
+2026-09-02T08:40:43.8183420Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8183630Z (lldb)  continue
+2026-09-02T08:40:43.8183770Z Process 2860 resuming
+2026-09-02T08:40:43.8183940Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8184150Z (lldb)  continue
+2026-09-02T08:40:43.8184290Z Process 2860 resuming
+2026-09-02T08:40:43.8184460Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8184680Z (lldb)  continue
+2026-09-02T08:40:43.8184820Z Process 2860 resuming
+2026-09-02T08:40:43.8184990Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8185190Z (lldb)  continue
+2026-09-02T08:40:43.8186010Z Process 2860 resuming
+2026-09-02T08:40:43.8186230Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8186440Z (lldb)  continue
+2026-09-02T08:40:43.8186570Z Process 2860 resuming
+2026-09-02T08:40:43.8186950Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8187210Z (lldb)  continue
+2026-09-02T08:40:43.8187340Z Process 2860 resuming
+2026-09-02T08:40:43.8187520Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8187720Z (lldb)  continue
+2026-09-02T08:40:43.8187860Z Process 2860 resuming
+2026-09-02T08:40:43.8188030Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8188500Z (lldb)  continue
+2026-09-02T08:40:43.8188670Z Process 2860 resuming
+2026-09-02T08:40:43.8188840Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8189040Z (lldb)  continue
+2026-09-02T08:40:43.8189180Z Process 2860 resuming
+2026-09-02T08:40:43.8189350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8189550Z (lldb)  continue
+2026-09-02T08:40:43.8189680Z Process 2860 resuming
+2026-09-02T08:40:43.8189850Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8190380Z (lldb)  continue
+2026-09-02T08:40:43.8190540Z Process 2860 resuming
+2026-09-02T08:40:43.8190750Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8191500Z (lldb)  continue
+2026-09-02T08:40:43.8192020Z Process 2860 resuming
+2026-09-02T08:40:43.8192560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8193070Z (lldb)  continue
+2026-09-02T08:40:43.8193210Z Process 2860 resuming
+2026-09-02T08:40:43.8193940Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8194170Z (lldb)  continue
+2026-09-02T08:40:43.8194340Z Process 2860 resuming
+2026-09-02T08:40:43.8194550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8194770Z (lldb)  continue
+2026-09-02T08:40:43.8194900Z Process 2860 resuming
+2026-09-02T08:40:43.8195080Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8195270Z (lldb)  continue
+2026-09-02T08:40:43.8195400Z Process 2860 resuming
+2026-09-02T08:40:43.8195580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8196050Z (lldb)  continue
+2026-09-02T08:40:43.8196210Z Process 2860 resuming
+2026-09-02T08:40:43.8196780Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8196990Z (lldb)  continue
+2026-09-02T08:40:43.8197130Z Process 2860 resuming
+2026-09-02T08:40:43.8197310Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8198650Z (lldb)  continue
+2026-09-02T08:40:43.8199440Z Process 2860 resuming
+2026-09-02T08:40:43.8199950Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8200540Z (lldb)  continue
+2026-09-02T08:40:43.8201090Z Process 2860 resuming
+2026-09-02T08:40:43.8201340Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8201560Z (lldb)  continue
+2026-09-02T08:40:43.8201700Z Process 2860 resuming
+2026-09-02T08:40:43.8201880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8202080Z (lldb)  continue
+2026-09-02T08:40:43.8202220Z Process 2860 resuming
+2026-09-02T08:40:43.8202390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8202590Z (lldb)  continue
+2026-09-02T08:40:43.8202730Z Process 2860 resuming
+2026-09-02T08:40:43.8202900Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8203100Z (lldb)  continue
+2026-09-02T08:40:43.8203240Z Process 2860 resuming
+2026-09-02T08:40:43.8203850Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8204050Z (lldb)  continue
+2026-09-02T08:40:43.8204190Z Process 2860 resuming
+2026-09-02T08:40:43.8204360Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8204570Z (lldb)  continue
+2026-09-02T08:40:43.8204700Z Process 2860 resuming
+2026-09-02T08:40:43.8204880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8205080Z (lldb)  continue
+2026-09-02T08:40:43.8205220Z Process 2860 resuming
+2026-09-02T08:40:43.8205390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8205580Z (lldb)  continue
+2026-09-02T08:40:43.8205720Z Process 2860 resuming
+2026-09-02T08:40:43.8205890Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8206080Z (lldb)  continue
+2026-09-02T08:40:43.8206220Z Process 2860 resuming
+2026-09-02T08:40:43.8206390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8206580Z (lldb)  continue
+2026-09-02T08:40:43.8206710Z Process 2860 resuming
+2026-09-02T08:40:43.8206880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8207080Z (lldb)  continue
+2026-09-02T08:40:43.8207210Z Process 2860 resuming
+2026-09-02T08:40:43.8207380Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8207750Z (lldb)  continue
+2026-09-02T08:40:43.8207910Z Process 2860 resuming
+2026-09-02T08:40:43.8208080Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8208270Z (lldb)  continue
+2026-09-02T08:40:43.8208410Z Process 2860 resuming
+2026-09-02T08:40:43.8208570Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8208770Z (lldb)  continue
+2026-09-02T08:40:43.8208900Z Process 2860 resuming
+2026-09-02T08:40:43.8209070Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8209260Z (lldb)  continue
+2026-09-02T08:40:43.8209390Z Process 2860 resuming
+2026-09-02T08:40:43.8209560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8209750Z (lldb)  continue
+2026-09-02T08:40:43.8209890Z Process 2860 resuming
+2026-09-02T08:40:43.8210070Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8210260Z (lldb)  continue
+2026-09-02T08:40:43.8210400Z Process 2860 resuming
+2026-09-02T08:40:43.8210570Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8210760Z (lldb)  continue
+2026-09-02T08:40:43.8210900Z Process 2860 resuming
+2026-09-02T08:40:43.8211070Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8211260Z (lldb)  continue
+2026-09-02T08:40:43.8211390Z Process 2860 resuming
+2026-09-02T08:40:43.8211560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8211750Z (lldb)  continue
+2026-09-02T08:40:43.8211890Z Process 2860 resuming
+2026-09-02T08:40:43.8212060Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8212250Z (lldb)  continue
+2026-09-02T08:40:43.8212390Z Process 2860 resuming
+2026-09-02T08:40:43.8212560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8212750Z (lldb)  continue
+2026-09-02T08:40:43.8212890Z Process 2860 resuming
+2026-09-02T08:40:43.8213050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8213250Z (lldb)  continue
+2026-09-02T08:40:43.8213380Z Process 2860 resuming
+2026-09-02T08:40:43.8213550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8213750Z (lldb)  continue
+2026-09-02T08:40:43.8213890Z Process 2860 resuming
+2026-09-02T08:40:43.8214060Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8214250Z (lldb)  continue
+2026-09-02T08:40:43.8214380Z Process 2860 resuming
+2026-09-02T08:40:43.8214550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8214740Z (lldb)  continue
+2026-09-02T08:40:43.8214880Z Process 2860 resuming
+2026-09-02T08:40:43.8215040Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8215230Z (lldb)  continue
+2026-09-02T08:40:43.8215370Z Process 2860 resuming
+2026-09-02T08:40:43.8215540Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8215730Z (lldb)  continue
+2026-09-02T08:40:43.8215860Z Process 2860 resuming
+2026-09-02T08:40:43.8216030Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8216390Z (lldb)  continue
+2026-09-02T08:40:43.8216760Z Process 2860 resuming
+2026-09-02T08:40:43.8222830Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8223050Z (lldb)  continue
+2026-09-02T08:40:43.8223190Z Process 2860 resuming
+2026-09-02T08:40:43.8223360Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8223560Z (lldb)  continue
+2026-09-02T08:40:43.8223690Z Process 2860 resuming
+2026-09-02T08:40:43.8223860Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8224050Z (lldb)  continue
+2026-09-02T08:40:43.8224190Z Process 2860 resuming
+2026-09-02T08:40:43.8224350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8224540Z (lldb)  continue
+2026-09-02T08:40:43.8224670Z Process 2860 resuming
+2026-09-02T08:40:43.8224840Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8225030Z (lldb)  continue
+2026-09-02T08:40:43.8225170Z Process 2860 resuming
+2026-09-02T08:40:43.8225330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8225530Z (lldb)  continue
+2026-09-02T08:40:43.8225670Z Process 2860 resuming
+2026-09-02T08:40:43.8225830Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8226380Z (lldb)  continue
+2026-09-02T08:40:43.8226520Z Process 2860 resuming
+2026-09-02T08:40:43.8226700Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8226890Z (lldb)  continue
+2026-09-02T08:40:43.8227030Z Process 2860 resuming
+2026-09-02T08:40:43.8227210Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8227460Z (lldb)  continue
+2026-09-02T08:40:43.8227620Z Process 2860 resuming
+2026-09-02T08:40:43.8227780Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8227980Z (lldb)  continue
+2026-09-02T08:40:43.8228110Z Process 2860 resuming
+2026-09-02T08:40:43.8228280Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8228470Z (lldb)  continue
+2026-09-02T08:40:43.8228600Z Process 2860 resuming
+2026-09-02T08:40:43.8228770Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8228960Z (lldb)  continue
+2026-09-02T08:40:43.8229100Z Process 2860 resuming
+2026-09-02T08:40:43.8229270Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8229460Z (lldb)  continue
+2026-09-02T08:40:43.8229600Z Process 2860 resuming
+2026-09-02T08:40:43.8229760Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8229960Z (lldb)  continue
+2026-09-02T08:40:43.8230100Z Process 2860 resuming
+2026-09-02T08:40:43.8230260Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8230460Z (lldb)  continue
+2026-09-02T08:40:43.8230590Z Process 2860 resuming
+2026-09-02T08:40:43.8230760Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8230950Z (lldb)  continue
+2026-09-02T08:40:43.8231090Z Process 2860 resuming
+2026-09-02T08:40:43.8231390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8231590Z (lldb)  continue
+2026-09-02T08:40:43.8231720Z Process 2860 resuming
+2026-09-02T08:40:43.8231890Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8232090Z (lldb)  continue
+2026-09-02T08:40:43.8232220Z Process 2860 resuming
+2026-09-02T08:40:43.8232390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8232580Z (lldb)  continue
+2026-09-02T08:40:43.8232720Z Process 2860 resuming
+2026-09-02T08:40:43.8232880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8233080Z (lldb)  continue
+2026-09-02T08:40:43.8233210Z Process 2860 resuming
+2026-09-02T08:40:43.8233380Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8233570Z (lldb)  continue
+2026-09-02T08:40:43.8233710Z Process 2860 resuming
+2026-09-02T08:40:43.8233880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8234070Z (lldb)  continue
+2026-09-02T08:40:43.8234200Z Process 2860 resuming
+2026-09-02T08:40:43.8234370Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8234560Z (lldb)  continue
+2026-09-02T08:40:43.8234690Z Process 2860 resuming
+2026-09-02T08:40:43.8234860Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8235250Z (lldb)  continue
+2026-09-02T08:40:43.8235390Z Process 2860 resuming
+2026-09-02T08:40:43.8235550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8235750Z (lldb)  continue
+2026-09-02T08:40:43.8235890Z Process 2860 resuming
+2026-09-02T08:40:43.8236060Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8236260Z (lldb)  continue
+2026-09-02T08:40:43.8236390Z Process 2860 resuming
+2026-09-02T08:40:43.8236570Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8236760Z (lldb)  continue
+2026-09-02T08:40:43.8236890Z Process 2860 resuming
+2026-09-02T08:40:43.8237060Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8237250Z (lldb)  continue
+2026-09-02T08:40:43.8237380Z Process 2860 resuming
+2026-09-02T08:40:43.8237550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8237740Z (lldb)  continue
+2026-09-02T08:40:43.8237880Z Process 2860 resuming
+2026-09-02T08:40:43.8238050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8238250Z (lldb)  continue
+2026-09-02T08:40:43.8238390Z Process 2860 resuming
+2026-09-02T08:40:43.8238560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8238750Z (lldb)  continue
+2026-09-02T08:40:43.8238990Z Process 2860 resuming
+2026-09-02T08:40:43.8239170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8239360Z (lldb)  continue
+2026-09-02T08:40:43.8239500Z Process 2860 resuming
+2026-09-02T08:40:43.8239670Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8240170Z (lldb)  continue
+2026-09-02T08:40:43.8240370Z Process 2860 resuming
+2026-09-02T08:40:43.8240580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8240790Z (lldb)  continue
+2026-09-02T08:40:43.8240920Z Process 2860 resuming
+2026-09-02T08:40:43.8241100Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8241290Z (lldb)  continue
+2026-09-02T08:40:43.8241420Z Process 2860 resuming
+2026-09-02T08:40:43.8241590Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8241790Z (lldb)  continue
+2026-09-02T08:40:43.8241930Z Process 2860 resuming
+2026-09-02T08:40:43.8242100Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8242300Z (lldb)  continue
+2026-09-02T08:40:43.8242430Z Process 2860 resuming
+2026-09-02T08:40:43.8242600Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8242800Z (lldb)  continue
+2026-09-02T08:40:43.8242940Z Process 2860 resuming
+2026-09-02T08:40:43.8243110Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8243300Z (lldb)  continue
+2026-09-02T08:40:43.8243440Z Process 2860 resuming
+2026-09-02T08:40:43.8243610Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8243810Z (lldb)  continue
+2026-09-02T08:40:43.8243940Z Process 2860 resuming
+2026-09-02T08:40:43.8244110Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8244310Z (lldb)  continue
+2026-09-02T08:40:43.8244440Z Process 2860 resuming
+2026-09-02T08:40:43.8244610Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8244810Z (lldb)  continue
+2026-09-02T08:40:43.8244940Z Process 2860 resuming
+2026-09-02T08:40:43.8245110Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8245300Z (lldb)  continue
+2026-09-02T08:40:43.8245440Z Process 2860 resuming
+2026-09-02T08:40:43.8245610Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8245800Z (lldb)  continue
+2026-09-02T08:40:43.8245930Z Process 2860 resuming
+2026-09-02T08:40:43.8246100Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8246290Z (lldb)  continue
+2026-09-02T08:40:43.8246430Z Process 2860 resuming
+2026-09-02T08:40:43.8246600Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8246790Z (lldb)  continue
+2026-09-02T08:40:43.8246920Z Process 2860 resuming
+2026-09-02T08:40:43.8247090Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8247280Z (lldb)  continue
+2026-09-02T08:40:43.8247410Z Process 2860 resuming
+2026-09-02T08:40:43.8247580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8248150Z (lldb)  continue
+2026-09-02T08:40:43.8248290Z Process 2860 resuming
+2026-09-02T08:40:43.8248460Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8248650Z (lldb)  continue
+2026-09-02T08:40:43.8248790Z Process 2860 resuming
+2026-09-02T08:40:43.8248960Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8249160Z (lldb)  continue
+2026-09-02T08:40:43.8249290Z Process 2860 resuming
+2026-09-02T08:40:43.8249450Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8249640Z (lldb)  continue
+2026-09-02T08:40:43.8249780Z Process 2860 resuming
+2026-09-02T08:40:43.8249950Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8250150Z (lldb)  continue
+2026-09-02T08:40:43.8250280Z Process 2860 resuming
+2026-09-02T08:40:43.8250450Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8250640Z (lldb)  continue
+2026-09-02T08:40:43.8250780Z Process 2860 resuming
+2026-09-02T08:40:43.8250950Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8251140Z (lldb)  continue
+2026-09-02T08:40:43.8251280Z Process 2860 resuming
+2026-09-02T08:40:43.8251450Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8251640Z (lldb)  continue
+2026-09-02T08:40:43.8251910Z Process 2860 resuming
+2026-09-02T08:40:43.8252090Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8252290Z (lldb)  continue
+2026-09-02T08:40:43.8252420Z Process 2860 resuming
+2026-09-02T08:40:43.8252590Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8252790Z (lldb)  continue
+2026-09-02T08:40:43.8252920Z Process 2860 resuming
+2026-09-02T08:40:43.8253090Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8253280Z (lldb)  continue
+2026-09-02T08:40:43.8253420Z Process 2860 resuming
+2026-09-02T08:40:43.8253590Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8253780Z (lldb)  continue
+2026-09-02T08:40:43.8253910Z Process 2860 resuming
+2026-09-02T08:40:43.8254080Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8254280Z (lldb)  continue
+2026-09-02T08:40:43.8254410Z Process 2860 resuming
+2026-09-02T08:40:43.8254580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8254770Z (lldb)  continue
+2026-09-02T08:40:43.8254920Z Process 2860 resuming
+2026-09-02T08:40:43.8255080Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8255270Z (lldb)  continue
+2026-09-02T08:40:43.8255400Z Process 2860 resuming
+2026-09-02T08:40:43.8255570Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8255760Z (lldb)  continue
+2026-09-02T08:40:43.8255900Z Process 2860 resuming
+2026-09-02T08:40:43.8256070Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8256260Z (lldb)  continue
+2026-09-02T08:40:43.8256390Z Process 2860 resuming
+2026-09-02T08:40:43.8256560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8256760Z (lldb)  continue
+2026-09-02T08:40:43.8256890Z Process 2860 resuming
+2026-09-02T08:40:43.8257060Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8257260Z (lldb)  continue
+2026-09-02T08:40:43.8257400Z Process 2860 resuming
+2026-09-02T08:40:43.8257560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8257760Z (lldb)  continue
+2026-09-02T08:40:43.8257890Z Process 2860 resuming
+2026-09-02T08:40:43.8258060Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8258260Z (lldb)  continue
+2026-09-02T08:40:43.8258390Z Process 2860 resuming
+2026-09-02T08:40:43.8258550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8258750Z (lldb)  continue
+2026-09-02T08:40:43.8258890Z Process 2860 resuming
+2026-09-02T08:40:43.8259050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8259250Z (lldb)  continue
+2026-09-02T08:40:43.8259380Z Process 2860 resuming
+2026-09-02T08:40:43.8259560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8259750Z (lldb)  continue
+2026-09-02T08:40:43.8259880Z Process 2860 resuming
+2026-09-02T08:40:43.8260050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8260510Z (lldb)  continue
+2026-09-02T08:40:43.8260650Z Process 2860 resuming
+2026-09-02T08:40:43.8260820Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8261010Z (lldb)  continue
+2026-09-02T08:40:43.8261150Z Process 2860 resuming
+2026-09-02T08:40:43.8261320Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8261510Z (lldb)  continue
+2026-09-02T08:40:43.8261640Z Process 2860 resuming
+2026-09-02T08:40:43.8261810Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8262010Z (lldb)  continue
+2026-09-02T08:40:43.8262140Z Process 2860 resuming
+2026-09-02T08:40:43.8262310Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8262500Z (lldb)  continue
+2026-09-02T08:40:43.8262640Z Process 2860 resuming
+2026-09-02T08:40:43.8262800Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8263000Z (lldb)  continue
+2026-09-02T08:40:43.8263180Z Process 2860 resuming
+2026-09-02T08:40:43.8263350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8263540Z (lldb)  continue
+2026-09-02T08:40:43.8263670Z Process 2860 resuming
+2026-09-02T08:40:43.8263840Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8264030Z (lldb)  continue
+2026-09-02T08:40:43.8264370Z Process 2860 resuming
+2026-09-02T08:40:43.8264540Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8264740Z (lldb)  continue
+2026-09-02T08:40:43.8264870Z Process 2860 resuming
+2026-09-02T08:40:43.8265040Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8265230Z (lldb)  continue
+2026-09-02T08:40:43.8265370Z Process 2860 resuming
+2026-09-02T08:40:43.8265530Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8265730Z (lldb)  continue
+2026-09-02T08:40:43.8265860Z Process 2860 resuming
+2026-09-02T08:40:43.8266030Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8266540Z (lldb)  continue
+2026-09-02T08:40:43.8272940Z Process 2860 resuming
+2026-09-02T08:40:43.8273120Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8273330Z (lldb)  continue
+2026-09-02T08:40:43.8273470Z Process 2860 resuming
+2026-09-02T08:40:43.8273630Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8273830Z (lldb)  continue
+2026-09-02T08:40:43.8273970Z Process 2860 resuming
+2026-09-02T08:40:43.8274140Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8274330Z (lldb)  continue
+2026-09-02T08:40:43.8274470Z Process 2860 resuming
+2026-09-02T08:40:43.8274640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8274830Z (lldb)  continue
+2026-09-02T08:40:43.8274960Z Process 2860 resuming
+2026-09-02T08:40:43.8275130Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8275320Z (lldb)  continue
+2026-09-02T08:40:43.8275450Z Process 2860 resuming
+2026-09-02T08:40:43.8275620Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8275820Z (lldb)  continue
+2026-09-02T08:40:43.8275950Z Process 2860 resuming
+2026-09-02T08:40:43.8276120Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8276320Z (lldb)  continue
+2026-09-02T08:40:43.8276460Z Process 2860 resuming
+2026-09-02T08:40:43.8276630Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8276820Z (lldb)  continue
+2026-09-02T08:40:43.8276960Z Process 2860 resuming
+2026-09-02T08:40:43.8277130Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8277420Z (lldb)  continue
+2026-09-02T08:40:43.8278660Z Process 2860 resuming
+2026-09-02T08:40:43.8278930Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8279170Z (lldb)  continue
+2026-09-02T08:40:43.8279350Z Process 2860 resuming
+2026-09-02T08:40:43.8279530Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8279720Z (lldb)  continue
+2026-09-02T08:40:43.8279850Z Process 2860 resuming
+2026-09-02T08:40:43.8280020Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8280210Z (lldb)  continue
+2026-09-02T08:40:43.8280340Z Process 2860 resuming
+2026-09-02T08:40:43.8280510Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8281010Z (lldb)  continue
+2026-09-02T08:40:43.8281160Z Process 2860 resuming
+2026-09-02T08:40:43.8281330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8281530Z (lldb)  continue
+2026-09-02T08:40:43.8281670Z Process 2860 resuming
+2026-09-02T08:40:43.8281840Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8282030Z (lldb)  continue
+2026-09-02T08:40:43.8282170Z Process 2860 resuming
+2026-09-02T08:40:43.8282340Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8282530Z (lldb)  continue
+2026-09-02T08:40:43.8282670Z Process 2860 resuming
+2026-09-02T08:40:43.8282830Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8283030Z (lldb)  continue
+2026-09-02T08:40:43.8283170Z Process 2860 resuming
+2026-09-02T08:40:43.8283330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8283530Z (lldb)  continue
+2026-09-02T08:40:43.8283660Z Process 2860 resuming
+2026-09-02T08:40:43.8283830Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8284020Z (lldb)  continue
+2026-09-02T08:40:43.8284160Z Process 2860 resuming
+2026-09-02T08:40:43.8284330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8284520Z (lldb)  continue
+2026-09-02T08:40:43.8285040Z Process 2860 resuming
+2026-09-02T08:40:43.8285530Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8285730Z (lldb)  continue
+2026-09-02T08:40:43.8285880Z Process 2860 resuming
+2026-09-02T08:40:43.8286050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8286240Z (lldb)  continue
+2026-09-02T08:40:43.8286370Z Process 2860 resuming
+2026-09-02T08:40:43.8286540Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8286740Z (lldb)  continue
+2026-09-02T08:40:43.8286870Z Process 2860 resuming
+2026-09-02T08:40:43.8287040Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8287230Z (lldb)  continue
+2026-09-02T08:40:43.8287370Z Process 2860 resuming
+2026-09-02T08:40:43.8287540Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8287730Z (lldb)  continue
+2026-09-02T08:40:43.8287870Z Process 2860 resuming
+2026-09-02T08:40:43.8288040Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8288230Z (lldb)  continue
+2026-09-02T08:40:43.8288360Z Process 2860 resuming
+2026-09-02T08:40:43.8288530Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8288720Z (lldb)  continue
+2026-09-02T08:40:43.8288860Z Process 2860 resuming
+2026-09-02T08:40:43.8289020Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8289220Z (lldb)  continue
+2026-09-02T08:40:43.8289350Z Process 2860 resuming
+2026-09-02T08:40:43.8289520Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8289710Z (lldb)  continue
+2026-09-02T08:40:43.8289850Z Process 2860 resuming
+2026-09-02T08:40:43.8290020Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8290210Z (lldb)  continue
+2026-09-02T08:40:43.8290350Z Process 2860 resuming
+2026-09-02T08:40:43.8290510Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8290710Z (lldb)  continue
+2026-09-02T08:40:43.8290850Z Process 2860 resuming
+2026-09-02T08:40:43.8291010Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8291210Z (lldb)  continue
+2026-09-02T08:40:43.8291340Z Process 2860 resuming
+2026-09-02T08:40:43.8291510Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8291700Z (lldb)  continue
+2026-09-02T08:40:43.8291840Z Process 2860 resuming
+2026-09-02T08:40:43.8292000Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8292200Z (lldb)  continue
+2026-09-02T08:40:43.8292340Z Process 2860 resuming
+2026-09-02T08:40:43.8292500Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8292700Z (lldb)  continue
+2026-09-02T08:40:43.8292840Z Process 2860 resuming
+2026-09-02T08:40:43.8293000Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8293200Z (lldb)  continue
+2026-09-02T08:40:43.8293330Z Process 2860 resuming
+2026-09-02T08:40:43.8293500Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8293690Z (lldb)  continue
+2026-09-02T08:40:43.8293910Z Process 2860 resuming
+2026-09-02T08:40:43.8294080Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8294280Z (lldb)  continue
+2026-09-02T08:40:43.8294410Z Process 2860 resuming
+2026-09-02T08:40:43.8294580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8294770Z (lldb)  continue
+2026-09-02T08:40:43.8294910Z Process 2860 resuming
+2026-09-02T08:40:43.8295070Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8295270Z (lldb)  continue
+2026-09-02T08:40:43.8295400Z Process 2860 resuming
+2026-09-02T08:40:43.8295570Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8295760Z (lldb)  continue
+2026-09-02T08:40:43.8295900Z Process 2860 resuming
+2026-09-02T08:40:43.8295970Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8296020Z (lldb)  continue
+2026-09-02T08:40:43.8296070Z Process 2860 resuming
+2026-09-02T08:40:43.8296150Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8296200Z (lldb)  continue
+2026-09-02T08:40:43.8296260Z Process 2860 resuming
+2026-09-02T08:40:43.8296330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8296380Z (lldb)  continue
+2026-09-02T08:40:43.8296430Z Process 2860 resuming
+2026-09-02T08:40:43.8296630Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8296690Z (lldb)  continue
+2026-09-02T08:40:43.8296740Z Process 2860 resuming
+2026-09-02T08:40:43.8296820Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8296860Z (lldb)  continue
+2026-09-02T08:40:43.8296920Z Process 2860 resuming
+2026-09-02T08:40:43.8296990Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8297040Z (lldb)  continue
+2026-09-02T08:40:43.8297090Z Process 2860 resuming
+2026-09-02T08:40:43.8297170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8297220Z (lldb)  continue
+2026-09-02T08:40:43.8297270Z Process 2860 resuming
+2026-09-02T08:40:43.8297340Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8297390Z (lldb)  continue
+2026-09-02T08:40:43.8297440Z Process 2860 resuming
+2026-09-02T08:40:43.8297520Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8297570Z (lldb)  continue
+2026-09-02T08:40:43.8297620Z Process 2860 resuming
+2026-09-02T08:40:43.8297690Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8297740Z (lldb)  continue
+2026-09-02T08:40:43.8297790Z Process 2860 resuming
+2026-09-02T08:40:43.8297860Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8297910Z (lldb)  continue
+2026-09-02T08:40:43.8297960Z Process 2860 resuming
+2026-09-02T08:40:43.8298040Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8298090Z (lldb)  continue
+2026-09-02T08:40:43.8298140Z Process 2860 resuming
+2026-09-02T08:40:43.8298210Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8298260Z (lldb)  continue
+2026-09-02T08:40:43.8298310Z Process 2860 resuming
+2026-09-02T08:40:43.8298390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8298430Z (lldb)  continue
+2026-09-02T08:40:43.8298490Z Process 2860 resuming
+2026-09-02T08:40:43.8298560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8298610Z (lldb)  continue
+2026-09-02T08:40:43.8298660Z Process 2860 resuming
+2026-09-02T08:40:43.8298730Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8298780Z (lldb)  continue
+2026-09-02T08:40:43.8298830Z Process 2860 resuming
+2026-09-02T08:40:43.8298910Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8298950Z (lldb)  continue
+2026-09-02T08:40:43.8299010Z Process 2860 resuming
+2026-09-02T08:40:43.8299080Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8299130Z (lldb)  continue
+2026-09-02T08:40:43.8299180Z Process 2860 resuming
+2026-09-02T08:40:43.8299260Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8299330Z (lldb)  continue
+2026-09-02T08:40:43.8299390Z Process 2860 resuming
+2026-09-02T08:40:43.8299480Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8299540Z (lldb)  continue
+2026-09-02T08:40:43.8299690Z Process 2860 resuming
+2026-09-02T08:40:43.8299770Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8299810Z (lldb)  continue
+2026-09-02T08:40:43.8299870Z Process 2860 resuming
+2026-09-02T08:40:43.8299940Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8299990Z (lldb)  continue
+2026-09-02T08:40:43.8300040Z Process 2860 resuming
+2026-09-02T08:40:43.8300120Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8300160Z (lldb)  continue
+2026-09-02T08:40:43.8300220Z Process 2860 resuming
+2026-09-02T08:40:43.8300290Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8300340Z (lldb)  continue
+2026-09-02T08:40:43.8300400Z Process 2860 resuming
+2026-09-02T08:40:43.8300470Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8300520Z (lldb)  continue
+2026-09-02T08:40:43.8300570Z Process 2860 resuming
+2026-09-02T08:40:43.8300640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8300690Z (lldb)  continue
+2026-09-02T08:40:43.8300740Z Process 2860 resuming
+2026-09-02T08:40:43.8300820Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8300860Z (lldb)  continue
+2026-09-02T08:40:43.8300910Z Process 2860 resuming
+2026-09-02T08:40:43.8301080Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8301140Z (lldb)  continue
+2026-09-02T08:40:43.8301190Z Process 2860 resuming
+2026-09-02T08:40:43.8301270Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8301320Z (lldb)  continue
+2026-09-02T08:40:43.8301380Z Process 2860 resuming
+2026-09-02T08:40:43.8301460Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8301500Z (lldb)  continue
+2026-09-02T08:40:43.8301560Z Process 2860 resuming
+2026-09-02T08:40:43.8301630Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8301680Z (lldb)  continue
+2026-09-02T08:40:43.8301730Z Process 2860 resuming
+2026-09-02T08:40:43.8301800Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8301850Z (lldb)  continue
+2026-09-02T08:40:43.8301900Z Process 2860 resuming
+2026-09-02T08:40:43.8301980Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8302030Z (lldb)  continue
+2026-09-02T08:40:43.8302080Z Process 2860 resuming
+2026-09-02T08:40:43.8302150Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8302200Z (lldb)  continue
+2026-09-02T08:40:43.8302250Z Process 2860 resuming
+2026-09-02T08:40:43.8302330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8302380Z (lldb)  continue
+2026-09-02T08:40:43.8302430Z Process 2860 resuming
+2026-09-02T08:40:43.8302500Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8302550Z (lldb)  continue
+2026-09-02T08:40:43.8302600Z Process 2860 resuming
+2026-09-02T08:40:43.8302670Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8302720Z (lldb)  continue
+2026-09-02T08:40:43.8302770Z Process 2860 resuming
+2026-09-02T08:40:43.8302850Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8302900Z (lldb)  continue
+2026-09-02T08:40:43.8302950Z Process 2860 resuming
+2026-09-02T08:40:43.8303030Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8303080Z (lldb)  continue
+2026-09-02T08:40:43.8303130Z Process 2860 resuming
+2026-09-02T08:40:43.8303200Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8303250Z (lldb)  continue
+2026-09-02T08:40:43.8303300Z Process 2860 resuming
+2026-09-02T08:40:43.8303380Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8303430Z (lldb)  continue
+2026-09-02T08:40:43.8303480Z Process 2860 resuming
+2026-09-02T08:40:43.8303550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8303600Z (lldb)  continue
+2026-09-02T08:40:43.8303650Z Process 2860 resuming
+2026-09-02T08:40:43.8303720Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8303770Z (lldb)  continue
+2026-09-02T08:40:43.8303820Z Process 2860 resuming
+2026-09-02T08:40:43.8303900Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8303950Z (lldb)  continue
+2026-09-02T08:40:43.8304000Z Process 2860 resuming
+2026-09-02T08:40:43.8304200Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8304250Z (lldb)  continue
+2026-09-02T08:40:43.8304310Z Process 2860 resuming
+2026-09-02T08:40:43.8304390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8304440Z (lldb)  continue
+2026-09-02T08:40:43.8304490Z Process 2860 resuming
+2026-09-02T08:40:43.8304560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8304610Z (lldb)  continue
+2026-09-02T08:40:43.8304660Z Process 2860 resuming
+2026-09-02T08:40:43.8304740Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8304790Z (lldb)  continue
+2026-09-02T08:40:43.8304840Z Process 2860 resuming
+2026-09-02T08:40:43.8304910Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8304960Z (lldb)  continue
+2026-09-02T08:40:43.8305020Z Process 2860 resuming
+2026-09-02T08:40:43.8305090Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8305140Z (lldb)  continue
+2026-09-02T08:40:43.8305190Z Process 2860 resuming
+2026-09-02T08:40:43.8305260Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8305310Z (lldb)  continue
+2026-09-02T08:40:43.8305360Z Process 2860 resuming
+2026-09-02T08:40:43.8305580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8305650Z (lldb)  continue
+2026-09-02T08:40:43.8305700Z Process 2860 resuming
+2026-09-02T08:40:43.8305770Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8305820Z (lldb)  continue
+2026-09-02T08:40:43.8305870Z Process 2860 resuming
+2026-09-02T08:40:43.8305950Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8305990Z (lldb)  continue
+2026-09-02T08:40:43.8306040Z Process 2860 resuming
+2026-09-02T08:40:43.8306120Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8306170Z (lldb)  continue
+2026-09-02T08:40:43.8306220Z Process 2860 resuming
+2026-09-02T08:40:43.8306290Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8306340Z (lldb)  continue
+2026-09-02T08:40:43.8306390Z Process 2860 resuming
+2026-09-02T08:40:43.8306480Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8306530Z (lldb)  continue
+2026-09-02T08:40:43.8306580Z Process 2860 resuming
+2026-09-02T08:40:43.8306650Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8306700Z (lldb)  continue
+2026-09-02T08:40:43.8306760Z Process 2860 resuming
+2026-09-02T08:40:43.8306830Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8306880Z (lldb)  continue
+2026-09-02T08:40:43.8306930Z Process 2860 resuming
+2026-09-02T08:40:43.8307000Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8307050Z (lldb)  continue
+2026-09-02T08:40:43.8307100Z Process 2860 resuming
+2026-09-02T08:40:43.8307180Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8307230Z (lldb)  continue
+2026-09-02T08:40:43.8307280Z Process 2860 resuming
+2026-09-02T08:40:43.8307350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8307400Z (lldb)  continue
+2026-09-02T08:40:43.8307450Z Process 2860 resuming
+2026-09-02T08:40:43.8307530Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8307570Z (lldb)  continue
+2026-09-02T08:40:43.8307630Z Process 2860 resuming
+2026-09-02T08:40:43.8307700Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8307750Z (lldb)  continue
+2026-09-02T08:40:43.8307810Z Process 2860 resuming
+2026-09-02T08:40:43.8307880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8307930Z (lldb)  continue
+2026-09-02T08:40:43.8307980Z Process 2860 resuming
+2026-09-02T08:40:43.8308050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8308100Z (lldb)  continue
+2026-09-02T08:40:43.8308160Z Process 2860 resuming
+2026-09-02T08:40:43.8308230Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8308280Z (lldb)  continue
+2026-09-02T08:40:43.8308340Z Process 2860 resuming
+2026-09-02T08:40:43.8308410Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8308460Z (lldb)  continue
+2026-09-02T08:40:43.8308510Z Process 2860 resuming
+2026-09-02T08:40:43.8308640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8308690Z (lldb)  continue
+2026-09-02T08:40:43.8308740Z Process 2860 resuming
+2026-09-02T08:40:43.8308820Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8308870Z (lldb)  continue
+2026-09-02T08:40:43.8308920Z Process 2860 resuming
+2026-09-02T08:40:43.8308990Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8309040Z (lldb)  continue
+2026-09-02T08:40:43.8309090Z Process 2860 resuming
+2026-09-02T08:40:43.8309170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8309210Z (lldb)  continue
+2026-09-02T08:40:43.8309270Z Process 2860 resuming
+2026-09-02T08:40:43.8309340Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8309390Z (lldb)  continue
+2026-09-02T08:40:43.8309440Z Process 2860 resuming
+2026-09-02T08:40:43.8309510Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8309560Z (lldb)  continue
+2026-09-02T08:40:43.8309610Z Process 2860 resuming
+2026-09-02T08:40:43.8309690Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8309740Z (lldb)  continue
+2026-09-02T08:40:43.8309800Z Process 2860 resuming
+2026-09-02T08:40:43.8309920Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8309980Z (lldb)  continue
+2026-09-02T08:40:43.8310030Z Process 2860 resuming
+2026-09-02T08:40:43.8310100Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8310150Z (lldb)  continue
+2026-09-02T08:40:43.8310200Z Process 2860 resuming
+2026-09-02T08:40:43.8310280Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8310330Z (lldb)  continue
+2026-09-02T08:40:43.8310380Z Process 2860 resuming
+2026-09-02T08:40:43.8310450Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8310500Z (lldb)  continue
+2026-09-02T08:40:43.8310550Z Process 2860 resuming
+2026-09-02T08:40:43.8310620Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8310670Z (lldb)  continue
+2026-09-02T08:40:43.8310720Z Process 2860 resuming
+2026-09-02T08:40:43.8310800Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8310850Z (lldb)  continue
+2026-09-02T08:40:43.8310900Z Process 2860 resuming
+2026-09-02T08:40:43.8311210Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8316600Z (lldb)  continue
+2026-09-02T08:40:43.8316690Z Process 2860 resuming
+2026-09-02T08:40:43.8316770Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8316820Z (lldb)  continue
+2026-09-02T08:40:43.8316880Z Process 2860 resuming
+2026-09-02T08:40:43.8316950Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8317000Z (lldb)  continue
+2026-09-02T08:40:43.8317050Z Process 2860 resuming
+2026-09-02T08:40:43.8317120Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8317170Z (lldb)  continue
+2026-09-02T08:40:43.8317220Z Process 2860 resuming
+2026-09-02T08:40:43.8317300Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8317340Z (lldb)  continue
+2026-09-02T08:40:43.8317400Z Process 2860 resuming
+2026-09-02T08:40:43.8317480Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8317520Z (lldb)  continue
+2026-09-02T08:40:43.8317580Z Process 2860 resuming
+2026-09-02T08:40:43.8317660Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8317730Z (lldb)  continue
+2026-09-02T08:40:43.8317790Z Process 2860 resuming
+2026-09-02T08:40:43.8317880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8317940Z (lldb)  continue
+2026-09-02T08:40:43.8318010Z Process 2860 resuming
+2026-09-02T08:40:43.8318100Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8318150Z (lldb)  continue
+2026-09-02T08:40:43.8318200Z Process 2860 resuming
+2026-09-02T08:40:43.8318270Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8318320Z (lldb)  continue
+2026-09-02T08:40:43.8318370Z Process 2860 resuming
+2026-09-02T08:40:43.8318440Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8318490Z (lldb)  continue
+2026-09-02T08:40:43.8318540Z Process 2860 resuming
+2026-09-02T08:40:43.8318830Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8318870Z (lldb)  continue
+2026-09-02T08:40:43.8318930Z Process 2860 resuming
+2026-09-02T08:40:43.8319000Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8319060Z (lldb)  continue
+2026-09-02T08:40:43.8319110Z Process 2860 resuming
+2026-09-02T08:40:43.8319180Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8319230Z (lldb)  continue
+2026-09-02T08:40:43.8319290Z Process 2860 resuming
+2026-09-02T08:40:43.8319360Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8319410Z (lldb)  continue
+2026-09-02T08:40:43.8319460Z Process 2860 resuming
+2026-09-02T08:40:43.8319530Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8319580Z (lldb)  continue
+2026-09-02T08:40:43.8319630Z Process 2860 resuming
+2026-09-02T08:40:43.8319700Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8319750Z (lldb)  continue
+2026-09-02T08:40:43.8319800Z Process 2860 resuming
+2026-09-02T08:40:43.8319880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8319930Z (lldb)  continue
+2026-09-02T08:40:43.8319980Z Process 2860 resuming
+2026-09-02T08:40:43.8320050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8320150Z (lldb)  continue
+2026-09-02T08:40:43.8320210Z Process 2860 resuming
+2026-09-02T08:40:43.8320290Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8320330Z (lldb)  continue
+2026-09-02T08:40:43.8320390Z Process 2860 resuming
+2026-09-02T08:40:43.8320460Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8320510Z (lldb)  continue
+2026-09-02T08:40:43.8320560Z Process 2860 resuming
+2026-09-02T08:40:43.8320630Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8320680Z (lldb)  continue
+2026-09-02T08:40:43.8320730Z Process 2860 resuming
+2026-09-02T08:40:43.8320800Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8320850Z (lldb)  continue
+2026-09-02T08:40:43.8320900Z Process 2860 resuming
+2026-09-02T08:40:43.8320980Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8321020Z (lldb)  continue
+2026-09-02T08:40:43.8321080Z Process 2860 resuming
+2026-09-02T08:40:43.8321150Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8321200Z (lldb)  continue
+2026-09-02T08:40:43.8321250Z Process 2860 resuming
+2026-09-02T08:40:43.8321330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8321380Z (lldb)  continue
+2026-09-02T08:40:43.8321430Z Process 2860 resuming
+2026-09-02T08:40:43.8321500Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8321550Z (lldb)  continue
+2026-09-02T08:40:43.8321600Z Process 2860 resuming
+2026-09-02T08:40:43.8321670Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8321720Z (lldb)  continue
+2026-09-02T08:40:43.8321770Z Process 2860 resuming
+2026-09-02T08:40:43.8321850Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8321890Z (lldb)  continue
+2026-09-02T08:40:43.8321950Z Process 2860 resuming
+2026-09-02T08:40:43.8322030Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8322080Z (lldb)  continue
+2026-09-02T08:40:43.8322130Z Process 2860 resuming
+2026-09-02T08:40:43.8322200Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8322250Z (lldb)  continue
+2026-09-02T08:40:43.8322310Z Process 2860 resuming
+2026-09-02T08:40:43.8322380Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8322430Z (lldb)  continue
+2026-09-02T08:40:43.8322480Z Process 2860 resuming
+2026-09-02T08:40:43.8322550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8322600Z (lldb)  continue
+2026-09-02T08:40:43.8322650Z Process 2860 resuming
+2026-09-02T08:40:43.8322720Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8322770Z (lldb)  continue
+2026-09-02T08:40:43.8322820Z Process 2860 resuming
+2026-09-02T08:40:43.8322900Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8322940Z (lldb)  continue
+2026-09-02T08:40:43.8322990Z Process 2860 resuming
+2026-09-02T08:40:43.8323120Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8323170Z (lldb)  continue
+2026-09-02T08:40:43.8323230Z Process 2860 resuming
+2026-09-02T08:40:43.8323300Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8323350Z (lldb)  continue
+2026-09-02T08:40:43.8323400Z Process 2860 resuming
+2026-09-02T08:40:43.8323470Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8323520Z (lldb)  continue
+2026-09-02T08:40:43.8323570Z Process 2860 resuming
+2026-09-02T08:40:43.8323650Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8323700Z (lldb)  continue
+2026-09-02T08:40:43.8323750Z Process 2860 resuming
+2026-09-02T08:40:43.8323830Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8323880Z (lldb)  continue
+2026-09-02T08:40:43.8323930Z Process 2860 resuming
+2026-09-02T08:40:43.8324000Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8324050Z (lldb)  continue
+2026-09-02T08:40:43.8324100Z Process 2860 resuming
+2026-09-02T08:40:43.8324170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8324220Z (lldb)  continue
+2026-09-02T08:40:43.8324280Z Process 2860 resuming
+2026-09-02T08:40:43.8324350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8324440Z (lldb)  continue
+2026-09-02T08:40:43.8324500Z Process 2860 resuming
+2026-09-02T08:40:43.8324570Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8324620Z (lldb)  continue
+2026-09-02T08:40:43.8324670Z Process 2860 resuming
+2026-09-02T08:40:43.8324750Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8324800Z (lldb)  continue
+2026-09-02T08:40:43.8324850Z Process 2860 resuming
+2026-09-02T08:40:43.8324920Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8324970Z (lldb)  continue
+2026-09-02T08:40:43.8325020Z Process 2860 resuming
+2026-09-02T08:40:43.8325100Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8325150Z (lldb)  continue
+2026-09-02T08:40:43.8325200Z Process 2860 resuming
+2026-09-02T08:40:43.8325270Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8325320Z (lldb)  continue
+2026-09-02T08:40:43.8325380Z Process 2860 resuming
+2026-09-02T08:40:43.8325450Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8325500Z (lldb)  continue
+2026-09-02T08:40:43.8325550Z Process 2860 resuming
+2026-09-02T08:40:43.8325630Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8325680Z (lldb)  continue
+2026-09-02T08:40:43.8325730Z Process 2860 resuming
+2026-09-02T08:40:43.8325810Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8325860Z (lldb)  continue
+2026-09-02T08:40:43.8325910Z Process 2860 resuming
+2026-09-02T08:40:43.8325980Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8326030Z (lldb)  continue
+2026-09-02T08:40:43.8326090Z Process 2860 resuming
+2026-09-02T08:40:43.8326160Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8326210Z (lldb)  continue
+2026-09-02T08:40:43.8326260Z Process 2860 resuming
+2026-09-02T08:40:43.8326330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8326390Z (lldb)  continue
+2026-09-02T08:40:43.8326440Z Process 2860 resuming
+2026-09-02T08:40:43.8326510Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8326560Z (lldb)  continue
+2026-09-02T08:40:43.8326610Z Process 2860 resuming
+2026-09-02T08:40:43.8326680Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8326730Z (lldb)  continue
+2026-09-02T08:40:43.8326780Z Process 2860 resuming
+2026-09-02T08:40:43.8326860Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8326910Z (lldb)  continue
+2026-09-02T08:40:43.8326960Z Process 2860 resuming
+2026-09-02T08:40:43.8327040Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8327090Z (lldb)  continue
+2026-09-02T08:40:43.8327140Z Process 2860 resuming
+2026-09-02T08:40:43.8327220Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8327270Z (lldb)  continue
+2026-09-02T08:40:43.8327320Z Process 2860 resuming
+2026-09-02T08:40:43.8327390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8327530Z (lldb)  continue
+2026-09-02T08:40:43.8327580Z Process 2860 resuming
+2026-09-02T08:40:43.8327660Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8327710Z (lldb)  continue
+2026-09-02T08:40:43.8327760Z Process 2860 resuming
+2026-09-02T08:40:43.8327840Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8327880Z (lldb)  continue
+2026-09-02T08:40:43.8327940Z Process 2860 resuming
+2026-09-02T08:40:43.8328010Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8328060Z (lldb)  continue
+2026-09-02T08:40:43.8328110Z Process 2860 resuming
+2026-09-02T08:40:43.8328180Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8328240Z (lldb)  continue
+2026-09-02T08:40:43.8328290Z Process 2860 resuming
+2026-09-02T08:40:43.8328360Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8328430Z (lldb)  continue
+2026-09-02T08:40:43.8328490Z Process 2860 resuming
+2026-09-02T08:40:43.8328560Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8328610Z (lldb)  continue
+2026-09-02T08:40:43.8328660Z Process 2860 resuming
+2026-09-02T08:40:43.8328740Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8328870Z (lldb)  continue
+2026-09-02T08:40:43.8328920Z Process 2860 resuming
+2026-09-02T08:40:43.8329000Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8329050Z (lldb)  continue
+2026-09-02T08:40:43.8329100Z Process 2860 resuming
+2026-09-02T08:40:43.8329180Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8329230Z (lldb)  continue
+2026-09-02T08:40:43.8329280Z Process 2860 resuming
+2026-09-02T08:40:43.8329350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8329410Z (lldb)  continue
+2026-09-02T08:40:43.8329460Z Process 2860 resuming
+2026-09-02T08:40:43.8329530Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8329580Z (lldb)  continue
+2026-09-02T08:40:43.8329630Z Process 2860 resuming
+2026-09-02T08:40:43.8329700Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8329750Z (lldb)  continue
+2026-09-02T08:40:43.8329810Z Process 2860 resuming
+2026-09-02T08:40:43.8329880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8329930Z (lldb)  continue
+2026-09-02T08:40:43.8329980Z Process 2860 resuming
+2026-09-02T08:40:43.8330050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8330100Z (lldb)  continue
+2026-09-02T08:40:43.8330160Z Process 2860 resuming
+2026-09-02T08:40:43.8330230Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8330280Z (lldb)  continue
+2026-09-02T08:40:43.8330340Z Process 2860 resuming
+2026-09-02T08:40:43.8330410Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8330460Z (lldb)  continue
+2026-09-02T08:40:43.8330510Z Process 2860 resuming
+2026-09-02T08:40:43.8330580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8330630Z (lldb)  continue
+2026-09-02T08:40:43.8330690Z Process 2860 resuming
+2026-09-02T08:40:43.8330760Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8330810Z (lldb)  continue
+2026-09-02T08:40:43.8330860Z Process 2860 resuming
+2026-09-02T08:40:43.8330930Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8330980Z (lldb)  continue
+2026-09-02T08:40:43.8331040Z Process 2860 resuming
+2026-09-02T08:40:43.8331110Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8331160Z (lldb)  continue
+2026-09-02T08:40:43.8331220Z Process 2860 resuming
+2026-09-02T08:40:43.8331290Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8331340Z (lldb)  continue
+2026-09-02T08:40:43.8331390Z Process 2860 resuming
+2026-09-02T08:40:43.8331460Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8331510Z (lldb)  continue
+2026-09-02T08:40:43.8331560Z Process 2860 resuming
+2026-09-02T08:40:43.8331640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8331690Z (lldb)  continue
+2026-09-02T08:40:43.8331740Z Process 2860 resuming
+2026-09-02T08:40:43.8331820Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8331910Z (lldb)  continue
+2026-09-02T08:40:43.8331970Z Process 2860 resuming
+2026-09-02T08:40:43.8332040Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8332090Z (lldb)  continue
+2026-09-02T08:40:43.8332150Z Process 2860 resuming
+2026-09-02T08:40:43.8332220Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8332270Z (lldb)  continue
+2026-09-02T08:40:43.8332320Z Process 2860 resuming
+2026-09-02T08:40:43.8332390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8332440Z (lldb)  continue
+2026-09-02T08:40:43.8332500Z Process 2860 resuming
+2026-09-02T08:40:43.8332570Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8332620Z (lldb)  continue
+2026-09-02T08:40:43.8332670Z Process 2860 resuming
+2026-09-02T08:40:43.8332740Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8332790Z (lldb)  continue
+2026-09-02T08:40:43.8332840Z Process 2860 resuming
+2026-09-02T08:40:43.8332910Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8332960Z (lldb)  continue
+2026-09-02T08:40:43.8333020Z Process 2860 resuming
+2026-09-02T08:40:43.8333100Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8333340Z (lldb)  continue
+2026-09-02T08:40:43.8333440Z Process 2860 resuming
+2026-09-02T08:40:43.8333520Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8333580Z (lldb)  continue
+2026-09-02T08:40:43.8333630Z Process 2860 resuming
+2026-09-02T08:40:43.8333700Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8333750Z (lldb)  continue
+2026-09-02T08:40:43.8333810Z Process 2860 resuming
+2026-09-02T08:40:43.8333880Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8333930Z (lldb)  continue
+2026-09-02T08:40:43.8333980Z Process 2860 resuming
+2026-09-02T08:40:43.8334050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8334100Z (lldb)  continue
+2026-09-02T08:40:43.8334150Z Process 2860 resuming
+2026-09-02T08:40:43.8334220Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8334280Z (lldb)  continue
+2026-09-02T08:40:43.8334330Z Process 2860 resuming
+2026-09-02T08:40:43.8334400Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8334450Z (lldb)  continue
+2026-09-02T08:40:43.8334510Z Process 2860 resuming
+2026-09-02T08:40:43.8334580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8334630Z (lldb)  continue
+2026-09-02T08:40:43.8334680Z Process 2860 resuming
+2026-09-02T08:40:43.8334750Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8334800Z (lldb)  continue
+2026-09-02T08:40:43.8334850Z Process 2860 resuming
+2026-09-02T08:40:43.8334920Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8334970Z (lldb)  continue
+2026-09-02T08:40:43.8335020Z Process 2860 resuming
+2026-09-02T08:40:43.8335100Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8335150Z (lldb)  continue
+2026-09-02T08:40:43.8335200Z Process 2860 resuming
+2026-09-02T08:40:43.8335270Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8335330Z (lldb)  continue
+2026-09-02T08:40:43.8335380Z Process 2860 resuming
+2026-09-02T08:40:43.8335450Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8335500Z (lldb)  continue
+2026-09-02T08:40:43.8335550Z Process 2860 resuming
+2026-09-02T08:40:43.8335630Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8335680Z (lldb)  continue
+2026-09-02T08:40:43.8335730Z Process 2860 resuming
+2026-09-02T08:40:43.8335800Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8335850Z (lldb)  continue
+2026-09-02T08:40:43.8335900Z Process 2860 resuming
+2026-09-02T08:40:43.8335970Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8336020Z (lldb)  continue
+2026-09-02T08:40:43.8336070Z Process 2860 resuming
+2026-09-02T08:40:43.8336140Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8336190Z (lldb)  continue
+2026-09-02T08:40:43.8336240Z Process 2860 resuming
+2026-09-02T08:40:43.8336320Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8336410Z (lldb)  continue
+2026-09-02T08:40:43.8336470Z Process 2860 resuming
+2026-09-02T08:40:43.8336540Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8336590Z (lldb)  continue
+2026-09-02T08:40:43.8336640Z Process 2860 resuming
+2026-09-02T08:40:43.8336720Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8336770Z (lldb)  continue
+2026-09-02T08:40:43.8336820Z Process 2860 resuming
+2026-09-02T08:40:43.8336890Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8336940Z (lldb)  continue
+2026-09-02T08:40:43.8337000Z Process 2860 resuming
+2026-09-02T08:40:43.8337070Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8337120Z (lldb)  continue
+2026-09-02T08:40:43.8337170Z Process 2860 resuming
+2026-09-02T08:40:43.8337240Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8337300Z (lldb)  continue
+2026-09-02T08:40:43.8337350Z Process 2860 resuming
+2026-09-02T08:40:43.8337420Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8337470Z (lldb)  continue
+2026-09-02T08:40:43.8337530Z Process 2860 resuming
+2026-09-02T08:40:43.8337600Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8337650Z (lldb)  continue
+2026-09-02T08:40:43.8337740Z Process 2860 resuming
+2026-09-02T08:40:43.8337820Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8337870Z (lldb)  continue
+2026-09-02T08:40:43.8337920Z Process 2860 resuming
+2026-09-02T08:40:43.8337990Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8338040Z (lldb)  continue
+2026-09-02T08:40:43.8338100Z Process 2860 resuming
+2026-09-02T08:40:43.8338170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8338220Z (lldb)  continue
+2026-09-02T08:40:43.8338270Z Process 2860 resuming
+2026-09-02T08:40:43.8338350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8338390Z (lldb)  continue
+2026-09-02T08:40:43.8338450Z Process 2860 resuming
+2026-09-02T08:40:43.8338520Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8338570Z (lldb)  continue
+2026-09-02T08:40:43.8338630Z Process 2860 resuming
+2026-09-02T08:40:43.8338700Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8338750Z (lldb)  continue
+2026-09-02T08:40:43.8338800Z Process 2860 resuming
+2026-09-02T08:40:43.8338870Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8338930Z (lldb)  continue
+2026-09-02T08:40:43.8338980Z Process 2860 resuming
+2026-09-02T08:40:43.8339050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8339100Z (lldb)  continue
+2026-09-02T08:40:43.8339150Z Process 2860 resuming
+2026-09-02T08:40:43.8339230Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8339280Z (lldb)  continue
+2026-09-02T08:40:43.8339330Z Process 2860 resuming
+2026-09-02T08:40:43.8339400Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8339450Z (lldb)  continue
+2026-09-02T08:40:43.8339500Z Process 2860 resuming
+2026-09-02T08:40:43.8339580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8339630Z (lldb)  continue
+2026-09-02T08:40:43.8339680Z Process 2860 resuming
+2026-09-02T08:40:43.8339750Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8339800Z (lldb)  continue
+2026-09-02T08:40:43.8339860Z Process 2860 resuming
+2026-09-02T08:40:43.8339930Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8339980Z (lldb)  continue
+2026-09-02T08:40:43.8340030Z Process 2860 resuming
+2026-09-02T08:40:43.8340100Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8340150Z (lldb)  continue
+2026-09-02T08:40:43.8340210Z Process 2860 resuming
+2026-09-02T08:40:43.8340280Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8340330Z (lldb)  continue
+2026-09-02T08:40:43.8340380Z Process 2860 resuming
+2026-09-02T08:40:43.8340450Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8340500Z (lldb)  continue
+2026-09-02T08:40:43.8340550Z Process 2860 resuming
+2026-09-02T08:40:43.8340630Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8340710Z (lldb)  continue
+2026-09-02T08:40:43.8340770Z Process 2860 resuming
+2026-09-02T08:40:43.8340850Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8340900Z (lldb)  continue
+2026-09-02T08:40:43.8340950Z Process 2860 resuming
+2026-09-02T08:40:43.8341020Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8341080Z (lldb)  continue
+2026-09-02T08:40:43.8341130Z Process 2860 resuming
+2026-09-02T08:40:43.8341200Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8341250Z (lldb)  continue
+2026-09-02T08:40:43.8341300Z Process 2860 resuming
+2026-09-02T08:40:43.8341380Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8341420Z (lldb)  continue
+2026-09-02T08:40:43.8341480Z Process 2860 resuming
+2026-09-02T08:40:43.8341550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8341600Z (lldb)  continue
+2026-09-02T08:40:43.8341650Z Process 2860 resuming
+2026-09-02T08:40:43.8341720Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8341770Z (lldb)  continue
+2026-09-02T08:40:43.8341830Z Process 2860 resuming
+2026-09-02T08:40:43.8341900Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8341950Z (lldb)  continue
+2026-09-02T08:40:43.8342040Z Process 2860 resuming
+2026-09-02T08:40:43.8342120Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8342170Z (lldb)  continue
+2026-09-02T08:40:43.8342230Z Process 2860 resuming
+2026-09-02T08:40:43.8342300Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8342350Z (lldb)  continue
+2026-09-02T08:40:43.8342400Z Process 2860 resuming
+2026-09-02T08:40:43.8342470Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8342520Z (lldb)  continue
+2026-09-02T08:40:43.8342570Z Process 2860 resuming
+2026-09-02T08:40:43.8342640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8342690Z (lldb)  continue
+2026-09-02T08:40:43.8342740Z Process 2860 resuming
+2026-09-02T08:40:43.8342820Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8342870Z (lldb)  continue
+2026-09-02T08:40:43.8342920Z Process 2860 resuming
+2026-09-02T08:40:43.8342990Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8343040Z (lldb)  continue
+2026-09-02T08:40:43.8343100Z Process 2860 resuming
+2026-09-02T08:40:43.8343170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8343220Z (lldb)  continue
+2026-09-02T08:40:43.8343270Z Process 2860 resuming
+2026-09-02T08:40:43.8343350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8343400Z (lldb)  continue
+2026-09-02T08:40:43.8343450Z Process 2860 resuming
+2026-09-02T08:40:43.8343520Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8343570Z (lldb)  continue
+2026-09-02T08:40:43.8343620Z Process 2860 resuming
+2026-09-02T08:40:43.8343690Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8343740Z (lldb)  continue
+2026-09-02T08:40:43.8343790Z Process 2860 resuming
+2026-09-02T08:40:43.8343870Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8343920Z (lldb)  continue
+2026-09-02T08:40:43.8343970Z Process 2860 resuming
+2026-09-02T08:40:43.8344050Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8344090Z (lldb)  continue
+2026-09-02T08:40:43.8344150Z Process 2860 resuming
+2026-09-02T08:40:43.8344220Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8344270Z (lldb)  continue
+2026-09-02T08:40:43.8344320Z Process 2860 resuming
+2026-09-02T08:40:43.8344390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8344450Z (lldb)  continue
+2026-09-02T08:40:43.8344500Z Process 2860 resuming
+2026-09-02T08:40:43.8344570Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8344620Z (lldb)  continue
+2026-09-02T08:40:43.8344670Z Process 2860 resuming
+2026-09-02T08:40:43.8344740Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8344790Z (lldb)  continue
+2026-09-02T08:40:43.8344840Z Process 2860 resuming
+2026-09-02T08:40:43.8344910Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8344960Z (lldb)  continue
+2026-09-02T08:40:43.8345380Z Process 2860 resuming
+2026-09-02T08:40:43.8345460Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8345510Z (lldb)  continue
+2026-09-02T08:40:43.8345560Z Process 2860 resuming
+2026-09-02T08:40:43.8345640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8345690Z (lldb)  continue
+2026-09-02T08:40:43.8345750Z Process 2860 resuming
+2026-09-02T08:40:43.8345820Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8345860Z (lldb)  continue
+2026-09-02T08:40:43.8345920Z Process 2860 resuming
+2026-09-02T08:40:43.8345990Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8346040Z (lldb)  continue
+2026-09-02T08:40:43.8346090Z Process 2860 resuming
+2026-09-02T08:40:43.8346170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8346220Z (lldb)  continue
+2026-09-02T08:40:43.8346270Z Process 2860 resuming
+2026-09-02T08:40:43.8346340Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8346390Z (lldb)  continue
+2026-09-02T08:40:43.8346440Z Process 2860 resuming
+2026-09-02T08:40:43.8346520Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8346570Z (lldb)  continue
+2026-09-02T08:40:43.8346630Z Process 2860 resuming
+2026-09-02T08:40:43.8346870Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8352220Z (lldb)  continue
+2026-09-02T08:40:43.8352320Z Process 2860 resuming
+2026-09-02T08:40:43.8352390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8352440Z (lldb)  continue
+2026-09-02T08:40:43.8352500Z Process 2860 resuming
+2026-09-02T08:40:43.8352580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8352620Z (lldb)  continue
+2026-09-02T08:40:43.8352680Z Process 2860 resuming
+2026-09-02T08:40:43.8352750Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8352800Z (lldb)  continue
+2026-09-02T08:40:43.8352860Z Process 2860 resuming
+2026-09-02T08:40:43.8352930Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8352980Z (lldb)  continue
+2026-09-02T08:40:43.8353040Z Process 2860 resuming
+2026-09-02T08:40:43.8353120Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8353160Z (lldb)  continue
+2026-09-02T08:40:43.8353220Z Process 2860 resuming
+2026-09-02T08:40:43.8353290Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8353340Z (lldb)  continue
+2026-09-02T08:40:43.8353390Z Process 2860 resuming
+2026-09-02T08:40:43.8353470Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8353510Z (lldb)  continue
+2026-09-02T08:40:43.8353570Z Process 2860 resuming
+2026-09-02T08:40:43.8353640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8353690Z (lldb)  continue
+2026-09-02T08:40:43.8353740Z Process 2860 resuming
+2026-09-02T08:40:43.8353810Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8353860Z (lldb)  continue
+2026-09-02T08:40:43.8353910Z Process 2860 resuming
+2026-09-02T08:40:43.8353990Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8354030Z (lldb)  continue
+2026-09-02T08:40:43.8354090Z Process 2860 resuming
+2026-09-02T08:40:43.8354160Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8354210Z (lldb)  continue
+2026-09-02T08:40:43.8354260Z Process 2860 resuming
+2026-09-02T08:40:43.8354330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8354380Z (lldb)  continue
+2026-09-02T08:40:43.8354430Z Process 2860 resuming
+2026-09-02T08:40:43.8354510Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8354560Z (lldb)  continue
+2026-09-02T08:40:43.8354610Z Process 2860 resuming
+2026-09-02T08:40:43.8354690Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8354730Z (lldb)  continue
+2026-09-02T08:40:43.8354790Z Process 2860 resuming
+2026-09-02T08:40:43.8354860Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8354910Z (lldb)  continue
+2026-09-02T08:40:43.8354960Z Process 2860 resuming
+2026-09-02T08:40:43.8355040Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8355090Z (lldb)  continue
+2026-09-02T08:40:43.8355360Z Process 2860 resuming
+2026-09-02T08:40:43.8355440Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8355480Z (lldb)  continue
+2026-09-02T08:40:43.8355540Z Process 2860 resuming
+2026-09-02T08:40:43.8355610Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8355660Z (lldb)  continue
+2026-09-02T08:40:43.8355710Z Process 2860 resuming
+2026-09-02T08:40:43.8355790Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8355840Z (lldb)  continue
+2026-09-02T08:40:43.8355890Z Process 2860 resuming
+2026-09-02T08:40:43.8355960Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8356010Z (lldb)  continue
+2026-09-02T08:40:43.8356060Z Process 2860 resuming
+2026-09-02T08:40:43.8356140Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8356180Z (lldb)  continue
+2026-09-02T08:40:43.8356240Z Process 2860 resuming
+2026-09-02T08:40:43.8356310Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8356360Z (lldb)  continue
+2026-09-02T08:40:43.8356410Z Process 2860 resuming
+2026-09-02T08:40:43.8356490Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8356530Z (lldb)  continue
+2026-09-02T08:40:43.8356590Z Process 2860 resuming
+2026-09-02T08:40:43.8356710Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8356770Z (lldb)  continue
+2026-09-02T08:40:43.8356820Z Process 2860 resuming
+2026-09-02T08:40:43.8356900Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8356950Z (lldb)  continue
+2026-09-02T08:40:43.8357000Z Process 2860 resuming
+2026-09-02T08:40:43.8357070Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8357120Z (lldb)  continue
+2026-09-02T08:40:43.8357180Z Process 2860 resuming
+2026-09-02T08:40:43.8357250Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8357310Z (lldb)  continue
+2026-09-02T08:40:43.8357360Z Process 2860 resuming
+2026-09-02T08:40:43.8357910Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8358000Z (lldb)  continue
+2026-09-02T08:40:43.8358060Z Process 2860 resuming
+2026-09-02T08:40:43.8358150Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8358200Z (lldb)  continue
+2026-09-02T08:40:43.8358250Z Process 2860 resuming
+2026-09-02T08:40:43.8358330Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8358380Z (lldb)  continue
+2026-09-02T08:40:43.8358430Z Process 2860 resuming
+2026-09-02T08:40:43.8358510Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8358560Z (lldb)  continue
+2026-09-02T08:40:43.8358620Z Process 2860 resuming
+2026-09-02T08:40:43.8358720Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8358780Z (lldb)  continue
+2026-09-02T08:40:43.8358850Z Process 2860 resuming
+2026-09-02T08:40:43.8358940Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8359010Z (lldb)  continue
+2026-09-02T08:40:43.8359070Z Process 2860 resuming
+2026-09-02T08:40:43.8359140Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8359190Z (lldb)  continue
+2026-09-02T08:40:43.8359240Z Process 2860 resuming
+2026-09-02T08:40:43.8359320Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8359370Z (lldb)  continue
+2026-09-02T08:40:43.8359420Z Process 2860 resuming
+2026-09-02T08:40:43.8359890Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8360320Z (lldb)  continue
+2026-09-02T08:40:43.8360510Z Process 2860 resuming
+2026-09-02T08:40:43.8360740Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8360910Z (lldb)  continue
+2026-09-02T08:40:43.8361080Z Process 2860 resuming
+2026-09-02T08:40:43.8361310Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8361480Z (lldb)  continue
+2026-09-02T08:40:43.8361660Z Process 2860 resuming
+2026-09-02T08:40:43.8361970Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8362070Z (lldb)  continue
+2026-09-02T08:40:43.8362130Z Process 2860 resuming
+2026-09-02T08:40:43.8362220Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8362270Z (lldb)  continue
+2026-09-02T08:40:43.8362560Z Process 2860 resuming
+2026-09-02T08:40:43.8362640Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8362690Z (lldb)  continue
+2026-09-02T08:40:43.8362750Z Process 2860 resuming
+2026-09-02T08:40:43.8362840Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8362890Z (lldb)  continue
+2026-09-02T08:40:43.8362940Z Process 2860 resuming
+2026-09-02T08:40:43.8363010Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8363070Z (lldb)  continue
+2026-09-02T08:40:43.8363120Z Process 2860 resuming
+2026-09-02T08:40:43.8363190Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8363240Z (lldb)  continue
+2026-09-02T08:40:43.8363300Z Process 2860 resuming
+2026-09-02T08:40:43.8363370Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8363420Z (lldb)  continue
+2026-09-02T08:40:43.8363630Z Process 2860 resuming
+2026-09-02T08:40:43.8363720Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8363790Z (lldb)  continue
+2026-09-02T08:40:43.8363860Z Process 2860 resuming
+2026-09-02T08:40:43.8363960Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8364010Z (lldb)  continue
+2026-09-02T08:40:43.8364060Z Process 2860 resuming
+2026-09-02T08:40:43.8364240Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8364290Z (lldb)  continue
+2026-09-02T08:40:43.8364340Z Process 2860 resuming
+2026-09-02T08:40:43.8364420Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8364470Z (lldb)  continue
+2026-09-02T08:40:43.8364530Z Process 2860 resuming
+2026-09-02T08:40:43.8364600Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8364660Z (lldb)  continue
+2026-09-02T08:40:43.8364710Z Process 2860 resuming
+2026-09-02T08:40:43.8364780Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8364830Z (lldb)  continue
+2026-09-02T08:40:43.8364880Z Process 2860 resuming
+2026-09-02T08:40:43.8364950Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8365000Z (lldb)  continue
+2026-09-02T08:40:43.8365060Z Process 2860 resuming
+2026-09-02T08:40:43.8365140Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8365190Z (lldb)  continue
+2026-09-02T08:40:43.8365240Z Process 2860 resuming
+2026-09-02T08:40:43.8365320Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8365370Z (lldb)  continue
+2026-09-02T08:40:43.8365430Z Process 2860 resuming
+2026-09-02T08:40:43.8365500Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8365550Z (lldb)  continue
+2026-09-02T08:40:43.8365600Z Process 2860 resuming
+2026-09-02T08:40:43.8365680Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8365730Z (lldb)  continue
+2026-09-02T08:40:43.8365790Z Process 2860 resuming
+2026-09-02T08:40:43.8365860Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8365910Z (lldb)  continue
+2026-09-02T08:40:43.8365960Z Process 2860 resuming
+2026-09-02T08:40:43.8366040Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8366090Z (lldb)  continue
+2026-09-02T08:40:43.8366140Z Process 2860 resuming
+2026-09-02T08:40:43.8366220Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8366270Z (lldb)  continue
+2026-09-02T08:40:43.8366330Z Process 2860 resuming
+2026-09-02T08:40:43.8366410Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8366460Z (lldb)  continue
+2026-09-02T08:40:43.8366510Z Process 2860 resuming
+2026-09-02T08:40:43.8366620Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8366670Z (lldb)  continue
+2026-09-02T08:40:43.8366720Z Process 2860 resuming
+2026-09-02T08:40:43.8366800Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8366850Z (lldb)  continue
+2026-09-02T08:40:43.8366900Z Process 2860 resuming
+2026-09-02T08:40:43.8366970Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8367020Z (lldb)  continue
+2026-09-02T08:40:43.8367070Z Process 2860 resuming
+2026-09-02T08:40:43.8367150Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8367200Z (lldb)  continue
+2026-09-02T08:40:43.8367250Z Process 2860 resuming
+2026-09-02T08:40:43.8367390Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8367450Z (lldb)  continue
+2026-09-02T08:40:43.8367500Z Process 2860 resuming
+2026-09-02T08:40:43.8367580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8367630Z (lldb)  continue
+2026-09-02T08:40:43.8367680Z Process 2860 resuming
+2026-09-02T08:40:43.8367760Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8367810Z (lldb)  continue
+2026-09-02T08:40:43.8367870Z Process 2860 resuming
+2026-09-02T08:40:43.8367940Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8367990Z (lldb)  continue
+2026-09-02T08:40:43.8368050Z Process 2860 resuming
+2026-09-02T08:40:43.8368120Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8368170Z (lldb)  continue
+2026-09-02T08:40:43.8368220Z Process 2860 resuming
+2026-09-02T08:40:43.8368300Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8368340Z (lldb)  continue
+2026-09-02T08:40:43.8368400Z Process 2860 resuming
+2026-09-02T08:40:43.8368470Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8368530Z (lldb)  continue
+2026-09-02T08:40:43.8368580Z Process 2860 resuming
+2026-09-02T08:40:43.8368700Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8368760Z (lldb)  continue
+2026-09-02T08:40:43.8368820Z Process 2860 resuming
+2026-09-02T08:40:43.8368890Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8368940Z (lldb)  continue
+2026-09-02T08:40:43.8369000Z Process 2860 resuming
+2026-09-02T08:40:43.8369070Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8369120Z (lldb)  continue
+2026-09-02T08:40:43.8369170Z Process 2860 resuming
+2026-09-02T08:40:43.8369240Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8369290Z (lldb)  continue
+2026-09-02T08:40:43.8369340Z Process 2860 resuming
+2026-09-02T08:40:43.8369420Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8369470Z (lldb)  continue
+2026-09-02T08:40:43.8369520Z Process 2860 resuming
+2026-09-02T08:40:43.8369600Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8369650Z (lldb)  continue
+2026-09-02T08:40:43.8369700Z Process 2860 resuming
+2026-09-02T08:40:43.8369780Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8369830Z (lldb)  continue
+2026-09-02T08:40:43.8369890Z Process 2860 resuming
+2026-09-02T08:40:43.8369960Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8370010Z (lldb)  continue
+2026-09-02T08:40:43.8370060Z Process 2860 resuming
+2026-09-02T08:40:43.8370130Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8370180Z (lldb)  continue
+2026-09-02T08:40:43.8370230Z Process 2860 resuming
+2026-09-02T08:40:43.8370300Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8370350Z (lldb)  continue
+2026-09-02T08:40:43.8370400Z Process 2860 resuming
+2026-09-02T08:40:43.8370480Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8370530Z (lldb)  continue
+2026-09-02T08:40:43.8370580Z Process 2860 resuming
+2026-09-02T08:40:43.8370650Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8370710Z (lldb)  continue
+2026-09-02T08:40:43.8370760Z Process 2860 resuming
+2026-09-02T08:40:43.8370840Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8370890Z (lldb)  continue
+2026-09-02T08:40:43.8370940Z Process 2860 resuming
+2026-09-02T08:40:43.8371010Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8371060Z (lldb)  continue
+2026-09-02T08:40:43.8371110Z Process 2860 resuming
+2026-09-02T08:40:43.8371190Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8371230Z (lldb)  continue
+2026-09-02T08:40:43.8371300Z Process 2860 resuming
+2026-09-02T08:40:43.8371370Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8371430Z (lldb)  continue
+2026-09-02T08:40:43.8371490Z Process 2860 resuming
+2026-09-02T08:40:43.8371580Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8371640Z (lldb)  continue
+2026-09-02T08:40:43.8371710Z Process 2860 resuming
+2026-09-02T08:40:43.8372110Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8372160Z (lldb)  continue
+2026-09-02T08:40:43.8372210Z Process 2860 resuming
+2026-09-02T08:40:43.8372290Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8372340Z (lldb)  continue
+2026-09-02T08:40:43.8372400Z Process 2860 resuming
+2026-09-02T08:40:43.8372470Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8372520Z (lldb)  continue
+2026-09-02T08:40:43.8372570Z Process 2860 resuming
+2026-09-02T08:40:43.8372650Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8372690Z (lldb)  continue
+2026-09-02T08:40:43.8372750Z Process 2860 resuming
+2026-09-02T08:40:43.8372820Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8372870Z (lldb)  continue
+2026-09-02T08:40:43.8372920Z Process 2860 resuming
+2026-09-02T08:40:43.8372990Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8373040Z (lldb)  continue
+2026-09-02T08:40:43.8373090Z Process 2860 resuming
+2026-09-02T08:40:43.8373170Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8373220Z (lldb)  continue
+2026-09-02T08:40:43.8373270Z Process 2860 resuming
+2026-09-02T08:40:43.8373350Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8373480Z (lldb)  continue
+2026-09-02T08:40:43.8373530Z Process 2860 resuming
+2026-09-02T08:40:43.8373610Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8373660Z (lldb)  continue
+2026-09-02T08:40:43.8373710Z Process 2860 resuming
+2026-09-02T08:40:43.8373790Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8373830Z (lldb)  continue
+2026-09-02T08:40:43.8373890Z Process 2860 resuming
+2026-09-02T08:40:43.8373960Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8374010Z (lldb)  continue
+2026-09-02T08:40:43.8374070Z Process 2860 resuming
+2026-09-02T08:40:43.8374140Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8374190Z (lldb)  continue
+2026-09-02T08:40:43.8374240Z Process 2860 resuming
+2026-09-02T08:40:43.8374320Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8374370Z (lldb)  continue
+2026-09-02T08:40:43.8374420Z Process 2860 resuming
+2026-09-02T08:40:43.8374500Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8374550Z (lldb)  continue
+2026-09-02T08:40:43.8374600Z Process 2860 resuming
+2026-09-02T08:40:43.8374670Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8374720Z (lldb)  continue
+2026-09-02T08:40:43.8374770Z Process 2860 resuming
+2026-09-02T08:40:43.8374850Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8374900Z (lldb)  continue
+2026-09-02T08:40:43.8374960Z Process 2860 resuming
+2026-09-02T08:40:43.8375030Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8375080Z (lldb)  continue
+2026-09-02T08:40:43.8375130Z Process 2860 resuming
+2026-09-02T08:40:43.8375200Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8375250Z (lldb)  continue
+2026-09-02T08:40:43.8375300Z Process 2860 resuming
+2026-09-02T08:40:43.8375380Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8375430Z (lldb)  continue
+2026-09-02T08:40:43.8375480Z Process 2860 resuming
+2026-09-02T08:40:43.8375550Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8375610Z (lldb)  continue
+2026-09-02T08:40:43.8375660Z Process 2860 resuming
+2026-09-02T08:40:43.8375730Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8375790Z (lldb)  continue
+2026-09-02T08:40:43.8375840Z Process 2860 resuming
+2026-09-02T08:40:43.8375910Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8375960Z (lldb)  continue
+2026-09-02T08:40:43.8376010Z Process 2860 resuming
+2026-09-02T08:40:43.8376090Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8376140Z (lldb)  continue
+2026-09-02T08:40:43.8376190Z Process 2860 resuming
+2026-09-02T08:40:43.8376260Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8376310Z (lldb)  continue
+2026-09-02T08:40:43.8376360Z Process 2860 resuming
+2026-09-02T08:40:43.8376480Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8376530Z (lldb)  continue
+2026-09-02T08:40:43.8376580Z Process 2860 resuming
+2026-09-02T08:40:43.8376660Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8376710Z (lldb)  continue
+2026-09-02T08:40:43.8376760Z Process 2860 resuming
+2026-09-02T08:40:43.8376840Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8376890Z (lldb)  continue
+2026-09-02T08:40:43.8376940Z Process 2860 resuming
+2026-09-02T08:40:43.8377010Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8377060Z (lldb)  continue
+2026-09-02T08:40:43.8377120Z Process 2860 resuming
+2026-09-02T08:40:43.8377190Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8377240Z (lldb)  continue
+2026-09-02T08:40:43.8377290Z Process 2860 resuming
+2026-09-02T08:40:43.8377360Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8377410Z (lldb)  continue
+2026-09-02T08:40:43.8377460Z Process 2860 resuming
+2026-09-02T08:40:43.8377540Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8377590Z (lldb)  continue
+2026-09-02T08:40:43.8377640Z Process 2860 resuming
+2026-09-02T08:40:43.8377710Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8377800Z (lldb)  continue
+2026-09-02T08:40:43.8377860Z Process 2860 resuming
+2026-09-02T08:40:43.8377930Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8377980Z (lldb)  continue
+2026-09-02T08:40:43.8378030Z Process 2860 resuming
+2026-09-02T08:40:43.8378110Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8378190Z (lldb)  continue
+2026-09-02T08:40:43.8378240Z Process 2860 resuming
+2026-09-02T08:40:43.8378310Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8378370Z (lldb)  continue
+2026-09-02T08:40:43.8378420Z Process 2860 resuming
+2026-09-02T08:40:43.8378490Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8378540Z (lldb)  continue
+2026-09-02T08:40:43.8378590Z Process 2860 resuming
+2026-09-02T08:40:43.8378670Z Command #1 'continue' continued the target.
+2026-09-02T08:40:43.8378720Z (ll
+2026-09-02T08:40:43.8433700Z ##[group]Run set +e
+2026-09-02T08:40:43.8433870Z [36;1mset +e[0m
+2026-09-02T08:40:43.8433940Z [36;1m${TC:+$TC 300} lldb -b \[0m
+2026-09-02T08:40:43.8434030Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:40:43.8434120Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:40:43.8434340Z [36;1m  -o "breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1" \[0m
+2026-09-02T08:40:43.8434430Z [36;1m  -o "breakpoint set --name posix_spawn" \[0m
+2026-09-02T08:40:43.8434690Z [36;1m  -o "breakpoint command add --script-type command -o 'register read x0 x1 x2 x3' -o 'bt' -o 'continue' 2" \[0m
+2026-09-02T08:40:43.8434850Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:40:43.8434920Z [36;1m  -o "process continue" \[0m
+2026-09-02T08:40:43.8434990Z [36;1m  > out/05-lldb-spawn.txt 2>&1[0m
+2026-09-02T08:40:43.8435080Z [36;1mhead -c 30000 out/05-lldb-spawn.txt[0m
+2026-09-02T08:40:43.8482420Z shell: /bin/bash -e {0}
+2026-09-02T08:40:43.8482500Z env:
+2026-09-02T08:40:43.8482570Z   TC: 
+2026-09-02T08:40:43.8482620Z ##[endgroup]
+2026-09-02T08:40:44.8866030Z (lldb) target create bin/challenge.bin
+2026-09-02T08:40:44.8866610Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:40:44.8867210Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:40:44.8867660Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:40:44.8868330Z (lldb) breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1
+2026-09-02T08:40:44.8868730Z (lldb) breakpoint set --name posix_spawn
+2026-09-02T08:40:44.8869110Z Breakpoint 2: where = libsystem_kernel.dylib`posix_spawn, address = 0x0000000180438bf8
+2026-09-02T08:40:44.8869660Z (lldb) breakpoint command add --script-type command -o 'register read x0 x1 x2 x3' -o 'bt' -o 'continue' 2
+2026-09-02T08:40:44.8870370Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:40:44.8870670Z (lldb)  continue
+2026-09-02T08:40:44.8870870Z Process 3121 resuming
+2026-09-02T08:40:44.8871110Z Command #1 'continue' continued the target.
+2026-09-02T08:40:44.8871540Z Process 3121 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:40:44.8872390Z Process 3121 exited with status = 45 (0x0000002d)
+2026-09-02T08:40:44.8872630Z (lldb) process continue
+2026-09-02T08:40:44.8872820Z error: Process must be launched.
+2026-09-02T08:40:44.9169170Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T08:40:44.9170660Z ##[group]Run actions/upload-artifact@v4
+2026-09-02T08:40:44.9170890Z with:
+2026-09-02T08:40:44.9171070Z   name: probe-output
+2026-09-02T08:40:44.9171240Z   path: out/
+2026-09-02T08:40:44.9171400Z   if-no-files-found: warn
+2026-09-02T08:40:44.9171580Z   compression-level: 6
+2026-09-02T08:40:44.9171770Z   overwrite: false
+2026-09-02T08:40:44.9171960Z   include-hidden-files: false
+2026-09-02T08:40:44.9172140Z env:
+2026-09-02T08:40:44.9172290Z   TC: 
+2026-09-02T08:40:44.9172420Z ##[endgroup]
+2026-09-02T08:40:45.1125270Z (node:3125) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-02T08:40:45.1140610Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-02T08:40:45.1141900Z With the provided path, there will be 5 files uploaded
+2026-09-02T08:40:45.1142350Z Artifact name is valid!
+2026-09-02T08:40:45.1142540Z Root directory input is valid!
+2026-09-02T08:40:45.5343440Z Beginning upload of artifact content to blob storage
+2026-09-02T08:40:45.5659880Z (node:3125) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-02T08:40:45.8348990Z Uploaded bytes 3387
+2026-09-02T08:40:45.9099820Z Finished uploading artifact content to blob storage!
+2026-09-02T08:40:45.9100400Z SHA256 digest of uploaded artifact zip is 8b491e42b937fa13f6312d45e0ed5ff8468170d30709a21e68eb477fb1308764
+2026-09-02T08:40:45.9100870Z Finalizing artifact upload
+2026-09-02T08:40:46.2482590Z Artifact probe-output.zip successfully finalized. Artifact ID 9838563502
+2026-09-02T08:40:46.2484540Z Artifact probe-output has been successfully uploaded! Final size is 3387 bytes. Artifact ID is 9838563502
+2026-09-02T08:40:46.2496910Z Artifact download URL: https://github.com/lxc20120105/nepctf-1123-probe/actions/runs/33609945240/artifacts/9838563502
+2026-09-02T08:40:46.2661060Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T08:40:46.2662180Z Post job cleanup.
+2026-09-02T08:40:46.3609560Z [command]/opt/homebrew/bin/git version
+2026-09-02T08:40:46.3689480Z git version 2.55.0
+2026-09-02T08:40:46.3710710Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/f445f311-e8ae-430a-bbee-70e83e347458/.gitconfig'
+2026-09-02T08:40:46.3720040Z Temporarily overriding HOME='/Users/runner/work/_temp/f445f311-e8ae-430a-bbee-70e83e347458' before making global git config changes
+2026-09-02T08:40:46.3722110Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-02T08:40:46.3724270Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T08:40:46.3809860Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-02T08:40:46.3878160Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-02T08:40:46.4672500Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-02T08:40:46.4725000Z http.https://github.com/.extraheader
+2026-09-02T08:40:46.4732590Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-02T08:40:46.4793880Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-02T08:40:46.5528720Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-02T08:40:46.5590760Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-02T08:40:46.8245000Z Cleaning up orphan processes
+2026-09-02T08:40:47.3213080Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,76 @@
+﻿2026-09-02T08:40:23.7748060Z ##[group]Run set +e
+2026-09-02T08:40:23.7748450Z [36;1mset +e[0m
+2026-09-02T08:40:23.7748680Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:40:23.7749120Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:40:23.7749470Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:40:23.7749980Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:40:23.7750430Z [36;1m  -o "thread return 0" \[0m
+2026-09-02T08:40:23.7750720Z [36;1m  -o "breakpoint delete 1" \[0m
+2026-09-02T08:40:23.7752610Z [36;1m  -o "breakpoint set --address 0x100002358" \[0m
+2026-09-02T08:40:23.7752890Z [36;1m  -o "continue" \[0m
+2026-09-02T08:40:23.7753160Z [36;1m  -o 'expr unsigned long $L = $x29 - 0x90' \[0m
+2026-09-02T08:40:23.7753510Z [36;1m  -o 'expr unsigned long $R = $x29 - 0xb0' \[0m
+2026-09-02T08:40:23.7753860Z [36;1m  -o 'memory read --size 1 --format x --count 16 $L' \[0m
+2026-09-02T08:40:23.7754240Z [36;1m  -o 'memory read --size 1 --format x --count 16 $R' \[0m
+2026-09-02T08:40:23.7754760Z [36;1m  -o 'register read x29 sp pc' \[0m
+2026-09-02T08:40:23.7755120Z [36;1m  -o 'bt' \[0m
+2026-09-02T08:40:23.7755400Z [36;1m  > out/03-lldb-cmp.txt 2>&1[0m
+2026-09-02T08:40:23.7755800Z [36;1mhead -c 30000 out/03-lldb-cmp.txt[0m
+2026-09-02T08:40:23.7807580Z shell: /bin/bash -e {0}
+2026-09-02T08:40:23.7808470Z env:
+2026-09-02T08:40:23.7808800Z   TC: 
+2026-09-02T08:40:23.7809030Z ##[endgroup]
+2026-09-02T08:40:27.8998870Z (lldb) target create bin/challenge.bin
+2026-09-02T08:40:27.9001770Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:40:27.9003560Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:40:27.9005130Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:40:27.9006060Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:40:27.9006780Z Process 2848 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:40:27.9007690Z Process 2848 stopped
+2026-09-02T08:40:27.9008100Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:40:27.9008730Z     frame #0: 0x000000019db5e80c libsystem_kernel.dylib`__ptrace
+2026-09-02T08:40:27.9009080Z libsystem_kernel.dylib`__ptrace:
+2026-09-02T08:40:27.9009440Z ->  0x19db5e80c <+0>:  adrp   x9, 450538
+2026-09-02T08:40:27.9009780Z     0x19db5e810 <+4>:  add    x9, x9, #0x948            ; errno
+2026-09-02T08:40:27.9010240Z     0x19db5e814 <+8>:  str    wzr, [x9]
+2026-09-02T08:40:27.9010620Z     0x19db5e818 <+12>: mov    x16, #0x1a                ; =26 
+2026-09-02T08:40:27.9010950Z Target 0: (challenge.bin) stopped.
+2026-09-02T08:40:27.9011280Z (lldb) thread return 0
+2026-09-02T08:40:27.9011570Z (lldb) breakpoint delete 1
+2026-09-02T08:40:27.9011970Z 1 breakpoints deleted; 0 breakpoint locations disabled.
+2026-09-02T08:40:27.9012380Z (lldb) breakpoint set --address 0x100002358
+2026-09-02T08:40:27.9012980Z Breakpoint 2: where = challenge.bin`___lldb_unnamed_symbol28 + 6456, address = 0x0000000100002358
+2026-09-02T08:40:27.9013390Z (lldb) continue
+2026-09-02T08:40:27.9013760Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:40:27.9014220Z     frame #0: 0x0000000100000a5c challenge.bin`___lldb_unnamed_symbol28 + 60
+2026-09-02T08:40:27.9014670Z challenge.bin`___lldb_unnamed_symbol28:
+2026-09-02T08:40:27.9015060Z ->  0x100000a5c <+60>: mov    w0, #0x0                  ; =0 
+2026-09-02T08:40:27.9015500Z     0x100000a60 <+64>: bl     0x100002b8c               ; symbol stub for: _dyld_get_image_header
+2026-09-02T08:40:27.9015960Z     0x100000a64 <+68>: ldr    w8, [x0, #0x10]
+2026-09-02T08:40:27.9016290Z     0x100000a68 <+72>: cbz    w8, 0x100000ac8           ; <+168>
+2026-09-02T08:40:27.9016620Z Process 2848 resuming
+2026-09-02T08:40:27.9016810Z Process 2848 stopped
+2026-09-02T08:40:27.9017220Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 2.1
+2026-09-02T08:40:27.9020190Z     frame #0: 0x0000000100002358 challenge.bin`___lldb_unnamed_symbol28 + 6456
+2026-09-02T08:40:27.9021330Z challenge.bin`___lldb_unnamed_symbol28:
+2026-09-02T08:40:27.9022220Z ->  0x100002358 <+6456>: ldrb   w19, [sp, #0x9c]
+2026-09-02T08:40:27.9023500Z     0x10000235c <+6460>: stp    xzr, xzr, [x29, #-0x80]
+2026-09-02T08:40:27.9023970Z     0x100002360 <+6464>: stur   xzr, [x20, #0x15]
+2026-09-02T08:40:27.9024380Z     0x100002364 <+6468>: stur   xzr, [x29, #-0x70]
+2026-09-02T08:40:27.9024690Z Target 0: (challenge.bin) stopped.
+2026-09-02T08:40:27.9029030Z (lldb) expr unsigned long $L = $x29 - 0x90
+2026-09-02T08:40:27.9029330Z (lldb) expr unsigned long $R = $x29 - 0xb0
+2026-09-02T08:40:27.9029710Z (lldb) memory read --size 1 --format x --count 16 $L
+2026-09-02T08:40:27.9030040Z 0x16fdfdaf0: 0x25 0x67 0x78 0x1b 0xa0 0x68 0xb2 0x80
+2026-09-02T08:40:27.9030450Z 0x16fdfdaf8: 0x14 0xa0 0xd7 0xe2 0x5d 0x78 0x72 0x0e
+2026-09-02T08:40:27.9030780Z (lldb) memory read --size 1 --format x --count 16 $R
+2026-09-02T08:40:27.9031190Z 0x16fdfdad0: 0x90 0xc0 0x45 0xf3 0x6c 0xf5 0x6e 0xeb
+2026-09-02T08:40:27.9031500Z 0x16fdfdad8: 0x5f 0x16 0x28 0x00 0x05 0x35 0x39 0x82
+2026-09-02T08:40:27.9031870Z (lldb) register read x29 sp pc
+2026-09-02T08:40:27.9032120Z       fp = 0x000000016fdfdb80
+2026-09-02T08:40:27.9032430Z       sp = 0x000000016fdfd630
+2026-09-02T08:40:27.9032820Z       pc = 0x0000000100002358  challenge.bin`___lldb_unnamed_symbol28 + 6456
+2026-09-02T08:40:27.9033170Z (lldb) bt
+2026-09-02T08:40:27.9033520Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 2.1
+2026-09-02T08:40:27.9033980Z   * frame #0: 0x0000000100002358 challenge.bin`___lldb_unnamed_symbol28 + 6456
+2026-09-02T08:40:27.9034450Z     frame #1: 0x000000019d7f6b98 dyld`start + 6076

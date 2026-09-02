@@ -1,0 +1,32 @@
+﻿2026-09-02T08:40:43.8433680Z ##[group]Run set +e
+2026-09-02T08:40:43.8433870Z [36;1mset +e[0m
+2026-09-02T08:40:43.8433940Z [36;1m${TC:+$TC 300} lldb -b \[0m
+2026-09-02T08:40:43.8434030Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:40:43.8434120Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:40:43.8434340Z [36;1m  -o "breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1" \[0m
+2026-09-02T08:40:43.8434430Z [36;1m  -o "breakpoint set --name posix_spawn" \[0m
+2026-09-02T08:40:43.8434690Z [36;1m  -o "breakpoint command add --script-type command -o 'register read x0 x1 x2 x3' -o 'bt' -o 'continue' 2" \[0m
+2026-09-02T08:40:43.8434850Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:40:43.8434920Z [36;1m  -o "process continue" \[0m
+2026-09-02T08:40:43.8434990Z [36;1m  > out/05-lldb-spawn.txt 2>&1[0m
+2026-09-02T08:40:43.8435080Z [36;1mhead -c 30000 out/05-lldb-spawn.txt[0m
+2026-09-02T08:40:43.8482320Z shell: /bin/bash -e {0}
+2026-09-02T08:40:43.8482500Z env:
+2026-09-02T08:40:43.8482570Z   TC: 
+2026-09-02T08:40:43.8482620Z ##[endgroup]
+2026-09-02T08:40:44.8865940Z (lldb) target create bin/challenge.bin
+2026-09-02T08:40:44.8866600Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:40:44.8867210Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:40:44.8867650Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:40:44.8868330Z (lldb) breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1
+2026-09-02T08:40:44.8868730Z (lldb) breakpoint set --name posix_spawn
+2026-09-02T08:40:44.8869110Z Breakpoint 2: where = libsystem_kernel.dylib`posix_spawn, address = 0x0000000180438bf8
+2026-09-02T08:40:44.8869630Z (lldb) breakpoint command add --script-type command -o 'register read x0 x1 x2 x3' -o 'bt' -o 'continue' 2
+2026-09-02T08:40:44.8870350Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:40:44.8870670Z (lldb)  continue
+2026-09-02T08:40:44.8870860Z Process 3121 resuming
+2026-09-02T08:40:44.8871110Z Command #1 'continue' continued the target.
+2026-09-02T08:40:44.8871530Z Process 3121 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:40:44.8872380Z Process 3121 exited with status = 45 (0x0000002d)
+2026-09-02T08:40:44.8872630Z (lldb) process continue
+2026-09-02T08:40:44.8872820Z error: Process must be launched.
