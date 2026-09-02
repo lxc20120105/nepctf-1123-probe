@@ -1,0 +1,24 @@
+﻿2026-09-02T08:22:29.6980580Z ##[group]Run mkdir -p out
+2026-09-02T08:22:29.6981050Z [36;1mmkdir -p out[0m
+2026-09-02T08:22:29.6981440Z [36;1m{[0m
+2026-09-02T08:22:29.6981740Z [36;1m  echo "=== sw_vers ==="; sw_vers[0m
+2026-09-02T08:22:29.6982120Z [36;1m  echo "=== uname ==="; uname -a[0m
+2026-09-02T08:22:29.6982480Z [36;1m  echo "=== arch ==="; uname -m[0m
+2026-09-02T08:22:29.6983080Z [36;1m  echo "=== cpu ==="; sysctl -n machdep.cpu.brand_string 2>/dev/null || true[0m
+2026-09-02T08:22:29.6983570Z [36;1m} 2>&1 | tee out/01-env.txt[0m
+2026-09-02T08:22:29.6984020Z [36;1mTC=$(command -v gtimeout || command -v timeout || echo "")[0m
+2026-09-02T08:22:29.6984530Z [36;1mecho "=== timeout cmd === [$TC]"[0m
+2026-09-02T08:22:29.6984890Z [36;1mecho "TC=$TC" >> $GITHUB_ENV[0m
+2026-09-02T08:22:29.7025830Z shell: /bin/bash -e {0}
+2026-09-02T08:22:29.7026230Z ##[endgroup]
+2026-09-02T08:22:29.7413750Z === sw_vers ===
+2026-09-02T08:22:29.7470960Z ProductName:		macOS
+2026-09-02T08:22:29.7471690Z ProductVersion:		15.7.7
+2026-09-02T08:22:29.7472350Z BuildVersion:		24G720
+2026-09-02T08:22:29.7472760Z === uname ===
+2026-09-02T08:22:29.7490180Z Darwin iad20-gt1023-16d0c58d-9275-4074-aa51-649425c0fc61-3A01A3CA0C16.local 24.6.0 Darwin Kernel Version 24.6.0: Tue Apr 21 20:18:00 PDT 2026; root:xnu-11417.140.69.710.16~1/RELEASE_ARM64_VMAPPLE arm64
+2026-09-02T08:22:29.7491400Z === arch ===
+2026-09-02T08:22:29.7507070Z arm64
+2026-09-02T08:22:29.7507900Z === cpu ===
+2026-09-02T08:22:29.7533580Z Apple M1 (Virtual)
+2026-09-02T08:22:29.7619660Z === timeout cmd === []

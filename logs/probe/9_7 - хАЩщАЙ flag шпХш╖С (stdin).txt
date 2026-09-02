@@ -1,0 +1,7 @@
+﻿2026-09-02T08:17:14.3669800Z ##[group]Run echo 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' | timeout 120 ./bin/challenge.bin > out/07-stdin.txt 2>&1
+2026-09-02T08:17:14.3670470Z [36;1mecho 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' | timeout 120 ./bin/challenge.bin > out/07-stdin.txt 2>&1[0m
+2026-09-02T08:17:14.3670960Z [36;1mecho "exit=$?" >> out/07-stdin.txt[0m
+2026-09-02T08:17:14.3671190Z [36;1mcat out/07-stdin.txt[0m
+2026-09-02T08:17:14.3737730Z shell: /bin/bash -e {0}
+2026-09-02T08:17:14.3737920Z ##[endgroup]
+2026-09-02T08:17:14.3948470Z ##[error]Process completed with exit code 127.

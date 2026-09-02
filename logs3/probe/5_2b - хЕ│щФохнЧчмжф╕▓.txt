@@ -1,0 +1,8 @@
+﻿2026-09-02T08:25:49.5730460Z ##[group]Run strings -n 5 bin/challenge.bin | grep -iE "nepctf|flag|stage|success|wrong|correct|usage|fail|pass" | sort -u | head -50 | tee out/02b-strings.txt || true
+2026-09-02T08:25:49.5731410Z [36;1mstrings -n 5 bin/challenge.bin | grep -iE "nepctf|flag|stage|success|wrong|correct|usage|fail|pass" | sort -u | head -50 | tee out/02b-strings.txt || true[0m
+2026-09-02T08:25:49.5763340Z shell: /bin/bash -e {0}
+2026-09-02T08:25:49.5763590Z env:
+2026-09-02T08:25:49.5763770Z   TC: 
+2026-09-02T08:25:49.5763970Z ##[endgroup]
+2026-09-02T08:25:49.6096930Z /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strings: for architecture arm64 object: bin/challenge.bin malformed object (section contents at offset 81920 with a size of 64, overlaps section contents at offset 81920 with a size of 96)
+2026-09-02T08:25:49.6099340Z /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strings: for architecture arm64 object: bin/challenge.bin malformed object (section contents at offset 81920 with a size of 64, overlaps section contents at offset 81920 with a size of 96)

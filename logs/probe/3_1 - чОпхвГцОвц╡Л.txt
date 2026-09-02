@@ -1,0 +1,20 @@
+﻿2026-09-02T08:17:10.0284850Z ##[group]Run mkdir -p out
+2026-09-02T08:17:10.0285780Z [36;1mmkdir -p out[0m
+2026-09-02T08:17:10.0286520Z [36;1m{[0m
+2026-09-02T08:17:10.0287240Z [36;1m  echo "=== sw_vers ==="; sw_vers[0m
+2026-09-02T08:17:10.0288210Z [36;1m  echo "=== uname ==="; uname -a[0m
+2026-09-02T08:17:10.0289270Z [36;1m  echo "=== arch ==="; uname -m[0m
+2026-09-02T08:17:10.0290500Z [36;1m  echo "=== cpu ==="; sysctl -n machdep.cpu.brand_string 2>/dev/null || true[0m
+2026-09-02T08:17:10.0291810Z [36;1m} 2>&1 | tee out/01-env.txt[0m
+2026-09-02T08:17:10.0324300Z shell: /bin/bash -e {0}
+2026-09-02T08:17:10.0325050Z ##[endgroup]
+2026-09-02T08:17:10.0588530Z === sw_vers ===
+2026-09-02T08:17:10.0637400Z ProductName:		macOS
+2026-09-02T08:17:10.0638380Z ProductVersion:		15.7.7
+2026-09-02T08:17:10.0639250Z BuildVersion:		24G720
+2026-09-02T08:17:10.0640040Z === uname ===
+2026-09-02T08:17:10.0659250Z Darwin sat12-dp149-0f3569fd-9ed3-4066-8480-d11d4fd7fe45-7A8D0EDCE6AF.local 24.6.0 Darwin Kernel Version 24.6.0: Tue Apr 21 20:18:00 PDT 2026; root:xnu-11417.140.69.710.16~1/RELEASE_ARM64_VMAPPLE arm64
+2026-09-02T08:17:10.0662200Z === arch ===
+2026-09-02T08:17:10.0674530Z arm64
+2026-09-02T08:17:10.0675350Z === cpu ===
+2026-09-02T08:17:10.0699550Z Apple M1 (Virtual)

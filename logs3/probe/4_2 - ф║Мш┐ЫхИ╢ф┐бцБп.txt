@@ -1,0 +1,21 @@
+﻿2026-09-02T08:25:48.4279000Z ##[group]Run {
+2026-09-02T08:25:48.4279410Z [36;1m{[0m
+2026-09-02T08:25:48.4279800Z [36;1m  echo "=== file ==="; file bin/challenge.bin[0m
+2026-09-02T08:25:48.4280430Z [36;1m  echo "=== lipo archs ==="; lipo -archs bin/challenge.bin 2>&1[0m
+2026-09-02T08:25:48.4281060Z [36;1m  echo "=== dylibs ==="; otool -L bin/challenge.bin 2>&1[0m
+2026-09-02T08:25:48.4281600Z [36;1m} 2>&1 | tee out/02-binary.txt[0m
+2026-09-02T08:25:48.4312650Z shell: /bin/bash -e {0}
+2026-09-02T08:25:48.4313030Z env:
+2026-09-02T08:25:48.4313330Z   TC: 
+2026-09-02T08:25:48.4313640Z ##[endgroup]
+2026-09-02T08:25:48.4569660Z === file ===
+2026-09-02T08:25:48.4616860Z bin/challenge.bin: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+2026-09-02T08:25:48.4618100Z bin/challenge.bin (for architecture x86_64):	Mach-O 64-bit executable x86_64
+2026-09-02T08:25:48.4618830Z bin/challenge.bin (for architecture arm64):	Mach-O 64-bit executable arm64
+2026-09-02T08:25:48.4619680Z === lipo archs ===
+2026-09-02T08:25:49.1705500Z x86_64 arm64
+2026-09-02T08:25:49.1706440Z === dylibs ===
+2026-09-02T08:25:49.5456810Z bin/challenge.bin (architecture x86_64):
+2026-09-02T08:25:49.5457460Z 	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1351.0.0)
+2026-09-02T08:25:49.5457880Z bin/challenge.bin (architecture arm64):
+2026-09-02T08:25:49.5458310Z 	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1351.0.0)

@@ -1,0 +1,21 @@
+﻿2026-09-02T08:22:35.9095680Z ##[group]Run {
+2026-09-02T08:22:35.9095990Z [36;1m{[0m
+2026-09-02T08:22:35.9096260Z [36;1m  xattr -cr bin/ 2>&1 || true[0m
+2026-09-02T08:22:35.9096550Z [36;1m  codesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T08:22:35.9096960Z [36;1m  chmod +x bin/challenge.bin[0m
+2026-09-02T08:22:35.9097380Z [36;1m  echo "=== codesign ==="; codesign -dvvv bin/challenge.bin 2>&1 | head -6 || true[0m
+2026-09-02T08:22:35.9097750Z [36;1m  ls -l bin/challenge.bin[0m
+2026-09-02T08:22:35.9110010Z [36;1m} 2>&1 | tee out/04-sign.txt[0m
+2026-09-02T08:22:35.9162050Z shell: /bin/bash -e {0}
+2026-09-02T08:22:35.9162260Z env:
+2026-09-02T08:22:35.9162450Z   TC: 
+2026-09-02T08:22:35.9162610Z ##[endgroup]
+2026-09-02T08:22:35.9729470Z bin/challenge.bin: replacing existing signature
+2026-09-02T08:22:35.9826400Z === codesign ===
+2026-09-02T08:22:35.9901040Z Executable=/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin
+2026-09-02T08:22:35.9902960Z Identifier=challenge-55554944ed93c5f9d215fe5be21f386702e21c20
+2026-09-02T08:22:35.9907620Z Format=Mach-O universal (x86_64 arm64)
+2026-09-02T08:22:35.9908130Z CodeDirectory v=20400 size=1515 flags=0x2(adhoc) hashes=41+2 location=embedded
+2026-09-02T08:22:35.9909990Z Hash type=sha256 size=32
+2026-09-02T08:22:35.9910400Z CandidateCDHash sha256=f19a4c020864c18c705d4320af5e3ed5d87a93f9
+2026-09-02T08:22:35.9961590Z -rwxr-xr-x  1 runner  staff  267104 Sep  2 08:22 bin/challenge.bin

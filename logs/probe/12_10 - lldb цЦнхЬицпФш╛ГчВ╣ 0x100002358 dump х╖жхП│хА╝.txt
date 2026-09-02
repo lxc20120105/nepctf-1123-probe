@@ -1,0 +1,18 @@
+﻿2026-09-02T08:17:15.4361310Z ##[group]Run export DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"
+2026-09-02T08:17:15.4361790Z [36;1mexport DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"[0m
+2026-09-02T08:17:15.4362100Z [36;1mtimeout 400 lldb -b \[0m
+2026-09-02T08:17:15.4362430Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:17:15.4362760Z [36;1m  -o "breakpoint set --address 0x100002358" \[0m
+2026-09-02T08:17:15.4363140Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:17:15.4363500Z [36;1m  -o 'expr unsigned long $L = $x29 - 0x90' \[0m
+2026-09-02T08:17:15.4363870Z [36;1m  -o 'expr unsigned long $R = $x29 - 0xb0' \[0m
+2026-09-02T08:17:15.4379060Z [36;1m  -o 'memory read --size 1 --format x --count 16 $L' \[0m
+2026-09-02T08:17:15.4379560Z [36;1m  -o 'memory read --size 1 --format x --count 16 $R' \[0m
+2026-09-02T08:17:15.4379870Z [36;1m  -o 'register read x29 sp pc' \[0m
+2026-09-02T08:17:15.4380110Z [36;1m  -o 'bt' \[0m
+2026-09-02T08:17:15.4380280Z [36;1m  -o 'process continue' \[0m
+2026-09-02T08:17:15.4380560Z [36;1m  > out/10-lldb.txt 2>&1[0m
+2026-09-02T08:17:15.4380770Z [36;1mcat out/10-lldb.txt[0m
+2026-09-02T08:17:15.4413940Z shell: /bin/bash -e {0}
+2026-09-02T08:17:15.4415390Z ##[endgroup]
+2026-09-02T08:17:15.4709960Z ##[error]Process completed with exit code 127.

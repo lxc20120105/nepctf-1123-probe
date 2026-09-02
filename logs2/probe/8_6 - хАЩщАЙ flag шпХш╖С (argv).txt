@@ -1,0 +1,9 @@
+﻿2026-09-02T08:22:36.5187660Z ##[group]Run ${TC:+$TC 120} ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/06-argv.txt 2>&1
+2026-09-02T08:22:36.5188460Z [36;1m${TC:+$TC 120} ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/06-argv.txt 2>&1[0m
+2026-09-02T08:22:36.5188950Z [36;1mecho "exit=$?" >> out/06-argv.txt[0m
+2026-09-02T08:22:36.5189210Z [36;1mcat out/06-argv.txt[0m
+2026-09-02T08:22:36.5225520Z shell: /bin/bash -e {0}
+2026-09-02T08:22:36.5225740Z env:
+2026-09-02T08:22:36.5225900Z   TC: 
+2026-09-02T08:22:36.5226080Z ##[endgroup]
+2026-09-02T08:22:36.7422120Z ##[error]Process completed with exit code 1.

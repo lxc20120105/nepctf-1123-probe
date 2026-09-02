@@ -1,0 +1,8 @@
+﻿2026-09-02T08:17:15.3650820Z ##[group]Run export DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"
+2026-09-02T08:17:15.3651280Z [36;1mexport DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"[0m
+2026-09-02T08:17:15.3651850Z [36;1mtimeout 180 ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/09-hooked.txt 2>&1[0m
+2026-09-02T08:17:15.3652310Z [36;1mecho "exit=$?" >> out/09-hooked.txt[0m
+2026-09-02T08:17:15.3652550Z [36;1mcat out/09-hooked.txt[0m
+2026-09-02T08:17:15.3682020Z shell: /bin/bash -e {0}
+2026-09-02T08:17:15.3682210Z ##[endgroup]
+2026-09-02T08:17:15.4087440Z ##[error]Process completed with exit code 127.

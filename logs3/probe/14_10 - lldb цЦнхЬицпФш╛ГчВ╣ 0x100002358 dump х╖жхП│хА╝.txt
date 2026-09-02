@@ -1,0 +1,32 @@
+﻿2026-09-02T08:25:57.2898410Z ##[group]Run set +e
+2026-09-02T08:25:57.2898640Z [36;1mset +e[0m
+2026-09-02T08:25:57.2898830Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:25:57.2899470Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:25:57.2899950Z [36;1m  -o "settings set target.env-vars DYLD_INSERT_LIBRARIES=$PWD/libptrace_hook.dylib" \[0m
+2026-09-02T08:25:57.2900380Z [36;1m  -o "breakpoint set --address 0x100002358" \[0m
+2026-09-02T08:25:57.2900750Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:25:57.2901130Z [36;1m  -o 'expr unsigned long $L = $x29 - 0x90' \[0m
+2026-09-02T08:25:57.2901420Z [36;1m  -o 'expr unsigned long $R = $x29 - 0xb0' \[0m
+2026-09-02T08:25:57.2901740Z [36;1m  -o 'memory read --size 1 --format x --count 16 $L' \[0m
+2026-09-02T08:25:57.2902090Z [36;1m  -o 'memory read --size 1 --format x --count 16 $R' \[0m
+2026-09-02T08:25:57.2902390Z [36;1m  -o 'register read x29 sp pc' \[0m
+2026-09-02T08:25:57.2902620Z [36;1m  -o 'bt' \[0m
+2026-09-02T08:25:57.2902850Z [36;1m  -o 'process continue' \[0m
+2026-09-02T08:25:57.2903080Z [36;1m  > out/10-lldb.txt 2>&1[0m
+2026-09-02T08:25:57.2903290Z [36;1mecho "--- output ---"[0m
+2026-09-02T08:25:57.2903510Z [36;1mcat out/10-lldb.txt[0m
+2026-09-02T08:25:57.2934450Z shell: /bin/bash -e {0}
+2026-09-02T08:25:57.2934700Z env:
+2026-09-02T08:25:57.2934850Z   TC: 
+2026-09-02T08:25:57.2935010Z ##[endgroup]
+2026-09-02T08:25:58.1747720Z --- output ---
+2026-09-02T08:25:58.1769980Z (lldb) target create bin/challenge.bin
+2026-09-02T08:25:58.1770660Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:25:58.1771480Z (lldb) settings set target.env-vars DYLD_INSERT_LIBRARIES=/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/libptrace_hook.dylib
+2026-09-02T08:25:58.1772230Z (lldb) breakpoint set --address 0x100002358
+2026-09-02T08:25:58.1772580Z Breakpoint 1: address = 0x0000000100002358
+2026-09-02T08:25:58.1772920Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:25:58.1773490Z Process 1798 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:25:58.1773990Z Process 1798 exited with status = 45 (0x0000002d)
+2026-09-02T08:25:58.1774630Z (lldb) expr unsigned long $L = $x29 - 0x90
+2026-09-02T08:25:58.1775230Z error: unable to evaluate expression while the process is exited: the process must be stopped because the expression might require allocating memory.

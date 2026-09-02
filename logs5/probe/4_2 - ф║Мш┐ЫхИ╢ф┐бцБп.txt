@@ -1,0 +1,18 @@
+﻿2026-09-02T08:35:47.4589470Z ##[group]Run {
+2026-09-02T08:35:47.4590200Z [36;1m{[0m
+2026-09-02T08:35:47.4590810Z [36;1m  file bin/challenge.bin[0m
+2026-09-02T08:35:47.4591660Z [36;1m  lipo -archs bin/challenge.bin 2>&1[0m
+2026-09-02T08:35:47.4592590Z [36;1m  otool -L bin/challenge.bin 2>&1[0m
+2026-09-02T08:35:47.4593440Z [36;1m} 2>&1 | tee out/02-binary.txt[0m
+2026-09-02T08:35:47.4627090Z shell: /bin/bash -e {0}
+2026-09-02T08:35:47.4628070Z env:
+2026-09-02T08:35:47.4628610Z   TC: 
+2026-09-02T08:35:47.4629230Z ##[endgroup]
+2026-09-02T08:35:47.5163870Z bin/challenge.bin: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+2026-09-02T08:35:47.5169380Z bin/challenge.bin (for architecture x86_64):	Mach-O 64-bit executable x86_64
+2026-09-02T08:35:47.5172850Z bin/challenge.bin (for architecture arm64):	Mach-O 64-bit executable arm64
+2026-09-02T08:35:48.7972850Z x86_64 arm64
+2026-09-02T08:35:49.2498080Z bin/challenge.bin (architecture x86_64):
+2026-09-02T08:35:49.2499320Z 	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1351.0.0)
+2026-09-02T08:35:49.2503900Z bin/challenge.bin (architecture arm64):
+2026-09-02T08:35:49.2507180Z 	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1351.0.0)

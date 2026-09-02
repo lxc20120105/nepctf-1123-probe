@@ -1,0 +1,7 @@
+﻿2026-09-02T08:17:14.2689830Z ##[group]Run timeout 120 ./bin/challenge.bin < /dev/null > out/05-noparam.txt 2>&1
+2026-09-02T08:17:14.2690280Z [36;1mtimeout 120 ./bin/challenge.bin < /dev/null > out/05-noparam.txt 2>&1[0m
+2026-09-02T08:17:14.2690610Z [36;1mecho "exit=$?" >> out/05-noparam.txt[0m
+2026-09-02T08:17:14.2690840Z [36;1mcat out/05-noparam.txt[0m
+2026-09-02T08:17:14.2719730Z shell: /bin/bash -e {0}
+2026-09-02T08:17:14.2720310Z ##[endgroup]
+2026-09-02T08:17:14.2967370Z ##[error]Process completed with exit code 127.

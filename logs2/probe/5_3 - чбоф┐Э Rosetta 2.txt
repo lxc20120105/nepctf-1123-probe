@@ -1,0 +1,24 @@
+﻿2026-09-02T08:22:31.3233180Z ##[group]Run sudo softwareupdate --install-rosetta --agree-to-license 2>&1 | tee out/03-rosetta.txt || true
+2026-09-02T08:22:31.3233970Z [36;1msudo softwareupdate --install-rosetta --agree-to-license 2>&1 | tee out/03-rosetta.txt || true[0m
+2026-09-02T08:22:31.3234430Z [36;1mecho "=== x86_64 check ==="[0m
+2026-09-02T08:22:31.3234900Z [36;1march -x86_64 uname -m 2>&1 | tee -a out/03-rosetta.txt || echo "rosetta UNAVAILABLE" | tee -a out/03-rosetta.txt[0m
+2026-09-02T08:22:31.3275190Z shell: /bin/bash -e {0}
+2026-09-02T08:22:31.3275530Z env:
+2026-09-02T08:22:31.3275760Z   TC: 
+2026-09-02T08:22:31.3276000Z ##[endgroup]
+2026-09-02T08:22:32.5025980Z 2026-09-02 08:22:32.502 softwareupdate[7867:28588] Package Authoring Error: 122-77923: Package reference com.apple.pkg.RosettaUpdateAuto is missing installKBytes attribute
+2026-09-02T08:22:32.5465950Z By using the agreetolicense option, you are agreeing that you have run this tool with the license only option and have read and agreed to the terms.
+2026-09-02T08:22:32.5468600Z If you do not agree, press CTRL-C and cancel this process immediately.
+2026-09-02T08:22:32.5469720Z 
+2026-09-02T08:22:32.5469910Z Installing: 0.0%
+2026-09-02T08:22:33.1143210Z Installing: 0.0%
+2026-09-02T08:22:33.3729390Z Installing: 0.0%
+2026-09-02T08:22:33.3729780Z Installing: 100.0%
+2026-09-02T08:22:33.7750920Z Installing: 100.0%
+2026-09-02T08:22:34.3656610Z Installing: -1.0%
+2026-09-02T08:22:34.8778520Z Installing: 88.7%
+2026-09-02T08:22:35.1905850Z Installing: 88.7%
+2026-09-02T08:22:35.2014760Z Installing: 100.0%
+2026-09-02T08:22:35.2118170Z Install of Rosetta 2 finished successfully
+2026-09-02T08:22:35.2221160Z === x86_64 check ===
+2026-09-02T08:22:35.8747160Z x86_64

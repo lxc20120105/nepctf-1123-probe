@@ -1,0 +1,12 @@
+﻿2026-09-02T08:17:14.4209630Z ##[group]Run cat > ptrace_hook.c <<'EOF'
+2026-09-02T08:17:14.4209920Z [36;1mcat > ptrace_hook.c <<'EOF'[0m
+2026-09-02T08:17:14.4210130Z [36;1m#include <sys/types.h>[0m
+2026-09-02T08:17:14.4210400Z [36;1mint ptrace(int request, pid_t pid, void *addr, int data) {[0m
+2026-09-02T08:17:14.4210700Z [36;1m  return 0;[0m
+2026-09-02T08:17:14.4210860Z [36;1m}[0m
+2026-09-02T08:17:14.4211000Z [36;1mEOF[0m
+2026-09-02T08:17:14.4211290Z [36;1mclang -dynamiclib -o libptrace_hook.dylib ptrace_hook.c 2>&1 | tee out/08-hook.txt[0m
+2026-09-02T08:17:14.4211710Z [36;1mls -l libptrace_hook.dylib 2>&1 | tee -a out/08-hook.txt[0m
+2026-09-02T08:17:14.4239180Z shell: /bin/bash -e {0}
+2026-09-02T08:17:14.4239390Z ##[endgroup]
+2026-09-02T08:17:15.3454350Z -rwxr-xr-x  1 runner  staff  16792 Sep  2 08:17 libptrace_hook.dylib

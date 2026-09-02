@@ -1,0 +1,26 @@
+﻿2026-09-02T08:36:00.1475950Z ##[group]Run set +e
+2026-09-02T08:36:00.1476440Z [36;1mset +e[0m
+2026-09-02T08:36:00.1476770Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:36:00.1477100Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:36:00.1477540Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:36:00.1478000Z [36;1m  -o "breakpoint command add --script-type lldb -o 'thread return 0' -o 'continue' 1" \[0m
+2026-09-02T08:36:00.1478530Z [36;1m  -o "breakpoint set --name strncmp" \[0m
+2026-09-02T08:36:00.1479290Z [36;1m  -o "breakpoint command add --script-type lldb -o 'memory read --size 1 --format c --count 48 $x0' -o 'memory read --size 1 --format c --count 48 $x1' -o 'register read x2' -o 'continue' 2" \[0m
+2026-09-02T08:36:00.1479990Z [36;1m  -o "breakpoint set --name memcmp" \[0m
+2026-09-02T08:36:00.1480920Z [36;1m  -o "breakpoint command add --script-type lldb -o 'memory read --size 1 --format x --count 32 $x0' -o 'memory read --size 1 --format x --count 32 $x1' -o 'register read x2' -o 'continue' 3" \[0m
+2026-09-02T08:36:00.1481960Z [36;1m  -o "breakpoint set --name strcmp" \[0m
+2026-09-02T08:36:00.1482640Z [36;1m  -o "breakpoint command add --script-type lldb -o 'memory read --size 1 --format c --count 48 $x0' -o 'memory read --size 1 --format c --count 48 $x1' -o 'continue' 4" \[0m
+2026-09-02T08:36:00.1483320Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:36:00.1483750Z [36;1m  -o "process continue" \[0m
+2026-09-02T08:36:00.1484070Z [36;1m  > out/08-lldb-strncmp.txt 2>&1[0m
+2026-09-02T08:36:00.1484360Z [36;1mhead -c 40000 out/08-lldb-strncmp.txt[0m
+2026-09-02T08:36:00.1525790Z shell: /bin/bash -e {0}
+2026-09-02T08:36:00.1526090Z env:
+2026-09-02T08:36:00.1526340Z   TC: 
+2026-09-02T08:36:00.1526550Z ##[endgroup]
+2026-09-02T08:36:01.1242650Z (lldb) target create bin/challenge.bin
+2026-09-02T08:36:01.1351110Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:36:01.1519880Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:36:01.1622740Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:36:01.1732510Z (lldb) breakpoint command add --script-type lldb -o 'thread return 0' -o 'continue' 1
+2026-09-02T08:36:01.1834510Z error: invalid enumeration value, valid values are: "command", "python", "lua", "default"

@@ -1,0 +1,13 @@
+﻿2026-09-02T08:25:52.9009780Z ##[group]Run {
+2026-09-02T08:25:52.9009990Z [36;1m{[0m
+2026-09-02T08:25:52.9010170Z [36;1m  xattr -cr bin/ 2>&1 || true[0m
+2026-09-02T08:25:52.9010460Z [36;1m  codesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T08:25:52.9010750Z [36;1m  chmod +x bin/challenge.bin[0m
+2026-09-02T08:25:52.9011000Z [36;1m  ls -l bin/challenge.bin[0m
+2026-09-02T08:25:52.9011220Z [36;1m} 2>&1 | tee out/04-sign.txt[0m
+2026-09-02T08:25:52.9042970Z shell: /bin/bash -e {0}
+2026-09-02T08:25:52.9043180Z env:
+2026-09-02T08:25:52.9043330Z   TC: 
+2026-09-02T08:25:52.9043460Z ##[endgroup]
+2026-09-02T08:25:52.9399010Z bin/challenge.bin: replacing existing signature
+2026-09-02T08:25:52.9495570Z -rwxr-xr-x  1 runner  staff  267104 Sep  2 08:25 bin/challenge.bin

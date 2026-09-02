@@ -1,0 +1,26 @@
+﻿2026-09-02T08:35:54.8896030Z ##[group]Run set +e
+2026-09-02T08:35:54.8896580Z [36;1mset +e[0m
+2026-09-02T08:35:54.8897040Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:35:54.8897700Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:35:54.8898390Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:35:54.8899400Z [36;1m  -o "breakpoint command add --script-type lldb -o 'thread return 0' -o 'continue' 1" \[0m
+2026-09-02T08:35:54.8900430Z [36;1m  -o "breakpoint set --address 0x100002358" \[0m
+2026-09-02T08:35:54.8901310Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:35:54.8902190Z [36;1m  -o 'expr unsigned long $L = $x29 - 0x90' \[0m
+2026-09-02T08:35:54.8902900Z [36;1m  -o 'expr unsigned long $R = $x29 - 0xb0' \[0m
+2026-09-02T08:35:54.8903750Z [36;1m  -o 'memory read --size 1 --format x --count 16 $L' \[0m
+2026-09-02T08:35:54.8904670Z [36;1m  -o 'memory read --size 1 --format x --count 16 $R' \[0m
+2026-09-02T08:35:54.9076180Z [36;1m  -o 'register read x29 sp pc' \[0m
+2026-09-02T08:35:54.9076970Z [36;1m  -o 'bt' \[0m
+2026-09-02T08:35:54.9077440Z [36;1m  > out/07-lldb-cmp.txt 2>&1[0m
+2026-09-02T08:35:54.9078050Z [36;1mhead -c 20000 out/07-lldb-cmp.txt[0m
+2026-09-02T08:35:54.9147460Z shell: /bin/bash -e {0}
+2026-09-02T08:35:54.9148020Z env:
+2026-09-02T08:35:54.9148390Z   TC: 
+2026-09-02T08:35:54.9148810Z ##[endgroup]
+2026-09-02T08:36:00.1138960Z (lldb) target create bin/challenge.bin
+2026-09-02T08:36:00.1143020Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:36:00.1144260Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:36:00.1144940Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:36:00.1145470Z (lldb) breakpoint command add --script-type lldb -o 'thread return 0' -o 'continue' 1
+2026-09-02T08:36:00.1146060Z error: invalid enumeration value, valid values are: "command", "python", "lua", "default"

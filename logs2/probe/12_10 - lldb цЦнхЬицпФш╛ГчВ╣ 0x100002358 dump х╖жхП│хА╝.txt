@@ -1,0 +1,21 @@
+﻿2026-09-02T08:22:38.5496450Z ##[group]Run export DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"
+2026-09-02T08:22:38.5496950Z [36;1mexport DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"[0m
+2026-09-02T08:22:38.5497250Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:22:38.5497520Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:22:38.5497820Z [36;1m  -o "breakpoint set --address 0x100002358" \[0m
+2026-09-02T08:22:38.5498190Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:22:38.5498540Z [36;1m  -o 'expr unsigned long $L = $x29 - 0x90' \[0m
+2026-09-02T08:22:38.5498800Z [36;1m  -o 'expr unsigned long $R = $x29 - 0xb0' \[0m
+2026-09-02T08:22:38.5499130Z [36;1m  -o 'memory read --size 1 --format x --count 16 $L' \[0m
+2026-09-02T08:22:38.5499440Z [36;1m  -o 'memory read --size 1 --format x --count 16 $R' \[0m
+2026-09-02T08:22:38.5499760Z [36;1m  -o 'register read x29 sp pc' \[0m
+2026-09-02T08:22:38.5500050Z [36;1m  -o 'bt' \[0m
+2026-09-02T08:22:38.5500350Z [36;1m  -o 'process continue' \[0m
+2026-09-02T08:22:38.5500660Z [36;1m  > out/10-lldb.txt 2>&1[0m
+2026-09-02T08:22:38.5500840Z [36;1mcat out/10-lldb.txt[0m
+2026-09-02T08:22:38.5545770Z shell: /bin/bash -e {0}
+2026-09-02T08:22:38.5545960Z env:
+2026-09-02T08:22:38.5546120Z   TC: 
+2026-09-02T08:22:38.5546330Z ##[endgroup]
+2026-09-02T08:22:38.6035570Z /Users/runner/work/_temp/6a13a992-c938-4e94-88fb-51b24bfab79f.sh: line 13:  7957 Abort trap: 6           ${TC:+$TC 400} lldb -b -o "target create bin/challenge.bin" -o "breakpoint set --address 0x100002358" -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" -o 'expr unsigned long $L = $x29 - 0x90' -o 'expr unsigned long $R = $x29 - 0xb0' -o 'memory read --size 1 --format x --count 16 $L' -o 'memory read --size 1 --format x --count 16 $R' -o 'register read x29 sp pc' -o 'bt' -o 'process continue' > out/10-lldb.txt 2>&1
+2026-09-02T08:22:38.6038830Z ##[error]Process completed with exit code 134.

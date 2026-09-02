@@ -11,102 +11,85 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 1 - 环境探测
+      - name: 1 - 准备
         run: |
           mkdir -p out
-          {
-            echo "=== sw_vers ==="; sw_vers
-            echo "=== arch ==="; uname -m
-            echo "=== cpu ==="; sysctl -n machdep.cpu.brand_string 2>/dev/null || true
-          } 2>&1 | tee out/01-env.txt
           TC=$(command -v gtimeout || command -v timeout || echo "")
-          echo "=== timeout cmd === [$TC]"
           echo "TC=$TC" >> $GITHUB_ENV
+          xattr -cr bin/ 2>&1 || true
+          codesign -s - --force bin/challenge.bin 2>&1 || true
+          chmod +x bin/challenge.bin
+          sw_vers 2>&1 | tee out/01-env.txt
+          sysctl -n machdep.cpu.brand_string 2>&1 | tee -a out/01-env.txt
+          sudo softwareupdate --install-rosetta --agree-to-license 2>&1 | tee out/01-rosetta.txt || true
 
-      - name: 2 - 二进制信息
-        run: |
-          {
-            file bin/challenge.bin
-            lipo -archs bin/challenge.bin 2>&1
-            otool -L bin/challenge.bin 2>&1
-          } 2>&1 | tee out/02-binary.txt
-
-      - name: 3 - 确保 Rosetta 2
-        continue-on-error: true
-        run: |
-          sudo softwareupdate --install-rosetta --agree-to-license 2>&1 | tee out/03-rosetta.txt || true
-          arch -x86_64 uname -m 2>&1 | tee -a out/03-rosetta.txt || echo "rosetta UNAVAILABLE" | tee -a out/03-rosetta.txt
-
-      - name: 4 - 去隔离并 ad-hoc 重签名
-        continue-on-error: true
-        run: |
-          {
-            xattr -cr bin/ 2>&1 || true
-            codesign -s - --force bin/challenge.bin 2>&1 || true
-            chmod +x bin/challenge.bin
-            ls -l bin/challenge.bin
-          } 2>&1 | tee out/04-sign.txt
-
-      - name: 5 - 基线试跑
+      - name: 2 - 基线确认
         continue-on-error: true
         run: |
           set +e
           echo "### no arg"
-          ${TC:+$TC 60} ./bin/challenge.bin < /dev/null 2>&1 | head -5
-          echo "exit=$?"
-          echo "### candidate argv"
-          ${TC:+$TC 60} ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null 2>&1 | head -5
-          echo "exit=$?"
-          echo "### zeroed argv"
-          ${TC:+$TC 60} ./bin/challenge.bin 'NepCTF{00000000000000000000000000000000}' < /dev/null 2>&1 | head -5
-          echo "exit=$?"
+          ./bin/challenge.bin < /dev/null 2>&1 | head -3
+          echo "### candidate"
+          ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null 2>&1 | head -3
+          echo "### all zero"
+          ./bin/challenge.bin 'NepCTF{00000000000000000000000000000000}' < /dev/null 2>&1 | head -3
 
-      - name: 6 - 用 arch -x86_64 跑 (Rosetta 侧行为)
-        continue-on-error: true
-        run: |
-          set +e
-          ${TC:+$TC 60} arch -x86_64 ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null 2>&1 | head -10
-          echo "exit=$?"
-
-      - name: 7 - lldb hook ptrace 并 dump 比较点 0x100002358
+      - name: 3 - lldb hook ptrace 后停在比较点
         continue-on-error: true
         run: |
           set +e
           ${TC:+$TC 400} lldb -b \
             -o "target create bin/challenge.bin" \
             -o "breakpoint set --name ptrace" \
-            -o "breakpoint command add --script-type lldb -o 'thread return 0' -o 'continue' 1" \
-            -o "breakpoint set --address 0x100002358" \
             -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
+            -o "thread return 0" \
+            -o "breakpoint delete 1" \
+            -o "breakpoint set --address 0x100002358" \
+            -o "continue" \
             -o 'expr unsigned long $L = $x29 - 0x90' \
             -o 'expr unsigned long $R = $x29 - 0xb0' \
             -o 'memory read --size 1 --format x --count 16 $L' \
             -o 'memory read --size 1 --format x --count 16 $R' \
             -o 'register read x29 sp pc' \
             -o 'bt' \
-            > out/07-lldb-cmp.txt 2>&1
-          head -c 20000 out/07-lldb-cmp.txt
+            > out/03-lldb-cmp.txt 2>&1
+          head -c 30000 out/03-lldb-cmp.txt
 
-      - name: 8 - lldb hook strncmp/memcmp 打印比较双方
+      - name: 4 - lldb hook strncmp/memcmp/strcmp 打印参数
         continue-on-error: true
         run: |
           set +e
           ${TC:+$TC 400} lldb -b \
             -o "target create bin/challenge.bin" \
             -o "breakpoint set --name ptrace" \
-            -o "breakpoint command add --script-type lldb -o 'thread return 0' -o 'continue' 1" \
+            -o "breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1" \
             -o "breakpoint set --name strncmp" \
-            -o "breakpoint command add --script-type lldb -o 'memory read --size 1 --format c --count 48 $x0' -o 'memory read --size 1 --format c --count 48 $x1' -o 'register read x2' -o 'continue' 2" \
+            -o "breakpoint command add --script-type command -o 'memory read --size 1 --format c --count 64 $x0' -o 'memory read --size 1 --format c --count 64 $x1' -o 'register read x2' -o 'continue' 2" \
             -o "breakpoint set --name memcmp" \
-            -o "breakpoint command add --script-type lldb -o 'memory read --size 1 --format x --count 32 $x0' -o 'memory read --size 1 --format x --count 32 $x1' -o 'register read x2' -o 'continue' 3" \
+            -o "breakpoint command add --script-type command -o 'memory read --size 1 --format x --count 32 $x0' -o 'memory read --size 1 --format x --count 32 $x1' -o 'register read x2' -o 'continue' 3" \
             -o "breakpoint set --name strcmp" \
-            -o "breakpoint command add --script-type lldb -o 'memory read --size 1 --format c --count 48 $x0' -o 'memory read --size 1 --format c --count 48 $x1' -o 'continue' 4" \
+            -o "breakpoint command add --script-type command -o 'memory read --size 1 --format c --count 64 $x0' -o 'memory read --size 1 --format c --count 64 $x1' -o 'continue' 4" \
             -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
             -o "process continue" \
-            > out/08-lldb-strncmp.txt 2>&1
-          head -c 40000 out/08-lldb-strncmp.txt
+            > out/04-lldb-cmpfn.txt 2>&1
+          head -c 60000 out/04-lldb-cmpfn.txt
 
-      - name: 9 - 上传全部输出
+      - name: 5 - 单步追踪父进程入口 (看 argv 解析)
+        continue-on-error: true
+        run: |
+          set +e
+          ${TC:+$TC 300} lldb -b \
+            -o "target create bin/challenge.bin" \
+            -o "breakpoint set --name ptrace" \
+            -o "breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1" \
+            -o "breakpoint set --name posix_spawn" \
+            -o "breakpoint command add --script-type command -o 'register read x0 x1 x2 x3' -o 'bt' -o 'continue' 2" \
+            -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
+            -o "process continue" \
+            > out/05-lldb-spawn.txt 2>&1
+          head -c 30000 out/05-lldb-spawn.txt
+
+      - name: 6 - 上传全部输出
         if: always()
         uses: actions/upload-artifact@v4
         with:

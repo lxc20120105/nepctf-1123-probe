@@ -1,0 +1,10 @@
+﻿2026-09-02T08:22:38.4117700Z ##[group]Run export DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"
+2026-09-02T08:22:38.4118340Z [36;1mexport DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"[0m
+2026-09-02T08:22:38.4119020Z [36;1m${TC:+$TC 180} ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/09-hooked.txt 2>&1[0m
+2026-09-02T08:22:38.4119600Z [36;1mecho "exit=$?" >> out/09-hooked.txt[0m
+2026-09-02T08:22:38.4119980Z [36;1mcat out/09-hooked.txt[0m
+2026-09-02T08:22:38.4177160Z shell: /bin/bash -e {0}
+2026-09-02T08:22:38.4177780Z env:
+2026-09-02T08:22:38.4178180Z   TC: 
+2026-09-02T08:22:38.4178370Z ##[endgroup]
+2026-09-02T08:22:38.5190270Z ##[error]Process completed with exit code 5.

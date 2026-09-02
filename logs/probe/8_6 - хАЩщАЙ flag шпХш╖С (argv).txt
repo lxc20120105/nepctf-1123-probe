@@ -1,0 +1,7 @@
+﻿2026-09-02T08:17:14.3234060Z ##[group]Run timeout 120 ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/06-argv.txt 2>&1
+2026-09-02T08:17:14.3234740Z [36;1mtimeout 120 ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/06-argv.txt 2>&1[0m
+2026-09-02T08:17:14.3235170Z [36;1mecho "exit=$?" >> out/06-argv.txt[0m
+2026-09-02T08:17:14.3235390Z [36;1mcat out/06-argv.txt[0m
+2026-09-02T08:17:14.3262950Z shell: /bin/bash -e {0}
+2026-09-02T08:17:14.3263130Z ##[endgroup]
+2026-09-02T08:17:14.3463480Z ##[error]Process completed with exit code 127.

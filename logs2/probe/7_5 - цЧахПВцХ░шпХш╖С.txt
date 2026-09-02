@@ -1,0 +1,9 @@
+﻿2026-09-02T08:22:36.0293210Z ##[group]Run ${TC:+$TC 120} ./bin/challenge.bin < /dev/null > out/05-noparam.txt 2>&1
+2026-09-02T08:22:36.0294860Z [36;1m${TC:+$TC 120} ./bin/challenge.bin < /dev/null > out/05-noparam.txt 2>&1[0m
+2026-09-02T08:22:36.0295800Z [36;1mecho "exit=$?" >> out/05-noparam.txt[0m
+2026-09-02T08:22:36.0296560Z [36;1mcat out/05-noparam.txt[0m
+2026-09-02T08:22:36.0341840Z shell: /bin/bash -e {0}
+2026-09-02T08:22:36.0342130Z env:
+2026-09-02T08:22:36.0342280Z   TC: 
+2026-09-02T08:22:36.0342640Z ##[endgroup]
+2026-09-02T08:22:36.4894350Z ##[error]Process completed with exit code 1.

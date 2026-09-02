@@ -1,0 +1,31 @@
+﻿2026-09-02T08:17:14.1818350Z ##[group]Run {
+2026-09-02T08:17:14.1818670Z [36;1m{[0m
+2026-09-02T08:17:14.1818930Z [36;1m  echo "=== xattr before ==="; xattr -l bin/challenge.bin 2>&1 || true[0m
+2026-09-02T08:17:14.1819310Z [36;1m  xattr -cr bin/ 2>&1 || true[0m
+2026-09-02T08:17:14.1819630Z [36;1m  codesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T08:17:14.1819940Z [36;1m  chmod +x bin/challenge.bin[0m
+2026-09-02T08:17:14.1820270Z [36;1m  echo "=== xattr after ==="; xattr -l bin/challenge.bin 2>&1 || true[0m
+2026-09-02T08:17:14.1820690Z [36;1m  echo "=== codesign ==="; codesign -dvvv bin/challenge.bin 2>&1 || true[0m
+2026-09-02T08:17:14.1821060Z [36;1m} 2>&1 | tee out/04-sign.txt[0m
+2026-09-02T08:17:14.1878970Z shell: /bin/bash -e {0}
+2026-09-02T08:17:14.1879270Z ##[endgroup]
+2026-09-02T08:17:14.2193900Z === xattr before ===
+2026-09-02T08:17:14.2303960Z bin/challenge.bin: replacing existing signature
+2026-09-02T08:17:14.2397550Z === xattr after ===
+2026-09-02T08:17:14.2439140Z === codesign ===
+2026-09-02T08:17:14.2488500Z Executable=/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin
+2026-09-02T08:17:14.2489850Z Identifier=challenge-55554944ed93c5f9d215fe5be21f386702e21c20
+2026-09-02T08:17:14.2491640Z Format=Mach-O universal (x86_64 arm64)
+2026-09-02T08:17:14.2492130Z CodeDirectory v=20400 size=1515 flags=0x2(adhoc) hashes=41+2 location=embedded
+2026-09-02T08:17:14.2492600Z Hash type=sha256 size=32
+2026-09-02T08:17:14.2493000Z CandidateCDHash sha256=f19a4c020864c18c705d4320af5e3ed5d87a93f9
+2026-09-02T08:17:14.2494500Z CandidateCDHashFull sha256=f19a4c020864c18c705d4320af5e3ed5d87a93f9ad3d800f5adbd9a7ee6c2baa
+2026-09-02T08:17:14.2495090Z Hash choices=sha256
+2026-09-02T08:17:14.2495650Z CMSDigest=f19a4c020864c18c705d4320af5e3ed5d87a93f9ad3d800f5adbd9a7ee6c2baa
+2026-09-02T08:17:14.2496040Z CMSDigestType=2
+2026-09-02T08:17:14.2496240Z CDHash=f19a4c020864c18c705d4320af5e3ed5d87a93f9
+2026-09-02T08:17:14.2496520Z Signature=adhoc
+2026-09-02T08:17:14.2496730Z Info.plist=not bound
+2026-09-02T08:17:14.2496930Z TeamIdentifier=not set
+2026-09-02T08:17:14.2497100Z Sealed Resources=none
+2026-09-02T08:17:14.2497290Z Internal requirements count=0 size=12

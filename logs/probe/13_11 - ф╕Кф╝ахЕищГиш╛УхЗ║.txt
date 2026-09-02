@@ -1,0 +1,24 @@
+﻿2026-09-02T08:17:15.4941250Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T08:17:15.4942740Z ##[group]Run actions/upload-artifact@v4
+2026-09-02T08:17:15.4943040Z with:
+2026-09-02T08:17:15.4943200Z   name: probe-output
+2026-09-02T08:17:15.4943420Z   path: out/
+2026-09-02T08:17:15.4943610Z   if-no-files-found: warn
+2026-09-02T08:17:15.4943840Z   compression-level: 6
+2026-09-02T08:17:15.4944000Z   overwrite: false
+2026-09-02T08:17:15.4944190Z   include-hidden-files: false
+2026-09-02T08:17:15.4944370Z ##[endgroup]
+2026-09-02T08:17:15.6211300Z (node:1195) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-02T08:17:15.6212260Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-02T08:17:15.6247060Z With the provided path, there will be 10 files uploaded
+2026-09-02T08:17:15.6249620Z Artifact name is valid!
+2026-09-02T08:17:15.6250000Z Root directory input is valid!
+2026-09-02T08:17:15.9196160Z Beginning upload of artifact content to blob storage
+2026-09-02T08:17:15.9412220Z (node:1195) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-02T08:17:16.0857490Z Uploaded bytes 3129
+2026-09-02T08:17:16.1298620Z Finished uploading artifact content to blob storage!
+2026-09-02T08:17:16.1299760Z SHA256 digest of uploaded artifact zip is aeaa76d029e80d76892b3aebf98bbaddde34072d78b7847bb85fc78a2ce1808d
+2026-09-02T08:17:16.1304590Z Finalizing artifact upload
+2026-09-02T08:17:16.3487360Z Artifact probe-output.zip successfully finalized. Artifact ID 9837749766
+2026-09-02T08:17:16.3488020Z Artifact probe-output has been successfully uploaded! Final size is 3129 bytes. Artifact ID is 9837749766
+2026-09-02T08:17:16.3488810Z Artifact download URL: https://github.com/lxc20120105/nepctf-1123-probe/actions/runs/33607891471/artifacts/9837749766

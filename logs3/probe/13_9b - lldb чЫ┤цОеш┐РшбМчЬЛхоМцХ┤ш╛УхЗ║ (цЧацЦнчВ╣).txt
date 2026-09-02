@@ -1,0 +1,23 @@
+﻿2026-09-02T08:25:54.7829410Z ##[group]Run set +e
+2026-09-02T08:25:54.7829630Z [36;1mset +e[0m
+2026-09-02T08:25:54.7829800Z [36;1m${TC:+$TC 300} lldb -b \[0m
+2026-09-02T08:25:54.7830060Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:25:54.7830450Z [36;1m  -o "settings set target.env-vars DYLD_INSERT_LIBRARIES=$PWD/libptrace_hook.dylib" \[0m
+2026-09-02T08:25:54.7830920Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:25:54.7831240Z [36;1m  -o "process continue" \[0m
+2026-09-02T08:25:54.7831460Z [36;1m  > out/09b-lldb-run.txt 2>&1[0m
+2026-09-02T08:25:54.7831670Z [36;1mecho "--- output ---"[0m
+2026-09-02T08:25:54.7831880Z [36;1mcat out/09b-lldb-run.txt[0m
+2026-09-02T08:25:54.7860470Z shell: /bin/bash -e {0}
+2026-09-02T08:25:54.7860660Z env:
+2026-09-02T08:25:54.7860860Z   TC: 
+2026-09-02T08:25:54.7861020Z ##[endgroup]
+2026-09-02T08:25:57.2606190Z --- output ---
+2026-09-02T08:25:57.2625180Z (lldb) target create bin/challenge.bin
+2026-09-02T08:25:57.2625840Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:25:57.2626680Z (lldb) settings set target.env-vars DYLD_INSERT_LIBRARIES=/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/libptrace_hook.dylib
+2026-09-02T08:25:57.2627250Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:25:57.2627750Z Process 1779 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:25:57.2628160Z Process 1779 exited with status = 45 (0x0000002d)
+2026-09-02T08:25:57.2628410Z (lldb) process continue
+2026-09-02T08:25:57.2628600Z error: Process must be launched.

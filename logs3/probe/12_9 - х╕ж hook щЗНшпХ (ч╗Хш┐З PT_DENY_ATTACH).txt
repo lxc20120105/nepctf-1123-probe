@@ -1,0 +1,16 @@
+﻿2026-09-02T08:25:54.7194020Z ##[group]Run set +e
+2026-09-02T08:25:54.7194230Z [36;1mset +e[0m
+2026-09-02T08:25:54.7194460Z [36;1mexport DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"[0m
+2026-09-02T08:25:54.7194940Z [36;1m${TC:+$TC 180} ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/09-hooked.txt 2>&1[0m
+2026-09-02T08:25:54.7195340Z [36;1mecho "exit=$?" >> out/09-hooked.txt[0m
+2026-09-02T08:25:54.7195570Z [36;1mecho "--- output ---"[0m
+2026-09-02T08:25:54.7195750Z [36;1mcat out/09-hooked.txt[0m
+2026-09-02T08:25:54.7223060Z shell: /bin/bash -e {0}
+2026-09-02T08:25:54.7223230Z env:
+2026-09-02T08:25:54.7223360Z   TC: 
+2026-09-02T08:25:54.7223490Z ##[endgroup]
+2026-09-02T08:25:54.7598590Z --- output ---
+2026-09-02T08:25:54.7610170Z dyld[1766]: terminating because inserted dylib '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/libptrace_hook.dylib' could not be loaded: tried: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/libptrace_hook.dylib' (mach-o file, but is an incompatible architecture (have 'arm64', need 'arm64e')), '/System/Volumes/Preboot/Cryptexes/OS/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/libptrace_hook.dylib' (no such file), '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/libptrace_hook.dylib' (mach-o file, but is an incompatible architecture (have 'arm64', need 'arm64e'))
+2026-09-02T08:25:54.7614330Z dyld[1766]: tried: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/libptrace_hook.dylib' (mach-o file, but is an incompatible architecture (have 'arm64', need 'arm64e')), '/System/Volumes/Preboot/Cryptexes/OS/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/libptrace_hook.dylib' (no such file), '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/libptrace_hook.dylib' (mach-o file, but is an incompatible architecture (have 'arm64', need 'arm64e'))
+2026-09-02T08:25:54.7616020Z /Users/runner/work/_temp/8d04dd6c-6412-4928-b9df-d8ffe4272b60.sh: line 6:  1766 Abort trap: 6           cat out/09-hooked.txt
+2026-09-02T08:25:54.7625340Z ##[error]Process completed with exit code 134.
