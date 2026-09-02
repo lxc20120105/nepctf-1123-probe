@@ -18,42 +18,34 @@ jobs:
           mkdir -p out
           xattr -cr bin/ 2>&1 || true
           codesign -s - --force bin/challenge.bin 2>&1 || true
-          codesign -s - --force bin/stage1.bin 2>&1 || true
-          chmod +x bin/challenge.bin bin/stage1.bin
+          chmod +x bin/challenge.bin
           sudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true
-          file bin/stage1.bin | tee out/80-stage1-info.txt
 
-      - name: 2 - 运行解密出的 stage1 三次 (确定性检查)
+      - name: 2 - 拦截父子双向管道流量
         continue-on-error: true
         run: |
           set +e
-          for i in 1 2 3; do
-            printf 'run%s stdout: ' "$i"
-            ${TC:+$TC 60} arch -x86_64 ./bin/stage1.bin < /dev/null 2>out/81-err-$i.txt | xxd -p | tr -d '\n'
-            echo "  (rc=$?)"
-          done | tee out/81-stage1-run.txt
-          echo "--- stderr ---"
-          head -c 800 out/81-err-1.txt | tee out/81-stage1-err.txt
+          ${TC:+$TC 400} lldb -b \
+            -o "command script import bpcmd2.py" \
+            -o "target create bin/challenge.bin" \
+            -o "breakpoint set --name ptrace" \
+            -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
+            -o "thread return 0" \
+            -o "breakpoint delete 1" \
+            -o "breakpoint set --name read" \
+            -o "breakpoint command add --script-type python -F bpcmd2.on_read 2" \
+            -o "breakpoint set --name write" \
+            -o "breakpoint command add --script-type python -F bpcmd2.on_write 3" \
+            -o "continue" \
+            > out/90-ipc.txt 2>&1
+          grep -E "^(READ|WRITE)" out/90-ipc.txt | tee out/90-ipc-clean.txt
+          echo "--- counts ---"
+          grep -c "^READ" out/90-ipc.txt || true
+          grep -c "^WRITE" out/90-ipc.txt || true
+          echo "--- tail of raw ---"
+          tail -20 out/90-ipc.txt
 
-      - name: 3 - 用 python 精确捕获 stage1 输出
-        continue-on-error: true
-        run: |
-          set +e
-          python3 - <<'PYEOF' 2>&1 | tee out/82-stage1-exact.txt
-          import subprocess
-          for i in range(3):
-              p = subprocess.Popen(['arch','-x86_64','./bin/stage1.bin'],
-                                   stdin=subprocess.DEVNULL,
-                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-              try:
-                  out, err = p.communicate(timeout=60)
-                  print('run%d rc=%d out(%d)=%s' % (i, p.returncode, len(out), out.hex()))
-                  if err: print('   err:', err[:200])
-              except subprocess.TimeoutExpired:
-                  p.kill(); print('run%d TIMEOUT' % i)
-          PYEOF
-
-      - name: 4 - 上传
+      - name: 3 - 上传
         if: always()
         uses: actions/upload-artifact@v4
         with:

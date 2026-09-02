@@ -1,0 +1,17 @@
+﻿2026-09-02T09:29:17.1197300Z ##[group]Run set +e
+2026-09-02T09:29:17.1198060Z [36;1mset +e[0m
+2026-09-02T09:29:17.1198300Z [36;1mfor i in 1 2 3; do[0m
+2026-09-02T09:29:17.1198740Z [36;1m  printf 'run%s stdout: ' "$i"[0m
+2026-09-02T09:29:17.1199770Z [36;1m  ${TC:+$TC 60} arch -x86_64 ./bin/stage1.bin < /dev/null 2>out/81-err-$i.txt | xxd -p | tr -d '\n'[0m
+2026-09-02T09:29:17.1200350Z [36;1m  echo "  (rc=$?)"[0m
+2026-09-02T09:29:17.1200620Z [36;1mdone | tee out/81-stage1-run.txt[0m
+2026-09-02T09:29:17.1201020Z [36;1mecho "--- stderr ---"[0m
+2026-09-02T09:29:17.1201570Z [36;1mhead -c 800 out/81-err-1.txt | tee out/81-stage1-err.txt[0m
+2026-09-02T09:29:17.1444670Z shell: /bin/bash -e {0}
+2026-09-02T09:29:17.1445150Z env:
+2026-09-02T09:29:17.1445390Z   TC: 
+2026-09-02T09:29:17.1445700Z ##[endgroup]
+2026-09-02T09:29:17.9425130Z run1 stdout: bcf46cbec44627ea384de6a190f84bff  (rc=0)
+2026-09-02T09:29:17.9839010Z run2 stdout: bcf46cbec44627ea384de6a190f84bff  (rc=0)
+2026-09-02T09:29:18.0261080Z run3 stdout: bcf46cbec44627ea384de6a190f84bff  (rc=0)
+2026-09-02T09:29:18.0283240Z --- stderr ---

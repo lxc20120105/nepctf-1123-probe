@@ -1,0 +1,22 @@
+﻿2026-09-02T09:29:18.0578960Z ##[group]Run set +e
+2026-09-02T09:29:18.0579360Z [36;1mset +e[0m
+2026-09-02T09:29:18.0579640Z [36;1mpython3 - <<'PYEOF' 2>&1 | tee out/82-stage1-exact.txt[0m
+2026-09-02T09:29:18.0579970Z [36;1mimport subprocess[0m
+2026-09-02T09:29:18.0580330Z [36;1mfor i in range(3):[0m
+2026-09-02T09:29:18.0580670Z [36;1m    p = subprocess.Popen(['arch','-x86_64','./bin/stage1.bin'],[0m
+2026-09-02T09:29:18.0581090Z [36;1m                         stdin=subprocess.DEVNULL,[0m
+2026-09-02T09:29:18.0581510Z [36;1m                         stdout=subprocess.PIPE, stderr=subprocess.PIPE)[0m
+2026-09-02T09:29:18.0581940Z [36;1m    try:[0m
+2026-09-02T09:29:18.0582210Z [36;1m        out, err = p.communicate(timeout=60)[0m
+2026-09-02T09:29:18.0582590Z [36;1m        print('run%d rc=%d out(%d)=%s' % (i, p.returncode, len(out), out.hex()))[0m
+2026-09-02T09:29:18.0582970Z [36;1m        if err: print('   err:', err[:200])[0m
+2026-09-02T09:29:18.0583330Z [36;1m    except subprocess.TimeoutExpired:[0m
+2026-09-02T09:29:18.0583870Z [36;1m        p.kill(); print('run%d TIMEOUT' % i)[0m
+2026-09-02T09:29:18.0584240Z [36;1mPYEOF[0m
+2026-09-02T09:29:18.0677520Z shell: /bin/bash -e {0}
+2026-09-02T09:29:18.0677760Z env:
+2026-09-02T09:29:18.0678040Z   TC: 
+2026-09-02T09:29:18.0678320Z ##[endgroup]
+2026-09-02T09:29:18.4485020Z run0 rc=0 out(16)=bcf46cbec44627ea384de6a190f84bff
+2026-09-02T09:29:18.4486470Z run1 rc=0 out(16)=bcf46cbec44627ea384de6a190f84bff
+2026-09-02T09:29:18.4493410Z run2 rc=0 out(16)=bcf46cbec44627ea384de6a190f84bff

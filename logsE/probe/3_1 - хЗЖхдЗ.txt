@@ -1,0 +1,15 @@
+﻿2026-09-02T09:29:12.5183530Z ##[group]Run TC=$(command -v gtimeout || command -v timeout || echo "")
+2026-09-02T09:29:12.5185300Z [36;1mTC=$(command -v gtimeout || command -v timeout || echo "")[0m
+2026-09-02T09:29:12.5186560Z [36;1mecho "TC=$TC" >> $GITHUB_ENV[0m
+2026-09-02T09:29:12.5187470Z [36;1mmkdir -p out[0m
+2026-09-02T09:29:12.5188240Z [36;1mxattr -cr bin/ 2>&1 || true[0m
+2026-09-02T09:29:12.5189380Z [36;1mcodesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T09:29:12.5190690Z [36;1mcodesign -s - --force bin/stage1.bin 2>&1 || true[0m
+2026-09-02T09:29:12.5191870Z [36;1mchmod +x bin/challenge.bin bin/stage1.bin[0m
+2026-09-02T09:29:12.5193430Z [36;1msudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true[0m
+2026-09-02T09:29:12.5195190Z [36;1mfile bin/stage1.bin | tee out/80-stage1-info.txt[0m
+2026-09-02T09:29:12.5246590Z shell: /bin/bash -e {0}
+2026-09-02T09:29:12.5247530Z ##[endgroup]
+2026-09-02T09:29:12.6055260Z bin/challenge.bin: replacing existing signature
+2026-09-02T09:29:12.6361550Z bin/stage1.bin: replacing existing signature
+2026-09-02T09:29:16.8917780Z bin/stage1.bin: Mach-O 64-bit executable x86_64
