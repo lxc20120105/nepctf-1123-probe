@@ -1,0 +1,49 @@
+﻿2026-09-02T09:42:27.4017160Z ##[group]Run set +e
+2026-09-02T09:42:27.4018100Z [36;1mset +e[0m
+2026-09-02T09:42:27.4018740Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T09:42:27.4019770Z [36;1m  -o "command script import bpcmd2.py" \[0m
+2026-09-02T09:42:27.4020820Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T09:42:27.4021960Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T09:42:27.4023220Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T09:42:27.4024490Z [36;1m  -o "thread return 0" \[0m
+2026-09-02T09:42:27.4025340Z [36;1m  -o "breakpoint delete 1" \[0m
+2026-09-02T09:42:27.4026230Z [36;1m  -o "breakpoint set --name read" \[0m
+2026-09-02T09:42:27.4027500Z [36;1m  -o "breakpoint command add --script-type python -F bpcmd2.on_read 2" \[0m
+2026-09-02T09:42:27.4028900Z [36;1m  -o "breakpoint set --name write" \[0m
+2026-09-02T09:42:27.4030720Z [36;1m  -o "breakpoint command add --script-type python -F bpcmd2.on_write 3" \[0m
+2026-09-02T09:42:27.4032100Z [36;1m  -o "continue" \[0m
+2026-09-02T09:42:27.4032860Z [36;1m  > out/90-ipc.txt 2>&1[0m
+2026-09-02T09:42:27.4034180Z [36;1mgrep -E "^(READ|WRITE)" out/90-ipc.txt | tee out/90-ipc-clean.txt[0m
+2026-09-02T09:42:27.4035440Z [36;1mecho "--- counts ---"[0m
+2026-09-02T09:42:27.4036250Z [36;1mgrep -c "^READ" out/90-ipc.txt || true[0m
+2026-09-02T09:42:27.4037280Z [36;1mgrep -c "^WRITE" out/90-ipc.txt || true[0m
+2026-09-02T09:42:27.4038170Z [36;1mecho "--- tail of raw ---"[0m
+2026-09-02T09:42:27.4038940Z [36;1mtail -20 out/90-ipc.txt[0m
+2026-09-02T09:42:27.4098190Z shell: /bin/bash -e {0}
+2026-09-02T09:42:27.4099010Z env:
+2026-09-02T09:42:27.4099620Z   TC: 
+2026-09-02T09:42:27.4100280Z ##[endgroup]
+2026-09-02T09:42:33.5550560Z --- counts ---
+2026-09-02T09:42:33.5588210Z 0
+2026-09-02T09:42:33.5636520Z 0
+2026-09-02T09:42:33.5638310Z --- tail of raw ---
+2026-09-02T09:42:33.5698380Z     0x100000a68 <+72>: cbz    w8, 0x100000ac8           ; <+168>
+2026-09-02T09:42:33.5701010Z Breakpoint 2: 4 locations.
+2026-09-02T09:42:33.5738470Z (lldb) breakpoint command add --script-type python -F bpcmd2.on_read 2
+2026-09-02T09:42:33.5755430Z (lldb) breakpoint set --name write
+2026-09-02T09:42:33.5764940Z Breakpoint 3: 3 locations.
+2026-09-02T09:42:33.5771500Z (lldb) breakpoint command add --script-type python -F bpcmd2.on_write 3
+2026-09-02T09:42:33.5772640Z (lldb) continue
+2026-09-02T09:42:33.5773540Z Traceback (most recent call last):
+2026-09-02T09:42:33.5784880Z   File "<string>", line 8, in lldb_autogen_python_bp_callback_func__0
+2026-09-02T09:42:33.5785710Z KeyError: 'lldb_autogen_python_bp_callback_func__2'
+2026-09-02T09:42:33.5786090Z Process 3243 resuming
+2026-09-02T09:42:33.5786530Z Process 3243 stopped
+2026-09-02T09:42:33.5786790Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 2.2
+2026-09-02T09:42:33.5787290Z     frame #0: 0x000000018102e7d4 libsystem_kernel.dylib`read
+2026-09-02T09:42:33.5793770Z libsystem_kernel.dylib`read:
+2026-09-02T09:42:33.5794130Z ->  0x18102e7d4 <+0>:  mov    x16, #0x3                 ; =3 
+2026-09-02T09:42:33.5795210Z     0x18102e7d8 <+4>:  svc    #0x80
+2026-09-02T09:42:33.5796490Z     0x18102e7dc <+8>:  b.lo   0x18102e7fc               ; <+40>
+2026-09-02T09:42:33.5797780Z     0x18102e7e0 <+12>: pacibsp 
+2026-09-02T09:42:33.5798110Z Target 0: (challenge.bin) stopped.

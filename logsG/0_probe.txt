@@ -1,0 +1,211 @@
+﻿2026-09-02T09:42:21.9935720Z Current runner version: '2.336.0'
+2026-09-02T09:42:22.0032960Z ##[group]Runner Image Provisioner
+2026-09-02T09:42:22.0034550Z Hosted Compute Agent
+2026-09-02T09:42:22.0035520Z Version: 20260707.563
+2026-09-02T09:42:22.0036660Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-09-02T09:42:22.0037930Z Build Date: 2026-07-07T19:33:50Z
+2026-09-02T09:42:22.0039100Z Worker ID: {f6c60f43-319d-4582-b985-5bb7e97a31ec}
+2026-09-02T09:42:22.0040310Z Azure Region: westus
+2026-09-02T09:42:22.0041260Z ##[endgroup]
+2026-09-02T09:42:22.0044150Z ##[group]Operating System
+2026-09-02T09:42:22.0045200Z macOS
+2026-09-02T09:42:22.0046020Z 15.7.7
+2026-09-02T09:42:22.0048670Z 24G720
+2026-09-02T09:42:22.0049590Z ##[endgroup]
+2026-09-02T09:42:22.0050530Z ##[group]Runner Image
+2026-09-02T09:42:22.0051500Z Image: macos-15-arm64
+2026-09-02T09:42:22.0052480Z Version: 20260727.0256.1
+2026-09-02T09:42:22.0054820Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20260727.0256/images/macos/macos-15-arm64-Readme.md
+2026-09-02T09:42:22.0057670Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20260727.0256
+2026-09-02T09:42:22.0059420Z ##[endgroup]
+2026-09-02T09:42:22.0061630Z ##[group]GITHUB_TOKEN Permissions
+2026-09-02T09:42:22.0070520Z Contents: read
+2026-09-02T09:42:22.0070970Z Metadata: read
+2026-09-02T09:42:22.0072300Z Packages: read
+2026-09-02T09:42:22.0072700Z ##[endgroup]
+2026-09-02T09:42:22.0074520Z Secret source: Actions
+2026-09-02T09:42:22.0075200Z Prepare workflow directory
+2026-09-02T09:42:22.0478390Z Prepare all required actions
+2026-09-02T09:42:22.0515200Z Getting action download info
+2026-09-02T09:42:22.4583010Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-02T09:42:22.7652340Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-02T09:42:23.0169740Z Complete job name: probe
+2026-09-02T09:42:23.0766970Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T09:42:23.0775210Z ##[group]Run actions/checkout@v4
+2026-09-02T09:42:23.0776100Z with:
+2026-09-02T09:42:23.0776450Z   repository: lxc20120105/nepctf-1123-probe
+2026-09-02T09:42:23.0780200Z   token: ***
+2026-09-02T09:42:23.0780580Z   ssh-strict: true
+2026-09-02T09:42:23.0780910Z   ssh-user: git
+2026-09-02T09:42:23.0781240Z   persist-credentials: true
+2026-09-02T09:42:23.0781600Z   clean: true
+2026-09-02T09:42:23.0781940Z   sparse-checkout-cone-mode: true
+2026-09-02T09:42:23.0782320Z   fetch-depth: 1
+2026-09-02T09:42:23.0782640Z   fetch-tags: false
+2026-09-02T09:42:23.0782970Z   show-progress: true
+2026-09-02T09:42:23.0783300Z   lfs: false
+2026-09-02T09:42:23.0783660Z   submodules: false
+2026-09-02T09:42:23.0784480Z   set-safe-directory: true
+2026-09-02T09:42:23.0784870Z   allow-unsafe-pr-checkout: false
+2026-09-02T09:42:23.0785700Z ##[endgroup]
+2026-09-02T09:42:23.5660370Z Syncing repository: lxc20120105/nepctf-1123-probe
+2026-09-02T09:42:23.5662150Z ##[group]Getting Git version info
+2026-09-02T09:42:23.5662820Z Working directory is '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe'
+2026-09-02T09:42:23.5663700Z [command]/opt/homebrew/bin/git version
+2026-09-02T09:42:23.6291690Z git version 2.55.0
+2026-09-02T09:42:23.6313910Z ##[endgroup]
+2026-09-02T09:42:23.6323980Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/81fdb6a3-5c11-44c2-a0f9-e14286644629/.gitconfig'
+2026-09-02T09:42:23.6340250Z Temporarily overriding HOME='/Users/runner/work/_temp/81fdb6a3-5c11-44c2-a0f9-e14286644629' before making global git config changes
+2026-09-02T09:42:23.6341990Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-02T09:42:23.6347990Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T09:42:23.6493030Z Deleting the contents of '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe'
+2026-09-02T09:42:23.6500110Z ##[group]Initializing the repository
+2026-09-02T09:42:23.6503390Z [command]/opt/homebrew/bin/git init /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T09:42:23.6798820Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-02T09:42:23.6801520Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-02T09:42:23.6803550Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-02T09:42:23.6805280Z hint: call:
+2026-09-02T09:42:23.6806160Z hint:
+2026-09-02T09:42:23.6807290Z hint: 	git config --global init.defaultBranch <name>
+2026-09-02T09:42:23.6808550Z hint:
+2026-09-02T09:42:23.6810050Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-02T09:42:23.6811090Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-02T09:42:23.6811690Z hint:
+2026-09-02T09:42:23.6812160Z hint: 	git branch -m <name>
+2026-09-02T09:42:23.6812690Z hint:
+2026-09-02T09:42:23.6813380Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-02T09:42:23.6814390Z Initialized empty Git repository in /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/.git/
+2026-09-02T09:42:23.6817170Z [command]/opt/homebrew/bin/git remote add origin https://github.com/lxc20120105/nepctf-1123-probe
+2026-09-02T09:42:23.6923560Z ##[endgroup]
+2026-09-02T09:42:23.6924500Z ##[group]Disabling automatic garbage collection
+2026-09-02T09:42:23.6930240Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+2026-09-02T09:42:23.7018670Z ##[endgroup]
+2026-09-02T09:42:23.7019580Z ##[group]Setting up auth
+2026-09-02T09:42:23.7023400Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-02T09:42:23.7103000Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-02T09:42:23.8403300Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-02T09:42:23.8501070Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-02T09:42:23.9524310Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-02T09:42:23.9865580Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-02T09:42:24.0849680Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-02T09:42:24.0944240Z ##[endgroup]
+2026-09-02T09:42:24.0957840Z ##[group]Fetching the repository
+2026-09-02T09:42:24.0959350Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +58cd8563ceef47f271b063f6fa96cdcc0d765ca9:refs/remotes/origin/main
+2026-09-02T09:42:24.6476350Z From https://github.com/lxc20120105/nepctf-1123-probe
+2026-09-02T09:42:24.6478260Z  * [new ref]         58cd8563ceef47f271b063f6fa96cdcc0d765ca9 -> origin/main
+2026-09-02T09:42:24.6482120Z ##[endgroup]
+2026-09-02T09:42:24.6483870Z ##[group]Determining the checkout info
+2026-09-02T09:42:24.6485690Z ##[endgroup]
+2026-09-02T09:42:24.6487710Z [command]/opt/homebrew/bin/git sparse-checkout disable
+2026-09-02T09:42:24.6576920Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-02T09:42:24.6648780Z ##[group]Checking out the ref
+2026-09-02T09:42:24.6650890Z [command]/opt/homebrew/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-02T09:42:24.7011580Z Switched to a new branch 'main'
+2026-09-02T09:42:24.7026250Z branch 'main' set up to track 'origin/main'.
+2026-09-02T09:42:24.7031450Z ##[endgroup]
+2026-09-02T09:42:24.7621930Z [command]/opt/homebrew/bin/git log -1 --format=%H
+2026-09-02T09:42:24.7730530Z 58cd8563ceef47f271b063f6fa96cdcc0d765ca9
+2026-09-02T09:42:24.8529430Z ##[group]Run TC=$(command -v gtimeout || command -v timeout || echo "")
+2026-09-02T09:42:24.8530220Z [36;1mTC=$(command -v gtimeout || command -v timeout || echo "")[0m
+2026-09-02T09:42:24.8530840Z [36;1mecho "TC=$TC" >> $GITHUB_ENV[0m
+2026-09-02T09:42:24.8531240Z [36;1mmkdir -p out[0m
+2026-09-02T09:42:24.8531610Z [36;1mxattr -cr bin/ 2>&1 || true[0m
+2026-09-02T09:42:24.8532300Z [36;1mcodesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T09:42:24.8532810Z [36;1mchmod +x bin/challenge.bin[0m
+2026-09-02T09:42:24.8533490Z [36;1msudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true[0m
+2026-09-02T09:42:24.8597080Z shell: /bin/bash -e {0}
+2026-09-02T09:42:24.8598420Z ##[endgroup]
+2026-09-02T09:42:24.9147110Z bin/challenge.bin: replacing existing signature
+2026-09-02T09:42:27.4017220Z ##[group]Run set +e
+2026-09-02T09:42:27.4018100Z [36;1mset +e[0m
+2026-09-02T09:42:27.4018750Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T09:42:27.4019780Z [36;1m  -o "command script import bpcmd2.py" \[0m
+2026-09-02T09:42:27.4020820Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T09:42:27.4021960Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T09:42:27.4023220Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T09:42:27.4024490Z [36;1m  -o "thread return 0" \[0m
+2026-09-02T09:42:27.4025340Z [36;1m  -o "breakpoint delete 1" \[0m
+2026-09-02T09:42:27.4026230Z [36;1m  -o "breakpoint set --name read" \[0m
+2026-09-02T09:42:27.4027510Z [36;1m  -o "breakpoint command add --script-type python -F bpcmd2.on_read 2" \[0m
+2026-09-02T09:42:27.4028910Z [36;1m  -o "breakpoint set --name write" \[0m
+2026-09-02T09:42:27.4030800Z [36;1m  -o "breakpoint command add --script-type python -F bpcmd2.on_write 3" \[0m
+2026-09-02T09:42:27.4032100Z [36;1m  -o "continue" \[0m
+2026-09-02T09:42:27.4032880Z [36;1m  > out/90-ipc.txt 2>&1[0m
+2026-09-02T09:42:27.4034200Z [36;1mgrep -E "^(READ|WRITE)" out/90-ipc.txt | tee out/90-ipc-clean.txt[0m
+2026-09-02T09:42:27.4035450Z [36;1mecho "--- counts ---"[0m
+2026-09-02T09:42:27.4036260Z [36;1mgrep -c "^READ" out/90-ipc.txt || true[0m
+2026-09-02T09:42:27.4037290Z [36;1mgrep -c "^WRITE" out/90-ipc.txt || true[0m
+2026-09-02T09:42:27.4038170Z [36;1mecho "--- tail of raw ---"[0m
+2026-09-02T09:42:27.4038950Z [36;1mtail -20 out/90-ipc.txt[0m
+2026-09-02T09:42:27.4098250Z shell: /bin/bash -e {0}
+2026-09-02T09:42:27.4099010Z env:
+2026-09-02T09:42:27.4099630Z   TC: 
+2026-09-02T09:42:27.4100290Z ##[endgroup]
+2026-09-02T09:42:33.5550770Z --- counts ---
+2026-09-02T09:42:33.5588270Z 0
+2026-09-02T09:42:33.5636580Z 0
+2026-09-02T09:42:33.5638320Z --- tail of raw ---
+2026-09-02T09:42:33.5698440Z     0x100000a68 <+72>: cbz    w8, 0x100000ac8           ; <+168>
+2026-09-02T09:42:33.5701110Z Breakpoint 2: 4 locations.
+2026-09-02T09:42:33.5738520Z (lldb) breakpoint command add --script-type python -F bpcmd2.on_read 2
+2026-09-02T09:42:33.5755490Z (lldb) breakpoint set --name write
+2026-09-02T09:42:33.5764960Z Breakpoint 3: 3 locations.
+2026-09-02T09:42:33.5771510Z (lldb) breakpoint command add --script-type python -F bpcmd2.on_write 3
+2026-09-02T09:42:33.5772640Z (lldb) continue
+2026-09-02T09:42:33.5773550Z Traceback (most recent call last):
+2026-09-02T09:42:33.5784990Z   File "<string>", line 8, in lldb_autogen_python_bp_callback_func__0
+2026-09-02T09:42:33.5785710Z KeyError: 'lldb_autogen_python_bp_callback_func__2'
+2026-09-02T09:42:33.5786230Z Process 3243 resuming
+2026-09-02T09:42:33.5786530Z Process 3243 stopped
+2026-09-02T09:42:33.5786790Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 2.2
+2026-09-02T09:42:33.5787300Z     frame #0: 0x000000018102e7d4 libsystem_kernel.dylib`read
+2026-09-02T09:42:33.5793770Z libsystem_kernel.dylib`read:
+2026-09-02T09:42:33.5794140Z ->  0x18102e7d4 <+0>:  mov    x16, #0x3                 ; =3 
+2026-09-02T09:42:33.5795260Z     0x18102e7d8 <+4>:  svc    #0x80
+2026-09-02T09:42:33.5796490Z     0x18102e7dc <+8>:  b.lo   0x18102e7fc               ; <+40>
+2026-09-02T09:42:33.5797800Z     0x18102e7e0 <+12>: pacibsp 
+2026-09-02T09:42:33.5798110Z Target 0: (challenge.bin) stopped.
+2026-09-02T09:42:33.5900390Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T09:42:33.5905350Z ##[group]Run actions/upload-artifact@v4
+2026-09-02T09:42:33.5906450Z with:
+2026-09-02T09:42:33.5907100Z   name: probe-output
+2026-09-02T09:42:33.5907760Z   path: out/
+2026-09-02T09:42:33.5908330Z   if-no-files-found: warn
+2026-09-02T09:42:33.5909070Z   compression-level: 6
+2026-09-02T09:42:33.5909640Z   overwrite: false
+2026-09-02T09:42:33.5910410Z   include-hidden-files: false
+2026-09-02T09:42:33.5911080Z env:
+2026-09-02T09:42:33.5911610Z   TC: 
+2026-09-02T09:42:33.5912060Z ##[endgroup]
+2026-09-02T09:42:33.8564370Z (node:3265) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-02T09:42:33.8565560Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-02T09:42:33.8607460Z With the provided path, there will be 2 files uploaded
+2026-09-02T09:42:33.8616520Z Artifact name is valid!
+2026-09-02T09:42:33.8617480Z Root directory input is valid!
+2026-09-02T09:42:34.2680550Z Beginning upload of artifact content to blob storage
+2026-09-02T09:42:34.3191340Z (node:3265) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-02T09:42:34.6041190Z Uploaded bytes 1134
+2026-09-02T09:42:34.6764780Z Finished uploading artifact content to blob storage!
+2026-09-02T09:42:34.6766820Z SHA256 digest of uploaded artifact zip is c5fd24ed04829b997d1935416217336c19b07863ec89d770e8b2c5c6d29a8253
+2026-09-02T09:42:34.6768190Z Finalizing artifact upload
+2026-09-02T09:42:34.9637590Z Artifact probe-output.zip successfully finalized. Artifact ID 9840765867
+2026-09-02T09:42:34.9638400Z Artifact probe-output has been successfully uploaded! Final size is 1134 bytes. Artifact ID is 9840765867
+2026-09-02T09:42:34.9748470Z Artifact download URL: https://github.com/lxc20120105/nepctf-1123-probe/actions/runs/33615567162/artifacts/9840765867
+2026-09-02T09:42:35.0099950Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T09:42:35.0103250Z Post job cleanup.
+2026-09-02T09:42:35.1439850Z [command]/opt/homebrew/bin/git version
+2026-09-02T09:42:35.1582080Z git version 2.55.0
+2026-09-02T09:42:35.1611550Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/773ac6fd-1abe-4199-8101-551bc15ae56a/.gitconfig'
+2026-09-02T09:42:35.1624680Z Temporarily overriding HOME='/Users/runner/work/_temp/773ac6fd-1abe-4199-8101-551bc15ae56a' before making global git config changes
+2026-09-02T09:42:35.1703820Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-02T09:42:35.1830970Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T09:42:35.2183580Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-02T09:42:35.2263790Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-02T09:42:35.3390990Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-02T09:42:35.3491540Z http.https://github.com/.extraheader
+2026-09-02T09:42:35.3590340Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-02T09:42:35.3622500Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-02T09:42:35.5174090Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-02T09:42:35.5480110Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-02T09:42:35.6671600Z Cleaning up orphan processes
+2026-09-02T09:42:36.3451150Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -36,6 +36,8 @@ jobs:
             -o "breakpoint command add --script-type python -F bpcmd2.on_read 2" \
             -o "breakpoint set --name write" \
             -o "breakpoint command add --script-type python -F bpcmd2.on_write 3" \
+            -o "breakpoint set --name _write" \
+            -o "breakpoint command add --script-type python -F bpcmd2.on_stdout 4" \
             -o "continue" \
             > out/90-ipc.txt 2>&1
           grep -E "^(READ|WRITE)" out/90-ipc.txt | tee out/90-ipc-clean.txt
