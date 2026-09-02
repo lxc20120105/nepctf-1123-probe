@@ -20,74 +20,46 @@ jobs:
           codesign -s - --force bin/challenge.bin 2>&1 || true
           chmod +x bin/challenge.bin
           sudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true
-
-      - name: 2 - 用 python 回调拦截管道写入
-        continue-on-error: true
-        run: |
-          set +e
           cat > bpcmd.py <<'PYEOF'
           import lldb, sys
           def on_write(frame, bp_loc, dict):
               x0 = frame.FindRegister("x0").GetValueAsUnsigned()
               x1 = frame.FindRegister("x1").GetValueAsUnsigned()
               x2 = frame.FindRegister("x2").GetValueAsUnsigned()
-              if x0 <= 2:
+              if x0 <= 2 or x2 > 64:
                   return False
               proc = frame.GetThread().GetProcess()
               err = lldb.SBError()
-              n = min(x2, 64)
-              data = proc.ReadMemory(x1, n, err)
+              data = proc.ReadMemory(x1, x2, err)
               hexs = data.hex() if not err.Fail() else 'READ_ERR'
-              print('WRITE pc=0x%x fd=%d n=%d %s' % (frame.GetPC(), x0, x2, hexs))
+              print('WRITE fd=%d n=%d %s' % (x0, x2, hexs))
               sys.stdout.flush()
               return False
           PYEOF
-          ${TC:+$TC 400} lldb -b \
-            -o "command script import bpcmd.py" \
-            -o "target create bin/challenge.bin" \
-            -o "breakpoint set --name ptrace" \
-            -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
-            -o "thread return 0" \
-            -o "breakpoint delete 1" \
-            -o "breakpoint set --name write" \
-            -o "breakpoint command add --script-type python -F bpcmd.on_write 2" \
-            -o "continue" \
-            > out/50-write.txt 2>&1
-          grep -E "^WRITE" out/50-write.txt | tee out/50-write-clean.txt
-          echo "--- total ---"
-          grep -c "^WRITE" out/50-write.txt || true
 
-      - name: 3 - 拦截 posix_spawn 看启动的文件
+      - name: 2 - 差分实验 (改变 flag 首字节看数据如何变)
         continue-on-error: true
         run: |
           set +e
-          cat > bpspawn.py <<'PYEOF'
-          import lldb, sys
-          def on_spawn(frame, bp_loc, dict):
-              x1 = frame.FindRegister("x1").GetValueAsUnsigned()
-              proc = frame.GetThread().GetProcess()
-              err = lldb.SBError()
-              data = proc.ReadMemory(x1, 96, err)
-              raw = bytes(data) if not err.Fail() else b''
-              s = raw.split(b'\x00')[0].decode('utf-8', 'replace')
-              print('SPAWN path=%s pc=0x%x' % (s, frame.GetPC()))
-              sys.stdout.flush()
-              return False
-          PYEOF
-          ${TC:+$TC 400} lldb -b \
-            -o "command script import bpspawn.py" \
-            -o "target create bin/challenge.bin" \
-            -o "breakpoint set --name ptrace" \
-            -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
-            -o "thread return 0" \
-            -o "breakpoint delete 1" \
-            -o "breakpoint set --name posix_spawn" \
-            -o "breakpoint command add --script-type python -F bpspawn.on_spawn 2" \
-            -o "continue" \
-            > out/51-spawn.txt 2>&1
-          grep -E "^SPAWN" out/51-spawn.txt || head -c 5000 out/51-spawn.txt
+          run_case() {
+            echo "=== FLAG: $1 ==="
+            ${TC:+$TC 200} lldb -b \
+              -o "command script import bpcmd.py" \
+              -o "target create bin/challenge.bin" \
+              -o "breakpoint set --name ptrace" \
+              -o "process launch -- '$1'" \
+              -o "thread return 0" \
+              -o "breakpoint delete 1" \
+              -o "breakpoint set --name write" \
+              -o "breakpoint command add --script-type python -F bpcmd.on_write 2" \
+              -o "continue" 2>&1 | grep -E "^WRITE|Access|usage"
+          }
+          run_case 'NepCTF{00000000000000000000000000000000}' | tee out/60-diff.txt
+          run_case 'NepCTF{10000000000000000000000000000000}' | tee -a out/60-diff.txt
+          run_case 'NepCTF{01000000000000000000000000000000}' | tee -a out/60-diff.txt
+          run_case 'NepCTF{00000000000000000000000000000001}' | tee -a out/60-diff.txt
 
-      - name: 4 - 上传全部输出
+      - name: 3 - 上传
         if: always()
         uses: actions/upload-artifact@v4
         with:

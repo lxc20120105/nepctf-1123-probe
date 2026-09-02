@@ -1,0 +1,33 @@
+﻿2026-09-02T09:02:22.1988690Z ##[group]Run set +e
+2026-09-02T09:02:22.1988940Z [36;1mset +e[0m
+2026-09-02T09:02:22.1989140Z [36;1mcat > bpspawn.py <<'PYEOF'[0m
+2026-09-02T09:02:22.1989370Z [36;1mimport lldb, sys[0m
+2026-09-02T09:02:22.1989610Z [36;1mdef on_spawn(frame, bp_loc, dict):[0m
+2026-09-02T09:02:22.1989920Z [36;1m    x1 = frame.FindRegister("x1").GetValueAsUnsigned()[0m
+2026-09-02T09:02:22.1990230Z [36;1m    proc = frame.GetThread().GetProcess()[0m
+2026-09-02T09:02:22.1990510Z [36;1m    err = lldb.SBError()[0m
+2026-09-02T09:02:22.1990750Z [36;1m    data = proc.ReadMemory(x1, 96, err)[0m
+2026-09-02T09:02:22.1991040Z [36;1m    raw = bytes(data) if not err.Fail() else b''[0m
+2026-09-02T09:02:22.1991360Z [36;1m    s = raw.split(b'\x00')[0].decode('utf-8', 'replace')[0m
+2026-09-02T09:02:22.1991720Z [36;1m    print('SPAWN path=%s pc=0x%x' % (s, frame.GetPC()))[0m
+2026-09-02T09:02:22.1992020Z [36;1m    sys.stdout.flush()[0m
+2026-09-02T09:02:22.1992220Z [36;1m    return False[0m
+2026-09-02T09:02:22.1992410Z [36;1mPYEOF[0m
+2026-09-02T09:02:22.1992650Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T09:02:22.1992920Z [36;1m  -o "command script import bpspawn.py" \[0m
+2026-09-02T09:02:22.1993200Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T09:02:22.1993480Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T09:02:22.1993820Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T09:02:22.1994160Z [36;1m  -o "thread return 0" \[0m
+2026-09-02T09:02:22.1994370Z [36;1m  -o "breakpoint delete 1" \[0m
+2026-09-02T09:02:22.1994630Z [36;1m  -o "breakpoint set --name posix_spawn" \[0m
+2026-09-02T09:02:22.1995020Z [36;1m  -o "breakpoint command add --script-type python -F bpspawn.on_spawn 2" \[0m
+2026-09-02T09:02:22.1995360Z [36;1m  -o "continue" \[0m
+2026-09-02T09:02:22.1995580Z [36;1m  > out/51-spawn.txt 2>&1[0m
+2026-09-02T09:02:22.1995880Z [36;1mgrep -E "^SPAWN" out/51-spawn.txt || head -c 5000 out/51-spawn.txt[0m
+2026-09-02T09:02:22.2027340Z shell: /bin/bash -e {0}
+2026-09-02T09:02:22.2027580Z env:
+2026-09-02T09:02:22.2027740Z   TC: 
+2026-09-02T09:02:22.2027880Z ##[endgroup]
+2026-09-02T09:02:23.7427490Z SPAWN path=/tmp/.udx_rC6MGq pc=0x18f540bf8
+2026-09-02T09:02:23.7428870Z SPAWN path=/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin pc=0x18f540bf8
