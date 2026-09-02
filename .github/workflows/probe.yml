@@ -20,13 +20,15 @@ jobs:
             echo "=== arch ==="; uname -m
             echo "=== cpu ==="; sysctl -n machdep.cpu.brand_string 2>/dev/null || true
           } 2>&1 | tee out/01-env.txt
+          TC=$(command -v gtimeout || command -v timeout || echo "")
+          echo "=== timeout cmd === [$TC]"
+          echo "TC=$TC" >> $GITHUB_ENV
 
       - name: 2 - 二进制信息
         run: |
           {
             echo "=== file ==="; file bin/challenge.bin
             echo "=== lipo archs ==="; lipo -archs bin/challenge.bin 2>&1
-            echo "=== mach headers ==="; otool -hv bin/challenge.bin 2>&1
             echo "=== dylibs ==="; otool -L bin/challenge.bin 2>&1
           } 2>&1 | tee out/02-binary.txt
 
@@ -41,32 +43,31 @@ jobs:
         continue-on-error: true
         run: |
           {
-            echo "=== xattr before ==="; xattr -l bin/challenge.bin 2>&1 || true
             xattr -cr bin/ 2>&1 || true
             codesign -s - --force bin/challenge.bin 2>&1 || true
             chmod +x bin/challenge.bin
-            echo "=== xattr after ==="; xattr -l bin/challenge.bin 2>&1 || true
-            echo "=== codesign ==="; codesign -dvvv bin/challenge.bin 2>&1 || true
+            echo "=== codesign ==="; codesign -dvvv bin/challenge.bin 2>&1 | head -6 || true
+            ls -l bin/challenge.bin
           } 2>&1 | tee out/04-sign.txt
 
       - name: 5 - 无参数试跑
         continue-on-error: true
         run: |
-          timeout 120 ./bin/challenge.bin < /dev/null > out/05-noparam.txt 2>&1
+          ${TC:+$TC 120} ./bin/challenge.bin < /dev/null > out/05-noparam.txt 2>&1
           echo "exit=$?" >> out/05-noparam.txt
           cat out/05-noparam.txt
 
       - name: 6 - 候选 flag 试跑 (argv)
         continue-on-error: true
         run: |
-          timeout 120 ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/06-argv.txt 2>&1
+          ${TC:+$TC 120} ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/06-argv.txt 2>&1
           echo "exit=$?" >> out/06-argv.txt
           cat out/06-argv.txt
 
       - name: 7 - 候选 flag 试跑 (stdin)
         continue-on-error: true
         run: |
-          echo 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' | timeout 120 ./bin/challenge.bin > out/07-stdin.txt 2>&1
+          echo 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' | ${TC:+$TC 120} ./bin/challenge.bin > out/07-stdin.txt 2>&1
           echo "exit=$?" >> out/07-stdin.txt
           cat out/07-stdin.txt
 
@@ -86,7 +87,7 @@ jobs:
         continue-on-error: true
         run: |
           export DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"
-          timeout 180 ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/09-hooked.txt 2>&1
+          ${TC:+$TC 180} ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/09-hooked.txt 2>&1
           echo "exit=$?" >> out/09-hooked.txt
           cat out/09-hooked.txt
 
@@ -94,7 +95,7 @@ jobs:
         continue-on-error: true
         run: |
           export DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"
-          timeout 400 lldb -b \
+          ${TC:+$TC 400} lldb -b \
             -o "target create bin/challenge.bin" \
             -o "breakpoint set --address 0x100002358" \
             -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
