@@ -1,0 +1,75 @@
+﻿2026-09-02T08:55:02.7459350Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T08:55:02.7465130Z ##[group]Run actions/checkout@v4
+2026-09-02T08:55:02.7465580Z with:
+2026-09-02T08:55:02.7465910Z   repository: lxc20120105/nepctf-1123-probe
+2026-09-02T08:55:02.7468430Z   token: ***
+2026-09-02T08:55:02.7468730Z   ssh-strict: true
+2026-09-02T08:55:02.7469030Z   ssh-user: git
+2026-09-02T08:55:02.7469340Z   persist-credentials: true
+2026-09-02T08:55:02.7469670Z   clean: true
+2026-09-02T08:55:02.7469980Z   sparse-checkout-cone-mode: true
+2026-09-02T08:55:02.7470330Z   fetch-depth: 1
+2026-09-02T08:55:02.7470630Z   fetch-tags: false
+2026-09-02T08:55:02.7470930Z   show-progress: true
+2026-09-02T08:55:02.7471240Z   lfs: false
+2026-09-02T08:55:02.7471530Z   submodules: false
+2026-09-02T08:55:02.7471860Z   set-safe-directory: true
+2026-09-02T08:55:02.7472220Z   allow-unsafe-pr-checkout: false
+2026-09-02T08:55:02.7472670Z ##[endgroup]
+2026-09-02T08:55:03.0900320Z Syncing repository: lxc20120105/nepctf-1123-probe
+2026-09-02T08:55:03.0901880Z ##[group]Getting Git version info
+2026-09-02T08:55:03.0902560Z Working directory is '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe'
+2026-09-02T08:55:03.0903370Z [command]/opt/homebrew/bin/git version
+2026-09-02T08:55:03.1444440Z git version 2.55.0
+2026-09-02T08:55:03.1461780Z ##[endgroup]
+2026-09-02T08:55:03.1471360Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/20f3bfd2-0c05-4d61-8d14-cce71c476e31/.gitconfig'
+2026-09-02T08:55:03.1476360Z Temporarily overriding HOME='/Users/runner/work/_temp/20f3bfd2-0c05-4d61-8d14-cce71c476e31' before making global git config changes
+2026-09-02T08:55:03.1477500Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-02T08:55:03.1479920Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T08:55:03.1593980Z Deleting the contents of '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe'
+2026-09-02T08:55:03.1596660Z ##[group]Initializing the repository
+2026-09-02T08:55:03.1600680Z [command]/opt/homebrew/bin/git init /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T08:55:03.1807930Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-02T08:55:03.1810350Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-02T08:55:03.1813620Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-02T08:55:03.1814410Z hint: call:
+2026-09-02T08:55:03.1814990Z hint:
+2026-09-02T08:55:03.1815640Z hint: 	git config --global init.defaultBranch <name>
+2026-09-02T08:55:03.1816420Z hint:
+2026-09-02T08:55:03.1817290Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-02T08:55:03.1818150Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-02T08:55:03.1834280Z hint:
+2026-09-02T08:55:03.1834860Z hint: 	git branch -m <name>
+2026-09-02T08:55:03.1835970Z hint:
+2026-09-02T08:55:03.1836680Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-02T08:55:03.1837670Z Initialized empty Git repository in /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/.git/
+2026-09-02T08:55:03.1839550Z [command]/opt/homebrew/bin/git remote add origin https://github.com/lxc20120105/nepctf-1123-probe
+2026-09-02T08:55:03.1888190Z ##[endgroup]
+2026-09-02T08:55:03.1888850Z ##[group]Disabling automatic garbage collection
+2026-09-02T08:55:03.1890760Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+2026-09-02T08:55:03.1944300Z ##[endgroup]
+2026-09-02T08:55:03.1944840Z ##[group]Setting up auth
+2026-09-02T08:55:03.1948970Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-02T08:55:03.2002930Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-02T08:55:03.2911370Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-02T08:55:03.2958400Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-02T08:55:03.3644160Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-02T08:55:03.3725030Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-02T08:55:03.5004480Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-02T08:55:03.5017530Z ##[endgroup]
+2026-09-02T08:55:03.5019340Z ##[group]Fetching the repository
+2026-09-02T08:55:03.5022350Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +f4cb0b26029db0d942f06e222dc9269de831cd44:refs/remotes/origin/main
+2026-09-02T08:55:03.9905880Z From https://github.com/lxc20120105/nepctf-1123-probe
+2026-09-02T08:55:03.9907000Z  * [new ref]         f4cb0b26029db0d942f06e222dc9269de831cd44 -> origin/main
+2026-09-02T08:55:03.9908950Z ##[endgroup]
+2026-09-02T08:55:03.9909710Z ##[group]Determining the checkout info
+2026-09-02T08:55:03.9910610Z ##[endgroup]
+2026-09-02T08:55:03.9911230Z [command]/opt/homebrew/bin/git sparse-checkout disable
+2026-09-02T08:55:03.9974900Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-02T08:55:04.0030090Z ##[group]Checking out the ref
+2026-09-02T08:55:04.0032050Z [command]/opt/homebrew/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-02T08:55:04.0534870Z Switched to a new branch 'main'
+2026-09-02T08:55:04.0540000Z branch 'main' set up to track 'origin/main'.
+2026-09-02T08:55:04.0542590Z ##[endgroup]
+2026-09-02T08:55:04.0610720Z [command]/opt/homebrew/bin/git log -1 --format=%H
+2026-09-02T08:55:04.0660790Z f4cb0b26029db0d942f06e222dc9269de831cd44

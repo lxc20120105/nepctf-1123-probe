@@ -1,0 +1,11 @@
+﻿2026-09-02T08:55:04.0842650Z ##[group]Run TC=$(command -v gtimeout || command -v timeout || echo "")
+2026-09-02T08:55:04.0844140Z [36;1mTC=$(command -v gtimeout || command -v timeout || echo "")[0m
+2026-09-02T08:55:04.0845230Z [36;1mecho "TC=$TC" >> $GITHUB_ENV[0m
+2026-09-02T08:55:04.0846010Z [36;1mmkdir -p out[0m
+2026-09-02T08:55:04.0846660Z [36;1mxattr -cr bin/ 2>&1 || true[0m
+2026-09-02T08:55:04.0847610Z [36;1mcodesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T08:55:04.0848610Z [36;1mchmod +x bin/challenge.bin[0m
+2026-09-02T08:55:04.0849860Z [36;1msudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true[0m
+2026-09-02T08:55:04.0890820Z shell: /bin/bash -e {0}
+2026-09-02T08:55:04.0891610Z ##[endgroup]
+2026-09-02T08:55:04.1223370Z bin/challenge.bin: replacing existing signature

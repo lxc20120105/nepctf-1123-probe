@@ -1,0 +1,39 @@
+﻿2026-09-02T08:55:11.9800310Z ##[group]Run set +e
+2026-09-02T08:55:11.9800560Z [36;1mset +e[0m
+2026-09-02T08:55:11.9800890Z [36;1mlipo bin/challenge.bin -thin x86_64 -output child_x86 2>&1 | tee out/30-lipo.txt[0m
+2026-09-02T08:55:11.9801330Z [36;1mcodesign -s - --force child_x86 2>&1 | tee -a out/30-lipo.txt[0m
+2026-09-02T08:55:11.9801660Z [36;1mchmod +x child_x86[0m
+2026-09-02T08:55:11.9802010Z [36;1mpython3 - <<'PYEOF' 2>&1 | tee out/31-determinism.txt[0m
+2026-09-02T08:55:11.9802310Z [36;1mimport subprocess[0m
+2026-09-02T08:55:11.9802550Z [36;1mdef drive(in1, in2, label):[0m
+2026-09-02T08:55:11.9802880Z [36;1m    p = subprocess.Popen(['arch','-x86_64','./child_x86'], stdin=subprocess.PIPE,[0m
+2026-09-02T08:55:11.9803370Z [36;1m                         stdout=subprocess.PIPE, stderr=subprocess.PIPE)[0m
+2026-09-02T08:55:11.9803650Z [36;1m    try:[0m
+2026-09-02T08:55:11.9803870Z [36;1m        p.stdin.write(in1); p.stdin.flush()[0m
+2026-09-02T08:55:11.9804170Z [36;1m        o1 = p.stdout.read(32)[0m
+2026-09-02T08:55:11.9804460Z [36;1m        p.stdin.write(in2); p.stdin.flush()[0m
+2026-09-02T08:55:11.9804710Z [36;1m        o2 = p.stdout.read(16)[0m
+2026-09-02T08:55:11.9805090Z [36;1m        print('%s: out1=%s out2=%s' % (label, o1.hex(), o2.hex()))[0m
+2026-09-02T08:55:11.9805390Z [36;1m    except Exception as e:[0m
+2026-09-02T08:55:11.9805650Z [36;1m        print(label, 'ERR', type(e).__name__, e)[0m
+2026-09-02T08:55:11.9805890Z [36;1m    finally:[0m
+2026-09-02T08:55:11.9806070Z [36;1m        try: p.kill()[0m
+2026-09-02T08:55:11.9806420Z [36;1m        except Exception: pass[0m
+2026-09-02T08:55:11.9806650Z [36;1mzero16 = bytes(16)[0m
+2026-09-02T08:55:11.9806870Z [36;1mseq16  = bytes(range(16))[0m
+2026-09-02T08:55:11.9807080Z [36;1mseq29  = bytes(range(29))[0m
+2026-09-02T08:55:11.9807280Z [36;1mfor i in range(3):[0m
+2026-09-02T08:55:11.9807490Z [36;1m    drive(zero16, seq29, 'zero16/run%d' % i)[0m
+2026-09-02T08:55:11.9807760Z [36;1mfor i in range(2):[0m
+2026-09-02T08:55:11.9807960Z [36;1m    drive(seq16, seq29, 'seq16/run%d' % i)[0m
+2026-09-02T08:55:11.9808230Z [36;1mPYEOF[0m
+2026-09-02T08:55:11.9857260Z shell: /bin/bash -e {0}
+2026-09-02T08:55:11.9857550Z env:
+2026-09-02T08:55:11.9857710Z   TC: 
+2026-09-02T08:55:11.9857970Z ##[endgroup]
+2026-09-02T08:55:12.4186880Z child_x86: replacing existing signature
+2026-09-02T08:55:12.9528890Z zero16/run0: out1=1396544ff9da7adf1ddd684cc72c7c4482e31ffdaed5c11050891f0dc57d4310 out2=1a51e72112ab437375c19e1150abdf30
+2026-09-02T08:55:12.9630710Z zero16/run1: out1=97210792478fbf760f69a3fe44d22b2382e31ffdaed5c11050891f0dc57d4310 out2=f1f1801aedbb8cfe174ef9b514593299
+2026-09-02T08:55:12.9700070Z zero16/run2: out1=4ad8b3f2dfbe357f93991ba1d9445fe382e31ffdaed5c11050891f0dc57d4310 out2=d02af90694486c601631afb00edb8528
+2026-09-02T08:55:12.9705650Z seq16/run0: out1=fd3096cec53e318f4c944e4ddecec2ce82e31ffdaed5c11050891f0dc57d4310 out2=68e27529f4a64d1f2efb5ee56b24cc85
+2026-09-02T08:55:12.9706640Z seq16/run1: out1=d942b993e767813a1f798a774ea3b23b82e31ffdaed5c11050891f0dc57d4310 out2=504cbef53aa7b1c62f5a4489fe06eae4
