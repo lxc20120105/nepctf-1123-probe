@@ -13,40 +13,45 @@ jobs:
 
       - name: 1 - 准备
         run: |
+          TC=$(command -v gtimeout || command -v timeout || echo "")
+          echo "TC=$TC" >> $GITHUB_ENV
           mkdir -p out
           xattr -cr bin/ 2>&1 || true
           codesign -s - --force bin/challenge.bin 2>&1 || true
-          chmod +x bin/challenge.bin
+          codesign -s - --force bin/stage1.bin 2>&1 || true
+          chmod +x bin/challenge.bin bin/stage1.bin
           sudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true
+          file bin/stage1.bin | tee out/80-stage1-info.txt
 
-      - name: 2 - 试 UUID 派生候选
+      - name: 2 - 运行解密出的 stage1 三次 (确定性检查)
         continue-on-error: true
         run: |
           set +e
-          for f in \
-            'NepCTF{ed93c5f9d215fe5be21f386702e21c20}' \
-            'NepCTF{099dfb82fc5eef2db97354cee1c5774d}' \
-            'NepCTF{82e31ffdaed5c11050891f0dc57d4310}' \
-            'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' \
-            'NepCTF{cffaedfe0700000103000000020000001}' ; do
-            printf '%s -> ' "$f"
-            OUT=$(./bin/challenge.bin "$f" < /dev/null 2>&1 | head -3)
-            echo "[$OUT]"
-          done | tee out/70-uuid-try.txt
+          for i in 1 2 3; do
+            printf 'run%s stdout: ' "$i"
+            ${TC:+$TC 60} arch -x86_64 ./bin/stage1.bin < /dev/null 2>out/81-err-$i.txt | xxd -p | tr -d '\n'
+            echo "  (rc=$?)"
+          done | tee out/81-stage1-run.txt
+          echo "--- stderr ---"
+          head -c 800 out/81-err-1.txt | tee out/81-stage1-err.txt
 
-      - name: 3 - UUID 大小写与反转变体
+      - name: 3 - 用 python 精确捕获 stage1 输出
         continue-on-error: true
         run: |
           set +e
-          for f in \
-            'NepCTF{ED93C5F9D215FE5BE21F386702E21C20}' \
-            'NepCTF{201ce2076738f12eb5ef51d2f9c593ed}' \
-            'NepCTF{4d5774c1ee45c37b92df2ee5fc82fb9d09}' \
-            'NepCTF{107443d5c0f10c5edff132e8cf1f3e28}' ; do
-            printf '%s -> ' "$f"
-            OUT=$(./bin/challenge.bin "$f" < /dev/null 2>&1 | head -3)
-            echo "[$OUT]"
-          done | tee out/71-uuid-var.txt
+          python3 - <<'PYEOF' 2>&1 | tee out/82-stage1-exact.txt
+          import subprocess
+          for i in range(3):
+              p = subprocess.Popen(['arch','-x86_64','./bin/stage1.bin'],
+                                   stdin=subprocess.DEVNULL,
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+              try:
+                  out, err = p.communicate(timeout=60)
+                  print('run%d rc=%d out(%d)=%s' % (i, p.returncode, len(out), out.hex()))
+                  if err: print('   err:', err[:200])
+              except subprocess.TimeoutExpired:
+                  p.kill(); print('run%d TIMEOUT' % i)
+          PYEOF
 
       - name: 4 - 上传
         if: always()
