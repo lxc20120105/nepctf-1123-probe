@@ -1,0 +1,32 @@
+﻿2026-09-02T08:50:11.5247510Z ##[group]Run set +e
+2026-09-02T08:50:11.5248670Z [36;1mset +e[0m
+2026-09-02T08:50:11.5249560Z [36;1mlipo bin/challenge.bin -thin arm64 -output child_arm 2>&1 | tee out/20-lipo-arm.txt[0m
+2026-09-02T08:50:11.5250780Z [36;1mcodesign -s - --force child_arm 2>&1 | tee -a out/20-lipo-arm.txt[0m
+2026-09-02T08:50:11.5251700Z [36;1mchmod +x child_arm[0m
+2026-09-02T08:50:11.5252430Z [36;1mpython3 - <<'PYEOF' 2>&1 | tee out/21-drive-arm.txt[0m
+2026-09-02T08:50:11.5253160Z [36;1mimport subprocess[0m
+2026-09-02T08:50:11.5253870Z [36;1mp = subprocess.Popen(['./child_arm'], stdin=subprocess.PIPE,[0m
+2026-09-02T08:50:11.5256350Z [36;1m                     stdout=subprocess.PIPE, stderr=subprocess.PIPE)[0m
+2026-09-02T08:50:11.5256890Z [36;1mtry:[0m
+2026-09-02T08:50:11.5257130Z [36;1m    p.stdin.write(bytes(range(16))); p.stdin.flush()[0m
+2026-09-02T08:50:11.5257470Z [36;1m    o1 = p.stdout.read(32)[0m
+2026-09-02T08:50:11.5257790Z [36;1m    print('out1 (%d): %s' % (len(o1), o1.hex()))[0m
+2026-09-02T08:50:11.5258280Z [36;1m    p.stdin.write(bytes(range(29))); p.stdin.flush()[0m
+2026-09-02T08:50:11.5258670Z [36;1m    o2 = p.stdout.read(16)[0m
+2026-09-02T08:50:11.5258970Z [36;1m    print('out2 (%d): %s' % (len(o2), o2.hex()))[0m
+2026-09-02T08:50:11.5259320Z [36;1m    print('ARM FLAG: NepCTF{%s}' % o2.hex())[0m
+2026-09-02T08:50:11.5259720Z [36;1mexcept Exception as e:[0m
+2026-09-02T08:50:11.5259990Z [36;1m    print('ERR', type(e).__name__, e)[0m
+2026-09-02T08:50:11.5260230Z [36;1mfinally:[0m
+2026-09-02T08:50:11.5260410Z [36;1m    try: p.kill()[0m
+2026-09-02T08:50:11.5260610Z [36;1m    except Exception: pass[0m
+2026-09-02T08:50:11.5260820Z [36;1mPYEOF[0m
+2026-09-02T08:50:11.5298970Z shell: /bin/bash -e {0}
+2026-09-02T08:50:11.5299300Z env:
+2026-09-02T08:50:11.5299480Z   TC: 
+2026-09-02T08:50:11.5299690Z ##[endgroup]
+2026-09-02T08:50:11.5919680Z child_arm: replacing existing signature
+2026-09-02T08:50:11.8743190Z out1 (0): 
+2026-09-02T08:50:11.8744780Z ERR BrokenPipeError [Errno 32] Broken pipe
+2026-09-02T08:50:11.8766380Z Exception ignored while finalizing file <_io.BufferedWriter name=4>:
+2026-09-02T08:50:11.8767990Z BrokenPipeError: [Errno 32] Broken pipe

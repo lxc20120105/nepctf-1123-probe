@@ -20,85 +20,58 @@ jobs:
           codesign -s - --force bin/challenge.bin 2>&1 || true
           chmod +x bin/challenge.bin
           sudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true
-          sw_vers | tee out/01-env.txt
-          sysctl -n machdep.cpu.brand_string | tee -a out/01-env.txt
 
-      - name: 2 - 直接驱动 x86_64 子进程 (自己当父进程)
-        continue-on-error: true
-        run: |
-          set +e
-          lipo bin/challenge.bin -thin x86_64 -output child_x86 2>&1 | tee out/10-lipo.txt
-          codesign -s - --force child_x86 2>&1 | tee -a out/10-lipo.txt
-          chmod +x child_x86
-          file child_x86 2>&1 | tee -a out/10-lipo.txt
-          echo "--- run 1 ---"
-          python3 - <<'PYEOF' 2>&1 | tee out/11-drive.txt
-          import subprocess
-          def drive():
-              p = subprocess.Popen(['arch','-x86_64','./child_x86'],
-                                   stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                   stderr=subprocess.PIPE)
-              try:
-                  p.stdin.write(bytes(range(16))); p.stdin.flush()
-                  o1 = p.stdout.read(32)
-                  print('out1 (%d bytes): %s' % (len(o1), o1.hex()))
-                  p.stdin.write(bytes(range(29))); p.stdin.flush()
-                  o2 = p.stdout.read(16)
-                  print('out2 (%d bytes): %s' % (len(o2), o2.hex()))
-                  print('FLAG: NepCTF{%s}' % o2.hex())
-              except Exception as e:
-                  print('ERR', type(e).__name__, e)
-              finally:
-                  try: p.kill()
-                  except Exception: pass
-          drive()
-          print('--- repeat to check determinism ---')
-          drive()
-          PYEOF
-
-      - name: 3 - 同样驱动 arm64 slice (对比)
-        continue-on-error: true
-        run: |
-          set +e
-          lipo bin/challenge.bin -thin arm64 -output child_arm 2>&1 | tee out/20-lipo-arm.txt
-          codesign -s - --force child_arm 2>&1 | tee -a out/20-lipo-arm.txt
-          chmod +x child_arm
-          python3 - <<'PYEOF' 2>&1 | tee out/21-drive-arm.txt
-          import subprocess
-          p = subprocess.Popen(['./child_arm'], stdin=subprocess.PIPE,
-                               stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-          try:
-              p.stdin.write(bytes(range(16))); p.stdin.flush()
-              o1 = p.stdout.read(32)
-              print('out1 (%d): %s' % (len(o1), o1.hex()))
-              p.stdin.write(bytes(range(29))); p.stdin.flush()
-              o2 = p.stdout.read(16)
-              print('out2 (%d): %s' % (len(o2), o2.hex()))
-              print('ARM FLAG: NepCTF{%s}' % o2.hex())
-          except Exception as e:
-              print('ERR', type(e).__name__, e)
-          finally:
-              try: p.kill()
-              except Exception: pass
-          PYEOF
-
-      - name: 4 - lldb 比较点多次 dump (ptrace 放行)
+      - name: 2 - lldb 手动放行 ptrace 后自动 dump 每次比较点命中
         continue-on-error: true
         run: |
           set +e
           ${TC:+$TC 400} lldb -b \
             -o "target create bin/challenge.bin" \
             -o "breakpoint set --name ptrace" \
-            -o "breakpoint command add --script-type command -o 'thread return 0' -o 'continue' 1" \
+            -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
+            -o "thread return 0" \
+            -o "breakpoint delete 1" \
             -o "breakpoint set --address 0x100002358" \
             -o "breakpoint command add --script-type command -o 'memory read --size 1 --format x --count 16 \$x29-0x90' -o 'memory read --size 1 --format x --count 16 \$x29-0xb0' -o 'continue' 2" \
-            -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
-            -o "process continue" \
-            > out/30-cmp.txt 2>&1
-          grep -c "0x16" out/30-cmp.txt || true
-          head -c 30000 out/30-cmp.txt
+            -o "continue" \
+            > out/20-cmp.txt 2>&1
+          echo "--- dump count ---"
+          grep -c "0x16fdf" out/20-cmp.txt || true
+          head -c 60000 out/20-cmp.txt
 
-      - name: 5 - 上传全部输出
+      - name: 3 - 子进程确定性实验 (全零输入)
+        continue-on-error: true
+        run: |
+          set +e
+          lipo bin/challenge.bin -thin x86_64 -output child_x86 2>&1 | tee out/30-lipo.txt
+          codesign -s - --force child_x86 2>&1 | tee -a out/30-lipo.txt
+          chmod +x child_x86
+          python3 - <<'PYEOF' 2>&1 | tee out/31-determinism.txt
+          import subprocess
+          def drive(in1, in2, label):
+              p = subprocess.Popen(['arch','-x86_64','./child_x86'], stdin=subprocess.PIPE,
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+              try:
+                  p.stdin.write(in1); p.stdin.flush()
+                  o1 = p.stdout.read(32)
+                  p.stdin.write(in2); p.stdin.flush()
+                  o2 = p.stdout.read(16)
+                  print('%s: out1=%s out2=%s' % (label, o1.hex(), o2.hex()))
+              except Exception as e:
+                  print(label, 'ERR', type(e).__name__, e)
+              finally:
+                  try: p.kill()
+                  except Exception: pass
+          zero16 = bytes(16)
+          seq16  = bytes(range(16))
+          seq29  = bytes(range(29))
+          for i in range(3):
+              drive(zero16, seq29, 'zero16/run%d' % i)
+          for i in range(2):
+              drive(seq16, seq29, 'seq16/run%d' % i)
+          PYEOF
+
+      - name: 4 - 上传全部输出
         if: always()
         uses: actions/upload-artifact@v4
         with:

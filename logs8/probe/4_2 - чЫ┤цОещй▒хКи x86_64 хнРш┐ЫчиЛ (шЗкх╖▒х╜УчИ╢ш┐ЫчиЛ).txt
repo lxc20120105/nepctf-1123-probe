@@ -1,0 +1,44 @@
+﻿2026-09-02T08:50:09.8513900Z ##[group]Run set +e
+2026-09-02T08:50:09.8514710Z [36;1mset +e[0m
+2026-09-02T08:50:09.8515800Z [36;1mlipo bin/challenge.bin -thin x86_64 -output child_x86 2>&1 | tee out/10-lipo.txt[0m
+2026-09-02T08:50:09.8517120Z [36;1mcodesign -s - --force child_x86 2>&1 | tee -a out/10-lipo.txt[0m
+2026-09-02T08:50:09.8518010Z [36;1mchmod +x child_x86[0m
+2026-09-02T08:50:09.8518810Z [36;1mfile child_x86 2>&1 | tee -a out/10-lipo.txt[0m
+2026-09-02T08:50:09.8519640Z [36;1mecho "--- run 1 ---"[0m
+2026-09-02T08:50:09.8520570Z [36;1mpython3 - <<'PYEOF' 2>&1 | tee out/11-drive.txt[0m
+2026-09-02T08:50:09.8521370Z [36;1mimport subprocess[0m
+2026-09-02T08:50:09.8522010Z [36;1mdef drive():[0m
+2026-09-02T08:50:09.8522800Z [36;1m    p = subprocess.Popen(['arch','-x86_64','./child_x86'],[0m
+2026-09-02T08:50:09.8523910Z [36;1m                         stdin=subprocess.PIPE, stdout=subprocess.PIPE,[0m
+2026-09-02T08:50:09.8525010Z [36;1m                         stderr=subprocess.PIPE)[0m
+2026-09-02T08:50:09.8525760Z [36;1m    try:[0m
+2026-09-02T08:50:09.8526740Z [36;1m        p.stdin.write(bytes(range(16))); p.stdin.flush()[0m
+2026-09-02T08:50:09.8527610Z [36;1m        o1 = p.stdout.read(32)[0m
+2026-09-02T08:50:09.8528410Z [36;1m        print('out1 (%d bytes): %s' % (len(o1), o1.hex()))[0m
+2026-09-02T08:50:09.8529520Z [36;1m        p.stdin.write(bytes(range(29))); p.stdin.flush()[0m
+2026-09-02T08:50:09.8530420Z [36;1m        o2 = p.stdout.read(16)[0m
+2026-09-02T08:50:09.8532270Z [36;1m        print('out2 (%d bytes): %s' % (len(o2), o2.hex()))[0m
+2026-09-02T08:50:09.8533030Z [36;1m        print('FLAG: NepCTF{%s}' % o2.hex())[0m
+2026-09-02T08:50:09.8533950Z [36;1m    except Exception as e:[0m
+2026-09-02T08:50:09.8534690Z [36;1m        print('ERR', type(e).__name__, e)[0m
+2026-09-02T08:50:09.8535040Z [36;1m    finally:[0m
+2026-09-02T08:50:09.8535280Z [36;1m        try: p.kill()[0m
+2026-09-02T08:50:09.8563260Z [36;1m        except Exception: pass[0m
+2026-09-02T08:50:09.8564700Z [36;1mdrive()[0m
+2026-09-02T08:50:09.8565620Z [36;1mprint('--- repeat to check determinism ---')[0m
+2026-09-02T08:50:09.8566610Z [36;1mdrive()[0m
+2026-09-02T08:50:09.8567260Z [36;1mPYEOF[0m
+2026-09-02T08:50:09.8647740Z shell: /bin/bash -e {0}
+2026-09-02T08:50:09.8648140Z env:
+2026-09-02T08:50:09.8648400Z   TC: 
+2026-09-02T08:50:09.8648650Z ##[endgroup]
+2026-09-02T08:50:10.5371600Z child_x86: replacing existing signature
+2026-09-02T08:50:10.5858040Z child_x86: Mach-O 64-bit executable x86_64
+2026-09-02T08:50:10.5863260Z --- run 1 ---
+2026-09-02T08:50:11.4916380Z out1 (32 bytes): c80fce3ed9048d4b8aa140d70bf79f2f82e31ffdaed5c11050891f0dc57d4310
+2026-09-02T08:50:11.4917360Z out2 (16 bytes): f046257c9fb44a0b3db77c97d6646719
+2026-09-02T08:50:11.4935050Z FLAG: NepCTF{f046257c9fb44a0b3db77c97d6646719}
+2026-09-02T08:50:11.4940880Z --- repeat to check determinism ---
+2026-09-02T08:50:11.4942320Z out1 (32 bytes): 19a7907a19669924fd6cde6aa8f0cc0982e31ffdaed5c11050891f0dc57d4310
+2026-09-02T08:50:11.4943690Z out2 (16 bytes): 3f28071448cf1cb1b3c4076b184de809
+2026-09-02T08:50:11.4944770Z FLAG: NepCTF{3f28071448cf1cb1b3c4076b184de809}

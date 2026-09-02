@@ -1,0 +1,17 @@
+﻿2026-09-02T08:50:07.3522590Z ##[group]Run TC=$(command -v gtimeout || command -v timeout || echo "")
+2026-09-02T08:50:07.3524530Z [36;1mTC=$(command -v gtimeout || command -v timeout || echo "")[0m
+2026-09-02T08:50:07.3525870Z [36;1mecho "TC=$TC" >> $GITHUB_ENV[0m
+2026-09-02T08:50:07.3527050Z [36;1mmkdir -p out[0m
+2026-09-02T08:50:07.3527910Z [36;1mxattr -cr bin/ 2>&1 || true[0m
+2026-09-02T08:50:07.3529470Z [36;1mcodesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T08:50:07.3530600Z [36;1mchmod +x bin/challenge.bin[0m
+2026-09-02T08:50:07.3531940Z [36;1msudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true[0m
+2026-09-02T08:50:07.3533370Z [36;1msw_vers | tee out/01-env.txt[0m
+2026-09-02T08:50:07.3534560Z [36;1msysctl -n machdep.cpu.brand_string | tee -a out/01-env.txt[0m
+2026-09-02T08:50:07.3586950Z shell: /bin/bash -e {0}
+2026-09-02T08:50:07.3588310Z ##[endgroup]
+2026-09-02T08:50:07.4133680Z bin/challenge.bin: replacing existing signature
+2026-09-02T08:50:09.8019830Z ProductName:		macOS
+2026-09-02T08:50:09.8027850Z ProductVersion:		15.7.7
+2026-09-02T08:50:09.8065590Z BuildVersion:		24G720
+2026-09-02T08:50:09.8214190Z Apple M1 (Virtual)
