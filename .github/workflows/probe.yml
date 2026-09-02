@@ -68,7 +68,7 @@ jobs:
           ${TC:+$TC 60} arch -x86_64 ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null 2>&1 | head -10
           echo "exit=$?"
 
-      - name: 7 - lldb: hook ptrace + 比较点 0x100002358 dump
+      - name: 7 - lldb hook ptrace 并 dump 比较点 0x100002358
         continue-on-error: true
         run: |
           set +e
@@ -87,7 +87,7 @@ jobs:
             > out/07-lldb-cmp.txt 2>&1
           head -c 20000 out/07-lldb-cmp.txt
 
-      - name: 8 - lldb: hook strncmp/memcmp 打印比较双方
+      - name: 8 - lldb hook strncmp/memcmp 打印比较双方
         continue-on-error: true
         run: |
           set +e
