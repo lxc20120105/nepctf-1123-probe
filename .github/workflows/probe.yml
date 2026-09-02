@@ -7,59 +7,48 @@ on:
 jobs:
   probe:
     runs-on: macos-15
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
       - name: 1 - 准备
         run: |
-          TC=$(command -v gtimeout || command -v timeout || echo "")
-          echo "TC=$TC" >> $GITHUB_ENV
           mkdir -p out
           xattr -cr bin/ 2>&1 || true
           codesign -s - --force bin/challenge.bin 2>&1 || true
           chmod +x bin/challenge.bin
           sudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true
-          cat > bpcmd.py <<'PYEOF'
-          import lldb, sys
-          def on_write(frame, bp_loc, dict):
-              x0 = frame.FindRegister("x0").GetValueAsUnsigned()
-              x1 = frame.FindRegister("x1").GetValueAsUnsigned()
-              x2 = frame.FindRegister("x2").GetValueAsUnsigned()
-              if x0 <= 2 or x2 > 64:
-                  return False
-              proc = frame.GetThread().GetProcess()
-              err = lldb.SBError()
-              data = proc.ReadMemory(x1, x2, err)
-              hexs = data.hex() if not err.Fail() else 'READ_ERR'
-              print('WRITE fd=%d n=%d %s' % (x0, x2, hexs))
-              sys.stdout.flush()
-              return False
-          PYEOF
 
-      - name: 2 - 差分实验 (改变 flag 首字节看数据如何变)
+      - name: 2 - 试 UUID 派生候选
         continue-on-error: true
         run: |
           set +e
-          run_case() {
-            echo "=== FLAG: $1 ==="
-            ${TC:+$TC 200} lldb -b \
-              -o "command script import bpcmd.py" \
-              -o "target create bin/challenge.bin" \
-              -o "breakpoint set --name ptrace" \
-              -o "process launch -- '$1'" \
-              -o "thread return 0" \
-              -o "breakpoint delete 1" \
-              -o "breakpoint set --name write" \
-              -o "breakpoint command add --script-type python -F bpcmd.on_write 2" \
-              -o "continue" 2>&1 | grep -E "^WRITE|Access|usage"
-          }
-          run_case 'NepCTF{00000000000000000000000000000000}' | tee out/60-diff.txt
-          run_case 'NepCTF{10000000000000000000000000000000}' | tee -a out/60-diff.txt
-          run_case 'NepCTF{01000000000000000000000000000000}' | tee -a out/60-diff.txt
-          run_case 'NepCTF{00000000000000000000000000000001}' | tee -a out/60-diff.txt
+          for f in \
+            'NepCTF{ed93c5f9d215fe5be21f386702e21c20}' \
+            'NepCTF{099dfb82fc5eef2db97354cee1c5774d}' \
+            'NepCTF{82e31ffdaed5c11050891f0dc57d4310}' \
+            'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' \
+            'NepCTF{cffaedfe0700000103000000020000001}' ; do
+            printf '%s -> ' "$f"
+            OUT=$(./bin/challenge.bin "$f" < /dev/null 2>&1 | head -3)
+            echo "[$OUT]"
+          done | tee out/70-uuid-try.txt
 
-      - name: 3 - 上传
+      - name: 3 - UUID 大小写与反转变体
+        continue-on-error: true
+        run: |
+          set +e
+          for f in \
+            'NepCTF{ED93C5F9D215FE5BE21F386702E21C20}' \
+            'NepCTF{201ce2076738f12eb5ef51d2f9c593ed}' \
+            'NepCTF{4d5774c1ee45c37b92df2ee5fc82fb9d09}' \
+            'NepCTF{107443d5c0f10c5edff132e8cf1f3e28}' ; do
+            printf '%s -> ' "$f"
+            OUT=$(./bin/challenge.bin "$f" < /dev/null 2>&1 | head -3)
+            echo "[$OUT]"
+          done | tee out/71-uuid-var.txt
+
+      - name: 4 - 上传
         if: always()
         uses: actions/upload-artifact@v4
         with:

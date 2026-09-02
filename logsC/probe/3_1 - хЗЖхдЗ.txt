@@ -1,0 +1,27 @@
+﻿2026-09-02T09:05:49.5398420Z ##[group]Run TC=$(command -v gtimeout || command -v timeout || echo "")
+2026-09-02T09:05:49.5400000Z [36;1mTC=$(command -v gtimeout || command -v timeout || echo "")[0m
+2026-09-02T09:05:49.5401250Z [36;1mecho "TC=$TC" >> $GITHUB_ENV[0m
+2026-09-02T09:05:49.5402110Z [36;1mmkdir -p out[0m
+2026-09-02T09:05:49.5402870Z [36;1mxattr -cr bin/ 2>&1 || true[0m
+2026-09-02T09:05:49.5404020Z [36;1mcodesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T09:05:49.5405150Z [36;1mchmod +x bin/challenge.bin[0m
+2026-09-02T09:05:49.5406590Z [36;1msudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true[0m
+2026-09-02T09:05:49.5408060Z [36;1mcat > bpcmd.py <<'PYEOF'[0m
+2026-09-02T09:05:49.5409000Z [36;1mimport lldb, sys[0m
+2026-09-02T09:05:49.5409860Z [36;1mdef on_write(frame, bp_loc, dict):[0m
+2026-09-02T09:05:49.5410980Z [36;1m    x0 = frame.FindRegister("x0").GetValueAsUnsigned()[0m
+2026-09-02T09:05:49.5412240Z [36;1m    x1 = frame.FindRegister("x1").GetValueAsUnsigned()[0m
+2026-09-02T09:05:49.5413590Z [36;1m    x2 = frame.FindRegister("x2").GetValueAsUnsigned()[0m
+2026-09-02T09:05:49.5414680Z [36;1m    if x0 <= 2 or x2 > 64:[0m
+2026-09-02T09:05:49.5415600Z [36;1m        return False[0m
+2026-09-02T09:05:49.5416530Z [36;1m    proc = frame.GetThread().GetProcess()[0m
+2026-09-02T09:05:49.5417610Z [36;1m    err = lldb.SBError()[0m
+2026-09-02T09:05:49.5418550Z [36;1m    data = proc.ReadMemory(x1, x2, err)[0m
+2026-09-02T09:05:49.5419660Z [36;1m    hexs = data.hex() if not err.Fail() else 'READ_ERR'[0m
+2026-09-02T09:05:49.5420970Z [36;1m    print('WRITE fd=%d n=%d %s' % (x0, x2, hexs))[0m
+2026-09-02T09:05:49.5422010Z [36;1m    sys.stdout.flush()[0m
+2026-09-02T09:05:49.5422790Z [36;1m    return False[0m
+2026-09-02T09:05:49.5423600Z [36;1mPYEOF[0m
+2026-09-02T09:05:49.5463800Z shell: /bin/bash -e {0}
+2026-09-02T09:05:49.5464680Z ##[endgroup]
+2026-09-02T09:05:49.5883680Z bin/challenge.bin: replacing existing signature
