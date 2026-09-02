@@ -16,7 +16,7 @@ def on_read(frame, bp_loc, dict):
         return False
     lr = _reg(frame, "lr")
     target = frame.GetThread().GetProcess().GetTarget()
-    bp = target.Breakpoint.CreateByAddress(lr)
+    bp = target.BreakpointCreateByAddress(lr)
     bp.SetOneShot(True)
     bp.SetScriptCallbackFunction("bpcmd2.on_read_done")
     pending[lr] = (buf, n)
