@@ -32,6 +32,11 @@ jobs:
             echo "=== dylibs ==="; otool -L bin/challenge.bin 2>&1
           } 2>&1 | tee out/02-binary.txt
 
+      - name: 2b - 关键字符串
+        continue-on-error: true
+        run: |
+          strings -n 5 bin/challenge.bin | grep -iE "nepctf|flag|stage|success|wrong|correct|usage|fail|pass" | sort -u | head -50 | tee out/02b-strings.txt || true
+
       - name: 3 - 确保 Rosetta 2
         continue-on-error: true
         run: |
@@ -46,34 +51,40 @@ jobs:
             xattr -cr bin/ 2>&1 || true
             codesign -s - --force bin/challenge.bin 2>&1 || true
             chmod +x bin/challenge.bin
-            echo "=== codesign ==="; codesign -dvvv bin/challenge.bin 2>&1 | head -6 || true
             ls -l bin/challenge.bin
           } 2>&1 | tee out/04-sign.txt
 
       - name: 5 - 无参数试跑
         continue-on-error: true
         run: |
+          set +e
           ${TC:+$TC 120} ./bin/challenge.bin < /dev/null > out/05-noparam.txt 2>&1
           echo "exit=$?" >> out/05-noparam.txt
+          echo "--- output ---"
           cat out/05-noparam.txt
 
       - name: 6 - 候选 flag 试跑 (argv)
         continue-on-error: true
         run: |
+          set +e
           ${TC:+$TC 120} ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/06-argv.txt 2>&1
           echo "exit=$?" >> out/06-argv.txt
+          echo "--- output ---"
           cat out/06-argv.txt
 
       - name: 7 - 候选 flag 试跑 (stdin)
         continue-on-error: true
         run: |
+          set +e
           echo 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' | ${TC:+$TC 120} ./bin/challenge.bin > out/07-stdin.txt 2>&1
           echo "exit=$?" >> out/07-stdin.txt
+          echo "--- output ---"
           cat out/07-stdin.txt
 
       - name: 8 - 编译 ptrace 反调试 hook
         continue-on-error: true
         run: |
+          set +e
           cat > ptrace_hook.c <<'EOF'
           #include <sys/types.h>
           int ptrace(int request, pid_t pid, void *addr, int data) {
@@ -86,17 +97,33 @@ jobs:
       - name: 9 - 带 hook 重试 (绕过 PT_DENY_ATTACH)
         continue-on-error: true
         run: |
+          set +e
           export DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"
           ${TC:+$TC 180} ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/09-hooked.txt 2>&1
           echo "exit=$?" >> out/09-hooked.txt
+          echo "--- output ---"
           cat out/09-hooked.txt
+
+      - name: 9b - lldb 直接运行看完整输出 (无断点)
+        continue-on-error: true
+        run: |
+          set +e
+          ${TC:+$TC 300} lldb -b \
+            -o "target create bin/challenge.bin" \
+            -o "settings set target.env-vars DYLD_INSERT_LIBRARIES=$PWD/libptrace_hook.dylib" \
+            -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
+            -o "process continue" \
+            > out/09b-lldb-run.txt 2>&1
+          echo "--- output ---"
+          cat out/09b-lldb-run.txt
 
       - name: 10 - lldb 断在比较点 0x100002358 dump 左右值
         continue-on-error: true
         run: |
-          export DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"
+          set +e
           ${TC:+$TC 400} lldb -b \
             -o "target create bin/challenge.bin" \
+            -o "settings set target.env-vars DYLD_INSERT_LIBRARIES=$PWD/libptrace_hook.dylib" \
             -o "breakpoint set --address 0x100002358" \
             -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
             -o 'expr unsigned long $L = $x29 - 0x90' \
@@ -107,6 +134,7 @@ jobs:
             -o 'bt' \
             -o 'process continue' \
             > out/10-lldb.txt 2>&1
+          echo "--- output ---"
           cat out/10-lldb.txt
 
       - name: 11 - 上传全部输出
