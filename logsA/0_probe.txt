@@ -1,0 +1,418 @@
+﻿2026-09-02T08:58:31.3845740Z Current runner version: '2.336.0'
+2026-09-02T08:58:31.3866850Z ##[group]Runner Image Provisioner
+2026-09-02T08:58:31.3867440Z Hosted Compute Agent
+2026-09-02T08:58:31.3867890Z Version: 20260707.563
+2026-09-02T08:58:31.3868300Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-09-02T08:58:31.3869270Z Build Date: 2026-07-07T19:33:50Z
+2026-09-02T08:58:31.3869730Z Worker ID: {c37cd589-7d1e-4ce8-b210-49b7b2566644}
+2026-09-02T08:58:31.3870180Z Azure Region: westus
+2026-09-02T08:58:31.3870600Z ##[endgroup]
+2026-09-02T08:58:31.3871550Z ##[group]Operating System
+2026-09-02T08:58:31.3871990Z macOS
+2026-09-02T08:58:31.3872330Z 15.7.7
+2026-09-02T08:58:31.3872650Z 24G720
+2026-09-02T08:58:31.3872970Z ##[endgroup]
+2026-09-02T08:58:31.3873310Z ##[group]Runner Image
+2026-09-02T08:58:31.3873680Z Image: macos-15-arm64
+2026-09-02T08:58:31.3874030Z Version: 20260727.0256.1
+2026-09-02T08:58:31.3874930Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20260727.0256/images/macos/macos-15-arm64-Readme.md
+2026-09-02T08:58:31.3875960Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20260727.0256
+2026-09-02T08:58:31.3876640Z ##[endgroup]
+2026-09-02T08:58:31.3877540Z ##[group]GITHUB_TOKEN Permissions
+2026-09-02T08:58:31.3878940Z Contents: read
+2026-09-02T08:58:31.3879380Z Metadata: read
+2026-09-02T08:58:31.3879720Z Packages: read
+2026-09-02T08:58:31.3880070Z ##[endgroup]
+2026-09-02T08:58:31.3881710Z Secret source: Actions
+2026-09-02T08:58:31.3882360Z Prepare workflow directory
+2026-09-02T08:58:31.4258000Z Prepare all required actions
+2026-09-02T08:58:31.4295370Z Getting action download info
+2026-09-02T08:58:31.8488960Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-02T08:58:32.2281500Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-02T08:58:32.4839440Z Complete job name: probe
+2026-09-02T08:58:32.5476280Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T08:58:32.5483930Z ##[group]Run actions/checkout@v4
+2026-09-02T08:58:32.5484420Z with:
+2026-09-02T08:58:32.5484770Z   repository: lxc20120105/nepctf-1123-probe
+2026-09-02T08:58:32.5487840Z   token: ***
+2026-09-02T08:58:32.5488580Z   ssh-strict: true
+2026-09-02T08:58:32.5488910Z   ssh-user: git
+2026-09-02T08:58:32.5489230Z   persist-credentials: true
+2026-09-02T08:58:32.5489620Z   clean: true
+2026-09-02T08:58:32.5490030Z   sparse-checkout-cone-mode: true
+2026-09-02T08:58:32.5490410Z   fetch-depth: 1
+2026-09-02T08:58:32.5490720Z   fetch-tags: false
+2026-09-02T08:58:32.5491090Z   show-progress: true
+2026-09-02T08:58:32.5491470Z   lfs: false
+2026-09-02T08:58:32.5491800Z   submodules: false
+2026-09-02T08:58:32.5492140Z   set-safe-directory: true
+2026-09-02T08:58:32.5492520Z   allow-unsafe-pr-checkout: false
+2026-09-02T08:58:32.5493070Z ##[endgroup]
+2026-09-02T08:58:32.9585560Z Syncing repository: lxc20120105/nepctf-1123-probe
+2026-09-02T08:58:32.9587440Z ##[group]Getting Git version info
+2026-09-02T08:58:32.9588110Z Working directory is '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe'
+2026-09-02T08:58:32.9589140Z [command]/opt/homebrew/bin/git version
+2026-09-02T08:58:33.0204120Z git version 2.55.0
+2026-09-02T08:58:33.0223840Z ##[endgroup]
+2026-09-02T08:58:33.0234290Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/c354b301-8ae8-4dc2-b4d1-aa3769e6eab2/.gitconfig'
+2026-09-02T08:58:33.0243750Z Temporarily overriding HOME='/Users/runner/work/_temp/c354b301-8ae8-4dc2-b4d1-aa3769e6eab2' before making global git config changes
+2026-09-02T08:58:33.0247660Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-02T08:58:33.0251080Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T08:58:33.0383220Z Deleting the contents of '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe'
+2026-09-02T08:58:33.0386560Z ##[group]Initializing the repository
+2026-09-02T08:58:33.0389690Z [command]/opt/homebrew/bin/git init /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T08:58:33.0723830Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-02T08:58:33.0726880Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-02T08:58:33.0729110Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-02T08:58:33.0731820Z hint: call:
+2026-09-02T08:58:33.0733280Z hint:
+2026-09-02T08:58:33.0734820Z hint: 	git config --global init.defaultBranch <name>
+2026-09-02T08:58:33.0736650Z hint:
+2026-09-02T08:58:33.0738410Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-02T08:58:33.0741150Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-02T08:58:33.0743390Z hint:
+2026-09-02T08:58:33.0744850Z hint: 	git branch -m <name>
+2026-09-02T08:58:33.0746530Z hint:
+2026-09-02T08:58:33.0748470Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-02T08:58:33.0771580Z Initialized empty Git repository in /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/.git/
+2026-09-02T08:58:33.0773520Z [command]/opt/homebrew/bin/git remote add origin https://github.com/lxc20120105/nepctf-1123-probe
+2026-09-02T08:58:33.0859170Z ##[endgroup]
+2026-09-02T08:58:33.0861430Z ##[group]Disabling automatic garbage collection
+2026-09-02T08:58:33.0863530Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+2026-09-02T08:58:33.0939930Z ##[endgroup]
+2026-09-02T08:58:33.0940610Z ##[group]Setting up auth
+2026-09-02T08:58:33.0946850Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-02T08:58:33.1021120Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-02T08:58:33.2212440Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-02T08:58:33.2302060Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-02T08:58:33.3293130Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-02T08:58:33.3595480Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-02T08:58:33.5404660Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-02T08:58:33.5438560Z ##[endgroup]
+2026-09-02T08:58:33.5439530Z ##[group]Fetching the repository
+2026-09-02T08:58:33.5443620Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +cb14391340b29b6cdafd6253878f807c9522b3f3:refs/remotes/origin/main
+2026-09-02T08:58:34.0456310Z From https://github.com/lxc20120105/nepctf-1123-probe
+2026-09-02T08:58:34.0459290Z  * [new ref]         cb14391340b29b6cdafd6253878f807c9522b3f3 -> origin/main
+2026-09-02T08:58:34.0464350Z ##[endgroup]
+2026-09-02T08:58:34.0466360Z ##[group]Determining the checkout info
+2026-09-02T08:58:34.0468810Z ##[endgroup]
+2026-09-02T08:58:34.0470360Z [command]/opt/homebrew/bin/git sparse-checkout disable
+2026-09-02T08:58:34.0572940Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-02T08:58:34.0645780Z ##[group]Checking out the ref
+2026-09-02T08:58:34.0656290Z [command]/opt/homebrew/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-02T08:58:34.0945990Z Switched to a new branch 'main'
+2026-09-02T08:58:34.0958100Z branch 'main' set up to track 'origin/main'.
+2026-09-02T08:58:34.0963710Z ##[endgroup]
+2026-09-02T08:58:34.1080920Z [command]/opt/homebrew/bin/git log -1 --format=%H
+2026-09-02T08:58:34.1160770Z cb14391340b29b6cdafd6253878f807c9522b3f3
+2026-09-02T08:58:34.1458310Z ##[group]Run TC=$(command -v gtimeout || command -v timeout || echo "")
+2026-09-02T08:58:34.1461450Z [36;1mTC=$(command -v gtimeout || command -v timeout || echo "")[0m
+2026-09-02T08:58:34.1463570Z [36;1mecho "TC=$TC" >> $GITHUB_ENV[0m
+2026-09-02T08:58:34.1466290Z [36;1mmkdir -p out[0m
+2026-09-02T08:58:34.1467130Z [36;1mxattr -cr bin/ 2>&1 || true[0m
+2026-09-02T08:58:34.1468370Z [36;1mcodesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T08:58:34.1470070Z [36;1mchmod +x bin/challenge.bin[0m
+2026-09-02T08:58:34.1473780Z [36;1msudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true[0m
+2026-09-02T08:58:34.1545970Z shell: /bin/bash -e {0}
+2026-09-02T08:58:34.1547650Z ##[endgroup]
+2026-09-02T08:58:34.2202670Z bin/challenge.bin: replacing existing signature
+2026-09-02T08:58:36.0925530Z ##[group]Run set +e
+2026-09-02T08:58:36.0925940Z [36;1mset +e[0m
+2026-09-02T08:58:36.0926190Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:58:36.0926570Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:58:36.0927020Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:58:36.0927500Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:58:36.0928090Z [36;1m  -o "thread return 0" \[0m
+2026-09-02T08:58:36.0928480Z [36;1m  -o "breakpoint delete 1" \[0m
+2026-09-02T08:58:36.0928820Z [36;1m  -o "breakpoint set --name write" \[0m
+2026-09-02T08:58:36.0929190Z [36;1m  -o "breakpoint modify 2 -c '\$x0 > 2'" \[0m
+2026-09-02T08:58:36.0929800Z [36;1m  -o "breakpoint command add --script-type command -o 'memory read --size 1 --format x --count 48 \$x1' -o 'register read x0 x2' -o 'continue' 2" \[0m
+2026-09-02T08:58:36.0930520Z [36;1m  -o "continue" \[0m
+2026-09-02T08:58:36.0930890Z [36;1m  > out/40-write.txt 2>&1[0m
+2026-09-02T08:58:36.0931230Z [36;1mhead -c 60000 out/40-write.txt[0m
+2026-09-02T08:58:36.0982880Z shell: /bin/bash -e {0}
+2026-09-02T08:58:36.0983600Z env:
+2026-09-02T08:58:36.0983870Z   TC: 
+2026-09-02T08:58:36.0984110Z ##[endgroup]
+2026-09-02T08:58:41.7927600Z (lldb) target create bin/challenge.bin
+2026-09-02T08:58:41.7931680Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:58:41.7934890Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:58:41.7936870Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:58:41.7938060Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:58:41.7939770Z Process 1163 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:58:41.7941680Z Process 1163 stopped
+2026-09-02T08:58:41.7943130Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:58:41.7944420Z     frame #0: 0x000000019072280c libsystem_kernel.dylib`__ptrace
+2026-09-02T08:58:41.7945460Z libsystem_kernel.dylib`__ptrace:
+2026-09-02T08:58:41.7946290Z ->  0x19072280c <+0>:  adrp   x9, 450538
+2026-09-02T08:58:41.7947280Z     0x190722810 <+4>:  add    x9, x9, #0x948            ; errno
+2026-09-02T08:58:41.7948170Z     0x190722814 <+8>:  str    wzr, [x9]
+2026-09-02T08:58:41.7948830Z     0x190722818 <+12>: mov    x16, #0x1a                ; =26 
+2026-09-02T08:58:41.7949780Z Target 0: (challenge.bin) stopped.
+2026-09-02T08:58:41.7950550Z (lldb) thread return 0
+2026-09-02T08:58:41.7951020Z (lldb) breakpoint delete 1
+2026-09-02T08:58:41.7951970Z 1 breakpoints deleted; 0 breakpoint locations disabled.
+2026-09-02T08:58:41.7952890Z (lldb) breakpoint set --name write
+2026-09-02T08:58:41.7953520Z Breakpoint 2: 3 locations.
+2026-09-02T08:58:41.7954390Z (lldb) breakpoint modify 2 -c '$x0 > 2'
+2026-09-02T08:58:41.7962060Z (lldb) breakpoint command add --script-type command -o 'memory read --size 1 --format x --count 48 $x1' -o 'register read x0 x2' -o 'continue' 2
+2026-09-02T08:58:41.7962710Z (lldb) continue
+2026-09-02T08:58:41.7962980Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:58:41.7963510Z     frame #0: 0x0000000100000a5c challenge.bin`___lldb_unnamed_symbol28 + 60
+2026-09-02T08:58:41.7963920Z challenge.bin`___lldb_unnamed_symbol28:
+2026-09-02T08:58:41.7964650Z ->  0x100000a5c <+60>: mov    w0, #0x0                  ; =0 
+2026-09-02T08:58:41.7965080Z     0x100000a60 <+64>: bl     0x100002b8c               ; symbol stub for: _dyld_get_image_header
+2026-09-02T08:58:41.7965430Z     0x100000a64 <+68>: ldr    w8, [x0, #0x10]
+2026-09-02T08:58:41.7965780Z     0x100000a68 <+72>: cbz    w8, 0x100000ac8           ; <+168>
+2026-09-02T08:58:41.7966070Z (lldb)  continue
+2026-09-02T08:58:41.7966240Z Process 1163 resuming
+2026-09-02T08:58:41.7966520Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7966740Z (lldb)  continue
+2026-09-02T08:58:41.7968860Z Process 1163 resuming
+2026-09-02T08:58:41.7969900Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7970510Z (lldb)  continue
+2026-09-02T08:58:41.7970980Z Process 1163 resuming
+2026-09-02T08:58:41.7971580Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7972300Z (lldb)  continue
+2026-09-02T08:58:41.7972530Z Process 1163 resuming
+2026-09-02T08:58:41.7972750Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7972970Z (lldb)  continue
+2026-09-02T08:58:41.7973140Z Process 1163 resuming
+2026-09-02T08:58:41.7974320Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7975100Z (lldb)  continue
+2026-09-02T08:58:41.7975400Z Process 1163 resuming
+2026-09-02T08:58:41.7975610Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7975840Z (lldb)  continue
+2026-09-02T08:58:41.7975980Z Process 1163 resuming
+2026-09-02T08:58:41.7976180Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7976420Z (lldb)  continue
+2026-09-02T08:58:41.7976630Z Process 1163 resuming
+2026-09-02T08:58:41.7976890Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7977190Z (lldb)  continue
+2026-09-02T08:58:41.7977340Z Process 1163 resuming
+2026-09-02T08:58:41.7977530Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7977740Z (lldb)  continue
+2026-09-02T08:58:41.7977900Z Process 1163 resuming
+2026-09-02T08:58:41.7978100Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7978350Z (lldb)  continue
+2026-09-02T08:58:41.7979700Z Process 1163 resuming
+2026-09-02T08:58:41.7980460Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7981150Z (lldb)  continue
+2026-09-02T08:58:41.7981630Z Process 1163 resuming
+2026-09-02T08:58:41.7982240Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7983200Z (lldb)  continue
+2026-09-02T08:58:41.7983450Z Process 1163 resuming
+2026-09-02T08:58:41.7983830Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7984260Z (lldb)  continue
+2026-09-02T08:58:41.7984550Z Process 1163 resuming
+2026-09-02T08:58:41.7984990Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7985210Z (lldb)  continue
+2026-09-02T08:58:41.7986230Z Process 1163 resuming
+2026-09-02T08:58:41.7986790Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7987420Z (lldb)  continue
+2026-09-02T08:58:41.7987860Z Process 1163 resuming
+2026-09-02T08:58:41.7988430Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7989000Z (lldb)  continue
+2026-09-02T08:58:41.7989560Z Process 1163 resuming
+2026-09-02T08:58:41.7990230Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7990880Z Access Denied
+2026-09-02T08:58:41.7991300Z Process 1163 resuming
+2026-09-02T08:58:41.7991880Z Process 1163 exited with status = 1 (0x00000001)
+2026-09-02T08:58:41.8056480Z ##[group]Run set +e
+2026-09-02T08:58:41.8056960Z [36;1mset +e[0m
+2026-09-02T08:58:41.8057490Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:58:41.8057790Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:58:41.8058140Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:58:41.8058500Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:58:41.8058880Z [36;1m  -o "thread return 0" \[0m
+2026-09-02T08:58:41.8059140Z [36;1m  -o "breakpoint delete 1" \[0m
+2026-09-02T08:58:41.8059570Z [36;1m  -o "breakpoint set --name read" \[0m
+2026-09-02T08:58:41.8059940Z [36;1m  -o "breakpoint modify 2 -c '\$x0 > 2'" \[0m
+2026-09-02T08:58:41.8060590Z [36;1m  -o "breakpoint command add --script-type command -o 'thread step-out' -o 'memory read --size 1 --format x --count 48 \$x1' -o 'register read x0' -o 'continue' 2" \[0m
+2026-09-02T08:58:41.8062350Z [36;1m  -o "continue" \[0m
+2026-09-02T08:58:41.8062600Z [36;1m  > out/41-read.txt 2>&1[0m
+2026-09-02T08:58:41.8062870Z [36;1mhead -c 60000 out/41-read.txt[0m
+2026-09-02T08:58:41.8104630Z shell: /bin/bash -e {0}
+2026-09-02T08:58:41.8105000Z env:
+2026-09-02T08:58:41.8105140Z   TC: 
+2026-09-02T08:58:41.8105310Z ##[endgroup]
+2026-09-02T08:58:43.4939340Z (lldb) target create bin/challenge.bin
+2026-09-02T08:58:43.4940940Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:58:43.4942140Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:58:43.4943460Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:58:43.4944670Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:58:43.4945960Z Process 1177 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:58:43.4947110Z Process 1177 stopped
+2026-09-02T08:58:43.4947990Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:58:43.4948980Z     frame #0: 0x000000019072280c libsystem_kernel.dylib`__ptrace
+2026-09-02T08:58:43.4949780Z libsystem_kernel.dylib`__ptrace:
+2026-09-02T08:58:43.4950340Z ->  0x19072280c <+0>:  adrp   x9, 450538
+2026-09-02T08:58:43.4951050Z     0x190722810 <+4>:  add    x9, x9, #0x948            ; errno
+2026-09-02T08:58:43.4951760Z     0x190722814 <+8>:  str    wzr, [x9]
+2026-09-02T08:58:43.4952410Z     0x190722818 <+12>: mov    x16, #0x1a                ; =26 
+2026-09-02T08:58:43.4953130Z Target 0: (challenge.bin) stopped.
+2026-09-02T08:58:43.4953670Z (lldb) thread return 0
+2026-09-02T08:58:43.4954170Z (lldb) breakpoint delete 1
+2026-09-02T08:58:43.4954880Z 1 breakpoints deleted; 0 breakpoint locations disabled.
+2026-09-02T08:58:43.4955660Z (lldb) breakpoint set --name read
+2026-09-02T08:58:43.4956440Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:58:43.4957780Z     frame #0: 0x0000000100000a5c challenge.bin`___lldb_unnamed_symbol28 + 60
+2026-09-02T08:58:43.4958820Z challenge.bin`___lldb_unnamed_symbol28:
+2026-09-02T08:58:43.4959580Z ->  0x100000a5c <+60>: mov    w0, #0x0                  ; =0 
+2026-09-02T08:58:43.4960630Z     0x100000a60 <+64>: bl     0x100002b8c               ; symbol stub for: _dyld_get_image_header
+2026-09-02T08:58:43.4961550Z     0x100000a64 <+68>: ldr    w8, [x0, #0x10]
+2026-09-02T08:58:43.4962310Z     0x100000a68 <+72>: cbz    w8, 0x100000ac8           ; <+168>
+2026-09-02T08:58:43.4963020Z Breakpoint 2: 4 locations.
+2026-09-02T08:58:43.4963610Z (lldb) breakpoint modify 2 -c '$x0 > 2'
+2026-09-02T08:58:43.4965540Z (lldb) breakpoint command add --script-type command -o 'thread step-out' -o 'memory read --size 1 --format x --count 48 $x1' -o 'register read x0' -o 'continue' 2
+2026-09-02T08:58:43.4967320Z (lldb) continue
+2026-09-02T08:58:43.4967950Z (lldb)  continue
+2026-09-02T08:58:43.4968420Z Process 1177 resuming
+2026-09-02T08:58:43.4969130Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.4971630Z (lldb)  continue
+2026-09-02T08:58:43.4972190Z Process 1177 resuming
+2026-09-02T08:58:43.4972720Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.4973830Z (lldb)  continue
+2026-09-02T08:58:43.4974630Z Process 1177 resuming
+2026-09-02T08:58:43.4974860Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.4975100Z (lldb)  continue
+2026-09-02T08:58:43.4975280Z Process 1177 resuming
+2026-09-02T08:58:43.4975480Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.4994390Z (lldb)  continue
+2026-09-02T08:58:43.4995160Z Process 1177 resuming
+2026-09-02T08:58:43.4995770Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.4996360Z (lldb)  continue
+2026-09-02T08:58:43.4996820Z Process 1177 resuming
+2026-09-02T08:58:43.4997650Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.4998730Z (lldb)  continue
+2026-09-02T08:58:43.4999190Z Process 1177 resuming
+2026-09-02T08:58:43.4999710Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.5000450Z (lldb)  continue
+2026-09-02T08:58:43.5000910Z Process 1177 resuming
+2026-09-02T08:58:43.5001410Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.5002030Z (lldb)  continue
+2026-09-02T08:58:43.5002440Z Process 1177 resuming
+2026-09-02T08:58:43.5002930Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.5003760Z (lldb)  continue
+2026-09-02T08:58:43.5003970Z Process 1177 resuming
+2026-09-02T08:58:43.5004220Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.5004450Z (lldb)  continue
+2026-09-02T08:58:43.5004620Z Process 1177 resuming
+2026-09-02T08:58:43.5004870Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.5005110Z (lldb)  continue
+2026-09-02T08:58:43.5005290Z Process 1177 resuming
+2026-09-02T08:58:43.5005510Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.5005790Z (lldb)  continue
+2026-09-02T08:58:43.5005950Z Process 1177 resuming
+2026-09-02T08:58:43.5006150Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.5006360Z (lldb)  continue
+2026-09-02T08:58:43.5006550Z Process 1177 resuming
+2026-09-02T08:58:43.5006740Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.5006980Z (lldb)  continue
+2026-09-02T08:58:43.5007220Z Process 1177 resuming
+2026-09-02T08:58:43.5007410Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.5007680Z (lldb)  continue
+2026-09-02T08:58:43.5007870Z Process 1177 resuming
+2026-09-02T08:58:43.5008140Z Command #1 'continue' continued the target.
+2026-09-02T08:58:43.5008370Z Access Denied
+2026-09-02T08:58:43.5008580Z Process 1177 resuming
+2026-09-02T08:58:43.5008800Z Process 1177 exited with status = 1 (0x00000001)
+2026-09-02T08:58:43.5188460Z ##[group]Run set +e
+2026-09-02T08:58:43.5188810Z [36;1mset +e[0m
+2026-09-02T08:58:43.5189010Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:58:43.5189250Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:58:43.5189540Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:58:43.5189950Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:58:43.5190300Z [36;1m  -o "thread return 0" \[0m
+2026-09-02T08:58:43.5190550Z [36;1m  -o "breakpoint delete 1" \[0m
+2026-09-02T08:58:43.5190810Z [36;1m  -o "breakpoint set --name posix_spawn" \[0m
+2026-09-02T08:58:43.5191410Z [36;1m  -o "breakpoint command add --script-type command -o 'memory read --size 1 --format c --count 64 \$x1' -o 'register read x0 x2 x3' -o 'bt' -o 'continue' 2" \[0m
+2026-09-02T08:58:43.5191970Z [36;1m  -o "continue" \[0m
+2026-09-02T08:58:43.5192450Z [36;1m  > out/42-spawn.txt 2>&1[0m
+2026-09-02T08:58:43.5192750Z [36;1mhead -c 40000 out/42-spawn.txt[0m
+2026-09-02T08:58:43.5231800Z shell: /bin/bash -e {0}
+2026-09-02T08:58:43.5232130Z env:
+2026-09-02T08:58:43.5232320Z   TC: 
+2026-09-02T08:58:43.5232490Z ##[endgroup]
+2026-09-02T08:58:44.8957490Z (lldb) target create bin/challenge.bin
+2026-09-02T08:58:44.8959210Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:58:44.8960410Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:58:44.8961610Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:58:44.8964010Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:58:44.8966080Z Process 1188 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:58:44.8967640Z Process 1188 stopped
+2026-09-02T08:58:44.8973710Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:58:44.8974780Z     frame #0: 0x000000019072280c libsystem_kernel.dylib`__ptrace
+2026-09-02T08:58:44.8975520Z libsystem_kernel.dylib`__ptrace:
+2026-09-02T08:58:44.8976100Z ->  0x19072280c <+0>:  adrp   x9, 450538
+2026-09-02T08:58:44.8976950Z     0x190722810 <+4>:  add    x9, x9, #0x948            ; errno
+2026-09-02T08:58:44.8977670Z     0x190722814 <+8>:  str    wzr, [x9]
+2026-09-02T08:58:44.8978350Z     0x190722818 <+12>: mov    x16, #0x1a                ; =26 
+2026-09-02T08:58:44.8979040Z Target 0: (challenge.bin) stopped.
+2026-09-02T08:58:44.8979630Z (lldb) thread return 0
+2026-09-02T08:58:44.8980120Z (lldb) breakpoint delete 1
+2026-09-02T08:58:44.8980760Z 1 breakpoints deleted; 0 breakpoint locations disabled.
+2026-09-02T08:58:44.8981600Z (lldb) breakpoint set --name posix_spawn
+2026-09-02T08:58:44.8982430Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:58:44.8983450Z     frame #0: 0x0000000100000a5c challenge.bin`___lldb_unnamed_symbol28 + 60
+2026-09-02T08:58:44.8984400Z challenge.bin`___lldb_unnamed_symbol28:
+2026-09-02T08:58:44.8985130Z ->  0x100000a5c <+60>: mov    w0, #0x0                  ; =0 
+2026-09-02T08:58:44.8986080Z     0x100000a60 <+64>: bl     0x100002b8c               ; symbol stub for: _dyld_get_image_header
+2026-09-02T08:58:44.8986990Z     0x100000a64 <+68>: ldr    w8, [x0, #0x10]
+2026-09-02T08:58:44.8987680Z     0x100000a68 <+72>: cbz    w8, 0x100000ac8           ; <+168>
+2026-09-02T08:58:44.8988720Z Breakpoint 2: where = libsystem_kernel.dylib`posix_spawn, address = 0x0000000190720bf8
+2026-09-02T08:58:44.8990440Z (lldb) breakpoint command add --script-type command -o 'memory read --size 1 --format c --count 64 $x1' -o 'register read x0 x2 x3' -o 'bt' -o 'continue' 2
+2026-09-02T08:58:44.8991800Z (lldb) continue
+2026-09-02T08:58:44.8992230Z (lldb)  continue
+2026-09-02T08:58:44.8992660Z Process 1188 resuming
+2026-09-02T08:58:44.8993190Z Command #1 'continue' continued the target.
+2026-09-02T08:58:44.8993940Z (lldb)  continue
+2026-09-02T08:58:44.8994400Z Process 1188 resuming
+2026-09-02T08:58:44.8995920Z Command #1 'continue' continued the target.
+2026-09-02T08:58:44.8996540Z Access Denied
+2026-09-02T08:58:44.8996980Z Process 1188 resuming
+2026-09-02T08:58:44.8997500Z Process 1188 exited with status = 1 (0x00000001)
+2026-09-02T08:58:44.9254180Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T08:58:44.9255600Z ##[group]Run actions/upload-artifact@v4
+2026-09-02T08:58:44.9255880Z with:
+2026-09-02T08:58:44.9256220Z   name: probe-output
+2026-09-02T08:58:44.9256390Z   path: out/
+2026-09-02T08:58:44.9256550Z   if-no-files-found: warn
+2026-09-02T08:58:44.9256740Z   compression-level: 6
+2026-09-02T08:58:44.9256920Z   overwrite: false
+2026-09-02T08:58:44.9257090Z   include-hidden-files: false
+2026-09-02T08:58:44.9308500Z env:
+2026-09-02T08:58:44.9308670Z   TC: 
+2026-09-02T08:58:44.9308800Z ##[endgroup]
+2026-09-02T08:58:45.1203160Z (node:1196) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-02T08:58:45.1205130Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-02T08:58:45.1258240Z With the provided path, there will be 3 files uploaded
+2026-09-02T08:58:45.1260100Z Artifact name is valid!
+2026-09-02T08:58:45.1262270Z Root directory input is valid!
+2026-09-02T08:58:45.5657690Z Beginning upload of artifact content to blob storage
+2026-09-02T08:58:45.5980400Z (node:1196) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-02T08:58:45.8567920Z Uploaded bytes 2778
+2026-09-02T08:58:45.9293790Z Finished uploading artifact content to blob storage!
+2026-09-02T08:58:45.9294980Z SHA256 digest of uploaded artifact zip is 605332ea6d4c9129c0801faeb5f7e38f8307723ef66fec414df57a750525ad38
+2026-09-02T08:58:45.9300830Z Finalizing artifact upload
+2026-09-02T08:58:46.1872130Z Artifact probe-output.zip successfully finalized. Artifact ID 9839193349
+2026-09-02T08:58:46.1873800Z Artifact probe-output has been successfully uploaded! Final size is 2778 bytes. Artifact ID is 9839193349
+2026-09-02T08:58:46.1883870Z Artifact download URL: https://github.com/lxc20120105/nepctf-1123-probe/actions/runs/33611572144/artifacts/9839193349
+2026-09-02T08:58:46.2078710Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-02T08:58:46.2079780Z Post job cleanup.
+2026-09-02T08:58:46.3153840Z [command]/opt/homebrew/bin/git version
+2026-09-02T08:58:46.3403210Z git version 2.55.0
+2026-09-02T08:58:46.3427180Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/bb5a94b7-af6b-4f8d-9769-763e4f0a96b5/.gitconfig'
+2026-09-02T08:58:46.3451560Z Temporarily overriding HOME='/Users/runner/work/_temp/bb5a94b7-af6b-4f8d-9769-763e4f0a96b5' before making global git config changes
+2026-09-02T08:58:46.3453430Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-02T08:58:46.3460970Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/nepctf-1123-probe/nepctf-1123-probe
+2026-09-02T08:58:46.3550240Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-02T08:58:46.3629620Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-02T08:58:46.4706480Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-02T08:58:46.4774720Z http.https://github.com/.extraheader
+2026-09-02T08:58:46.4786340Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-02T08:58:46.4870250Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-02T08:58:46.5845130Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-02T08:58:46.5960110Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-02T08:58:46.7435630Z Cleaning up orphan processes
+2026-09-02T08:58:46.7879290Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,102 @@
+﻿2026-09-02T08:58:36.0925500Z ##[group]Run set +e
+2026-09-02T08:58:36.0925940Z [36;1mset +e[0m
+2026-09-02T08:58:36.0926190Z [36;1m${TC:+$TC 400} lldb -b \[0m
+2026-09-02T08:58:36.0926560Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-02T08:58:36.0926970Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-02T08:58:36.0927500Z [36;1m  -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \[0m
+2026-09-02T08:58:36.0928080Z [36;1m  -o "thread return 0" \[0m
+2026-09-02T08:58:36.0928480Z [36;1m  -o "breakpoint delete 1" \[0m
+2026-09-02T08:58:36.0928820Z [36;1m  -o "breakpoint set --name write" \[0m
+2026-09-02T08:58:36.0929190Z [36;1m  -o "breakpoint modify 2 -c '\$x0 > 2'" \[0m
+2026-09-02T08:58:36.0929800Z [36;1m  -o "breakpoint command add --script-type command -o 'memory read --size 1 --format x --count 48 \$x1' -o 'register read x0 x2' -o 'continue' 2" \[0m
+2026-09-02T08:58:36.0930520Z [36;1m  -o "continue" \[0m
+2026-09-02T08:58:36.0930850Z [36;1m  > out/40-write.txt 2>&1[0m
+2026-09-02T08:58:36.0931220Z [36;1mhead -c 60000 out/40-write.txt[0m
+2026-09-02T08:58:36.0982840Z shell: /bin/bash -e {0}
+2026-09-02T08:58:36.0983580Z env:
+2026-09-02T08:58:36.0983870Z   TC: 
+2026-09-02T08:58:36.0984110Z ##[endgroup]
+2026-09-02T08:58:41.7927520Z (lldb) target create bin/challenge.bin
+2026-09-02T08:58:41.7931670Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-02T08:58:41.7934860Z (lldb) breakpoint set --name ptrace
+2026-09-02T08:58:41.7936860Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-02T08:58:41.7938050Z (lldb) process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'
+2026-09-02T08:58:41.7939760Z Process 1163 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-02T08:58:41.7941670Z Process 1163 stopped
+2026-09-02T08:58:41.7943110Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:58:41.7944310Z     frame #0: 0x000000019072280c libsystem_kernel.dylib`__ptrace
+2026-09-02T08:58:41.7945450Z libsystem_kernel.dylib`__ptrace:
+2026-09-02T08:58:41.7946280Z ->  0x19072280c <+0>:  adrp   x9, 450538
+2026-09-02T08:58:41.7947270Z     0x190722810 <+4>:  add    x9, x9, #0x948            ; errno
+2026-09-02T08:58:41.7948160Z     0x190722814 <+8>:  str    wzr, [x9]
+2026-09-02T08:58:41.7948820Z     0x190722818 <+12>: mov    x16, #0x1a                ; =26 
+2026-09-02T08:58:41.7949780Z Target 0: (challenge.bin) stopped.
+2026-09-02T08:58:41.7950530Z (lldb) thread return 0
+2026-09-02T08:58:41.7951010Z (lldb) breakpoint delete 1
+2026-09-02T08:58:41.7951780Z 1 breakpoints deleted; 0 breakpoint locations disabled.
+2026-09-02T08:58:41.7952880Z (lldb) breakpoint set --name write
+2026-09-02T08:58:41.7953510Z Breakpoint 2: 3 locations.
+2026-09-02T08:58:41.7954380Z (lldb) breakpoint modify 2 -c '$x0 > 2'
+2026-09-02T08:58:41.7962030Z (lldb) breakpoint command add --script-type command -o 'memory read --size 1 --format x --count 48 $x1' -o 'register read x0 x2' -o 'continue' 2
+2026-09-02T08:58:41.7962710Z (lldb) continue
+2026-09-02T08:58:41.7962980Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-02T08:58:41.7963510Z     frame #0: 0x0000000100000a5c challenge.bin`___lldb_unnamed_symbol28 + 60
+2026-09-02T08:58:41.7963920Z challenge.bin`___lldb_unnamed_symbol28:
+2026-09-02T08:58:41.7964640Z ->  0x100000a5c <+60>: mov    w0, #0x0                  ; =0 
+2026-09-02T08:58:41.7965080Z     0x100000a60 <+64>: bl     0x100002b8c               ; symbol stub for: _dyld_get_image_header
+2026-09-02T08:58:41.7965430Z     0x100000a64 <+68>: ldr    w8, [x0, #0x10]
+2026-09-02T08:58:41.7965780Z     0x100000a68 <+72>: cbz    w8, 0x100000ac8           ; <+168>
+2026-09-02T08:58:41.7966070Z (lldb)  continue
+2026-09-02T08:58:41.7966240Z Process 1163 resuming
+2026-09-02T08:58:41.7966520Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7966740Z (lldb)  continue
+2026-09-02T08:58:41.7967030Z Process 1163 resuming
+2026-09-02T08:58:41.7969890Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7970510Z (lldb)  continue
+2026-09-02T08:58:41.7970970Z Process 1163 resuming
+2026-09-02T08:58:41.7971570Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7972290Z (lldb)  continue
+2026-09-02T08:58:41.7972520Z Process 1163 resuming
+2026-09-02T08:58:41.7972740Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7972970Z (lldb)  continue
+2026-09-02T08:58:41.7973140Z Process 1163 resuming
+2026-09-02T08:58:41.7974300Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7975090Z (lldb)  continue
+2026-09-02T08:58:41.7975390Z Process 1163 resuming
+2026-09-02T08:58:41.7975610Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7975840Z (lldb)  continue
+2026-09-02T08:58:41.7975980Z Process 1163 resuming
+2026-09-02T08:58:41.7976170Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7976420Z (lldb)  continue
+2026-09-02T08:58:41.7976620Z Process 1163 resuming
+2026-09-02T08:58:41.7976880Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7977190Z (lldb)  continue
+2026-09-02T08:58:41.7977340Z Process 1163 resuming
+2026-09-02T08:58:41.7977530Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7977740Z (lldb)  continue
+2026-09-02T08:58:41.7977890Z Process 1163 resuming
+2026-09-02T08:58:41.7978100Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7978350Z (lldb)  continue
+2026-09-02T08:58:41.7979660Z Process 1163 resuming
+2026-09-02T08:58:41.7980460Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7981140Z (lldb)  continue
+2026-09-02T08:58:41.7981620Z Process 1163 resuming
+2026-09-02T08:58:41.7982230Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7983190Z (lldb)  continue
+2026-09-02T08:58:41.7983440Z Process 1163 resuming
+2026-09-02T08:58:41.7983820Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7984260Z (lldb)  continue
+2026-09-02T08:58:41.7984540Z Process 1163 resuming
+2026-09-02T08:58:41.7984980Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7985210Z (lldb)  continue
+2026-09-02T08:58:41.7986200Z Process 1163 resuming
+2026-09-02T08:58:41.7986780Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7987410Z (lldb)  continue
+2026-09-02T08:58:41.7987850Z Process 1163 resuming
+2026-09-02T08:58:41.7988420Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7988990Z (lldb)  continue
+2026-09-02T08:58:41.7989560Z Process 1163 resuming
+2026-09-02T08:58:41.7990220Z Command #1 'continue' continued the target.
+2026-09-02T08:58:41.7990870Z Access Denied
+2026-09-02T08:58:41.7991290Z Process 1163 resuming
+2026-09-02T08:58:41.7991870Z Process 1163 exited with status = 1 (0x00000001)
