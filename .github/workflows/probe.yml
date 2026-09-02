@@ -13,39 +13,21 @@ jobs:
 
       - name: 1 - 准备
         run: |
-          TC=$(command -v gtimeout || command -v timeout || echo "")
-          echo "TC=$TC" >> $GITHUB_ENV
           mkdir -p out
           xattr -cr bin/ 2>&1 || true
           codesign -s - --force bin/challenge.bin 2>&1 || true
           chmod +x bin/challenge.bin
           sudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true
 
-      - name: 2 - 拦截父子双向管道流量
+      - name: 2 - 批量试候选
         continue-on-error: true
         run: |
           set +e
-          ${TC:+$TC 400} lldb -b \
-            -o "command script import bpcmd2.py" \
-            -o "target create bin/challenge.bin" \
-            -o "breakpoint set --name ptrace" \
-            -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
-            -o "thread return 0" \
-            -o "breakpoint delete 1" \
-            -o "breakpoint set --name read" \
-            -o "breakpoint command add --script-type python -F bpcmd2.on_read 2" \
-            -o "breakpoint set --name write" \
-            -o "breakpoint command add --script-type python -F bpcmd2.on_write 3" \
-            -o "breakpoint set --name _write" \
-            -o "breakpoint command add --script-type python -F bpcmd2.on_stdout 4" \
-            -o "continue" \
-            > out/90-ipc.txt 2>&1
-          grep -E "^(READ|WRITE)" out/90-ipc.txt | tee out/90-ipc-clean.txt
-          echo "--- counts ---"
-          grep -c "^READ" out/90-ipc.txt || true
-          grep -c "^WRITE" out/90-ipc.txt || true
-          echo "--- tail of raw ---"
-          tail -20 out/90-ipc.txt
+          while IFS='|' read -r name flag; do
+            [ -z "$name" ] && continue
+            OUT=$(./bin/challenge.bin "$flag" < /dev/null 2>&1 | head -2 | tr '\n' ' ')
+            printf '%-22s %s  -> [%s]\n' "$name" "$flag" "$OUT"
+          done < candidates.txt | tee out/A0-candidates.txt
 
       - name: 3 - 上传
         if: always()
