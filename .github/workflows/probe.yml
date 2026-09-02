@@ -1,0 +1,116 @@
+name: NepCTF 1123 probe
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 1 - 环境探测
+        run: |
+          mkdir -p out
+          {
+            echo "=== sw_vers ==="; sw_vers
+            echo "=== uname ==="; uname -a
+            echo "=== arch ==="; uname -m
+            echo "=== cpu ==="; sysctl -n machdep.cpu.brand_string 2>/dev/null || true
+          } 2>&1 | tee out/01-env.txt
+
+      - name: 2 - 二进制信息
+        run: |
+          {
+            echo "=== file ==="; file bin/challenge.bin
+            echo "=== lipo archs ==="; lipo -archs bin/challenge.bin 2>&1
+            echo "=== mach headers ==="; otool -hv bin/challenge.bin 2>&1
+            echo "=== dylibs ==="; otool -L bin/challenge.bin 2>&1
+          } 2>&1 | tee out/02-binary.txt
+
+      - name: 3 - 确保 Rosetta 2
+        continue-on-error: true
+        run: |
+          sudo softwareupdate --install-rosetta --agree-to-license 2>&1 | tee out/03-rosetta.txt || true
+          echo "=== x86_64 check ==="
+          arch -x86_64 uname -m 2>&1 | tee -a out/03-rosetta.txt || echo "rosetta UNAVAILABLE" | tee -a out/03-rosetta.txt
+
+      - name: 4 - 去隔离并 ad-hoc 重签名
+        continue-on-error: true
+        run: |
+          {
+            echo "=== xattr before ==="; xattr -l bin/challenge.bin 2>&1 || true
+            xattr -cr bin/ 2>&1 || true
+            codesign -s - --force bin/challenge.bin 2>&1 || true
+            chmod +x bin/challenge.bin
+            echo "=== xattr after ==="; xattr -l bin/challenge.bin 2>&1 || true
+            echo "=== codesign ==="; codesign -dvvv bin/challenge.bin 2>&1 || true
+          } 2>&1 | tee out/04-sign.txt
+
+      - name: 5 - 无参数试跑
+        continue-on-error: true
+        run: |
+          timeout 120 ./bin/challenge.bin < /dev/null > out/05-noparam.txt 2>&1
+          echo "exit=$?" >> out/05-noparam.txt
+          cat out/05-noparam.txt
+
+      - name: 6 - 候选 flag 试跑 (argv)
+        continue-on-error: true
+        run: |
+          timeout 120 ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/06-argv.txt 2>&1
+          echo "exit=$?" >> out/06-argv.txt
+          cat out/06-argv.txt
+
+      - name: 7 - 候选 flag 试跑 (stdin)
+        continue-on-error: true
+        run: |
+          echo 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' | timeout 120 ./bin/challenge.bin > out/07-stdin.txt 2>&1
+          echo "exit=$?" >> out/07-stdin.txt
+          cat out/07-stdin.txt
+
+      - name: 8 - 编译 ptrace 反调试 hook
+        continue-on-error: true
+        run: |
+          cat > ptrace_hook.c <<'EOF'
+          #include <sys/types.h>
+          int ptrace(int request, pid_t pid, void *addr, int data) {
+            return 0;
+          }
+          EOF
+          clang -dynamiclib -o libptrace_hook.dylib ptrace_hook.c 2>&1 | tee out/08-hook.txt
+          ls -l libptrace_hook.dylib 2>&1 | tee -a out/08-hook.txt
+
+      - name: 9 - 带 hook 重试 (绕过 PT_DENY_ATTACH)
+        continue-on-error: true
+        run: |
+          export DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"
+          timeout 180 ./bin/challenge.bin 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}' < /dev/null > out/09-hooked.txt 2>&1
+          echo "exit=$?" >> out/09-hooked.txt
+          cat out/09-hooked.txt
+
+      - name: 10 - lldb 断在比较点 0x100002358 dump 左右值
+        continue-on-error: true
+        run: |
+          export DYLD_INSERT_LIBRARIES="$PWD/libptrace_hook.dylib"
+          timeout 400 lldb -b \
+            -o "target create bin/challenge.bin" \
+            -o "breakpoint set --address 0x100002358" \
+            -o "process launch -- 'NepCTF{a986e67dd7e9329e518bdba8805c2d4d}'" \
+            -o 'expr unsigned long $L = $x29 - 0x90' \
+            -o 'expr unsigned long $R = $x29 - 0xb0' \
+            -o 'memory read --size 1 --format x --count 16 $L' \
+            -o 'memory read --size 1 --format x --count 16 $R' \
+            -o 'register read x29 sp pc' \
+            -o 'bt' \
+            -o 'process continue' \
+            > out/10-lldb.txt 2>&1
+          cat out/10-lldb.txt
+
+      - name: 11 - 上传全部输出
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: probe-output
+          path: out/
