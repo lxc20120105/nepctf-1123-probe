@@ -7,7 +7,7 @@ on:
 jobs:
   probe:
     runs-on: macos-15
-    timeout-minutes: 25
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -21,35 +21,22 @@ jobs:
           chmod +x bin/challenge.bin
           sudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true
 
-      - name: 2 - 线性探测
+      - name: 2 - 单 case 诊断
         continue-on-error: true
         run: |
           set +e
-          probe() {
-            LBL="$1"; FLAG="$2"
-            ${TC:+$TC 200} lldb -b \
-              -o "command script import bpcmd2.py" \
-              -o "target create bin/challenge.bin" \
-              -o "breakpoint set --name ptrace" \
-              -o "process launch -- '$FLAG'" \
-              -o "thread return 0" \
-              -o "breakpoint delete 1" \
-              -o "breakpoint set --name write" \
-              -o "breakpoint command add --script-type python -F bpcmd2.on_write 3" \
-              -o "continue" 2>&1 | grep -E "^WRITE n=29" | sed "s/^/${LBL} /"
-          }
-          {
-            probe "BASE1" 'NepCTF{00000000000000000000000000000000}'
-            probe "BASE2" 'NepCTF{00000000000000000000000000000000}'
-            probe "BASE3" 'NepCTF{00000000000000000000000000000000}'
-            probe "P00" 'NepCTF{10000000000000000000000000000000}'
-            probe "P01" 'NepCTF{01000000000000000000000000000000}'
-            probe "P31" 'NepCTF{00000000000000000000000000000001}'
-          } | tee out/C0-linear.txt
-
-      - name: 3 - 上传
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: probe-output
-          path: out/
+          ${TC:+$TC 200} lldb -b \
+            -o "command script import bpcmd2.py" \
+            -o "target create bin/challenge.bin" \
+            -o "breakpoint set --name ptrace" \
+            -o "process launch -- 'NepCTF{00000000000000000000000000000000}'" \
+            -o "thread return 0" \
+            -o "breakpoint delete 1" \
+            -o "breakpoint set --name write" \
+            -o "breakpoint command add --script-type python -F bpcmd2.on_write 3" \
+            -o "continue" > out/91-single.txt 2>&1
+          echo "exit=$?"
+          echo "--- 行数 ---"
+          wc -l < out/91-single.txt
+          echo "--- 全部输出(前60行) ---"
+          head -60 out/91-single.txt
