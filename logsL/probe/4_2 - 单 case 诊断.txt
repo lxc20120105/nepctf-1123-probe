@@ -1,0 +1,55 @@
+﻿2026-09-03T00:45:51.8593020Z ##[group]Run set +e
+2026-09-03T00:45:51.8593380Z [36;1mset +e[0m
+2026-09-03T00:45:51.8593610Z [36;1m${TC:+$TC 200} lldb -b \[0m
+2026-09-03T00:45:51.8593990Z [36;1m  -o "command script import bpcmd2.py" \[0m
+2026-09-03T00:45:51.8594330Z [36;1m  -o "target create bin/challenge.bin" \[0m
+2026-09-03T00:45:51.8594860Z [36;1m  -o "breakpoint set --name ptrace" \[0m
+2026-09-03T00:45:51.8595730Z [36;1m  -o "process launch -- 'NepCTF{00000000000000000000000000000000}'" \[0m
+2026-09-03T00:45:51.8596530Z [36;1m  -o "thread return 0" \[0m
+2026-09-03T00:45:51.8596790Z [36;1m  -o "breakpoint delete 1" \[0m
+2026-09-03T00:45:51.8597090Z [36;1m  -o "breakpoint set --name write" \[0m
+2026-09-03T00:45:51.8597530Z [36;1m  -o "breakpoint command add --script-type python -F bpcmd2.on_write 3" \[0m
+2026-09-03T00:45:51.8597960Z [36;1m  -o "continue" > out/91-single.txt 2>&1[0m
+2026-09-03T00:45:51.8598260Z [36;1mecho "exit=$?"[0m
+2026-09-03T00:45:51.8598510Z [36;1mecho "--- 行数 ---"[0m
+2026-09-03T00:45:51.8598870Z [36;1mwc -l < out/91-single.txt[0m
+2026-09-03T00:45:51.8599170Z [36;1mecho "--- 全部输出(前60行) ---"[0m
+2026-09-03T00:45:51.8599490Z [36;1mhead -60 out/91-single.txt[0m
+2026-09-03T00:45:51.8649200Z shell: /bin/bash -e {0}
+2026-09-03T00:45:51.8651990Z env:
+2026-09-03T00:45:51.8652780Z   TC: 
+2026-09-03T00:45:51.8653340Z ##[endgroup]
+2026-09-03T00:45:57.1299230Z exit=1
+2026-09-03T00:45:57.1302780Z --- 行数 ---
+2026-09-03T00:45:57.1588310Z       30
+2026-09-03T00:45:57.1591360Z --- 全部输出(前60行) ---
+2026-09-03T00:45:57.1657950Z (lldb) command script import bpcmd2.py
+2026-09-03T00:45:57.1659210Z (lldb) target create bin/challenge.bin
+2026-09-03T00:45:57.1677700Z Current executable set to '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64).
+2026-09-03T00:45:57.1679170Z (lldb) breakpoint set --name ptrace
+2026-09-03T00:45:57.1682340Z Breakpoint 1: where = libsystem_kernel.dylib`__ptrace, address = 0x000000018043a80c
+2026-09-03T00:45:57.1686350Z (lldb) process launch -- 'NepCTF{00000000000000000000000000000000}'
+2026-09-03T00:45:57.1691750Z Process 5815 launched: '/Users/runner/work/nepctf-1123-probe/nepctf-1123-probe/bin/challenge.bin' (arm64)
+2026-09-03T00:45:57.1693400Z Process 5815 stopped
+2026-09-03T00:45:57.1694730Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-03T00:45:57.1696510Z     frame #0: 0x0000000191aee80c libsystem_kernel.dylib`__ptrace
+2026-09-03T00:45:57.1697140Z libsystem_kernel.dylib`__ptrace:
+2026-09-03T00:45:57.1697680Z ->  0x191aee80c <+0>:  adrp   x9, 450538
+2026-09-03T00:45:57.1698410Z     0x191aee810 <+4>:  add    x9, x9, #0x948            ; errno
+2026-09-03T00:45:57.1698930Z     0x191aee814 <+8>:  str    wzr, [x9]
+2026-09-03T00:45:57.1699780Z     0x191aee818 <+12>: mov    x16, #0x1a                ; =26 
+2026-09-03T00:45:57.1700150Z Target 0: (challenge.bin) stopped.
+2026-09-03T00:45:57.1700920Z (lldb) thread return 0
+2026-09-03T00:45:57.1702070Z (lldb) breakpoint delete 1
+2026-09-03T00:45:57.1716230Z 1 breakpoints deleted; 0 breakpoint locations disabled.
+2026-09-03T00:45:57.1717300Z (lldb) breakpoint set --name write
+2026-09-03T00:45:57.1717970Z Breakpoint 2: 3 locations.
+2026-09-03T00:45:57.1718700Z (lldb) breakpoint command add --script-type python -F bpcmd2.on_write 3
+2026-09-03T00:45:57.1719500Z error: '3' is not a currently valid breakpoint ID.
+2026-09-03T00:45:57.1721630Z * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+2026-09-03T00:45:57.1738060Z     frame #0: 0x0000000100000a5c challenge.bin`___lldb_unnamed_symbol28 + 60
+2026-09-03T00:45:57.1738910Z challenge.bin`___lldb_unnamed_symbol28:
+2026-09-03T00:45:57.1739500Z ->  0x100000a5c <+60>: mov    w0, #0x0                  ; =0 
+2026-09-03T00:45:57.1740510Z     0x100000a60 <+64>: bl     0x100002b8c               ; symbol stub for: _dyld_get_image_header
+2026-09-03T00:45:57.1741220Z     0x100000a64 <+68>: ldr    w8, [x0, #0x10]
+2026-09-03T00:45:57.1741780Z     0x100000a68 <+72>: cbz    w8, 0x100000ac8           ; <+168>
