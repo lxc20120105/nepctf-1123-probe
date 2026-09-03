@@ -1,0 +1,47 @@
+﻿2026-09-02T09:49:54.8449530Z ##[group]Run set +e
+2026-09-02T09:49:54.8450210Z [36;1mset +e[0m
+2026-09-02T09:49:54.8450960Z [36;1mwhile IFS='|' read -r name flag; do[0m
+2026-09-02T09:49:54.8451670Z [36;1m  [ -z "$name" ] && continue[0m
+2026-09-02T09:49:54.8452630Z [36;1m  OUT=$(./bin/challenge.bin "$flag" < /dev/null 2>&1 | head -2 | tr '\n' ' ')[0m
+2026-09-02T09:49:54.8453770Z [36;1m  printf '%-22s %s  -> [%s]\n' "$name" "$flag" "$OUT"[0m
+2026-09-02T09:49:54.8454740Z [36;1mdone < candidates.txt | tee out/A0-candidates.txt[0m
+2026-09-02T09:49:54.8506890Z shell: /bin/bash -e {0}
+2026-09-02T09:49:54.8507170Z ##[endgroup]
+2026-09-02T09:49:55.7108490Z stage1_out             NepCTF{bcf46cbec44627ea384de6a190f84bff}
+2026-09-02T09:49:55.7108990Z   -> [Access Denied ]
+2026-09-02T09:49:55.9117470Z uuid_arm               NepCTF{ed93c5f9d215fe5be21f386702e21c20}
+2026-09-02T09:49:55.9117980Z   -> [Access Denied ]
+2026-09-02T09:49:56.1164800Z uuid_x86               NepCTF{099dfb82fc5eef2db97354cee1c5774d}
+2026-09-02T09:49:56.1165220Z   -> [Access Denied ]
+2026-09-02T09:49:56.3168700Z out1_tail              NepCTF{82e31ffdaed5c11050891f0dc57d4310}
+2026-09-02T09:49:56.3169230Z   -> [Access Denied ]
+2026-09-02T09:49:56.5098500Z fb3c[16:32]            NepCTF{3686d8f8d3ea755c22a1a697d8d13cb0}
+2026-09-02T09:49:56.5098900Z   -> [Access Denied ]
+2026-09-02T09:49:56.7147790Z fb3c[32:48]            NepCTF{68d2ac8602b27cc7ac79ab6c74fe3b07}
+2026-09-02T09:49:56.7148190Z   -> [Access Denied ]
+2026-09-02T09:49:56.9144730Z fb3c[48:63]            NepCTF{d10da8a93b83dfba6ec4fdd8c951f800}
+2026-09-02T09:49:56.9145290Z   -> [Access Denied ]
+2026-09-02T09:49:57.1241780Z fabc[0:16]             NepCTF{90dc2fa2b2136ccc190f20f23496e604}
+2026-09-02T09:49:57.1242260Z   -> [Access Denied ]
+2026-09-02T09:49:57.3511490Z fabc[16:32]            NepCTF{198ae8a0f76a883ddc14847f9fb9a953}
+2026-09-02T09:49:57.3514070Z   -> [Access Denied ]
+2026-09-02T09:49:57.5585730Z fabc[32:48]            NepCTF{07004d8b371a1639d5937da589f0ef49}
+2026-09-02T09:49:57.5586170Z   -> [Access Denied ]
+2026-09-02T09:49:57.7689540Z dat64000               NepCTF{8592a2e4f88b293cce4dbee96feead04}
+2026-09-02T09:49:57.7690050Z   -> [Access Denied ]
+2026-09-02T09:49:57.9723940Z dat8010                NepCTF{627d9d411420fb7081d18c376356772f}
+2026-09-02T09:49:57.9724660Z   -> [Access Denied ]
+2026-09-02T09:49:58.1720930Z dat8000                NepCTF{37b9eb0a059462be2805b78b859087e7}
+2026-09-02T09:49:58.1721430Z   -> [Access Denied ]
+2026-09-02T09:49:58.3780810Z stage1^uuid_arm        NepCTF{5167a9471653d9b1da52dec6921a57df}
+2026-09-02T09:49:58.5781540Z   -> [Access Denied ]
+2026-09-02T09:49:58.5781930Z stage1^uuid_x86        NepCTF{b569973c3818c8c7813eb26f713d3cb2}
+2026-09-02T09:49:58.5782540Z   -> [Access Denied ]
+2026-09-02T09:49:58.7762800Z uuid_arm^uuid_x86      NepCTF{e40e3e7b2e4b11765b6c6ca9e3276b6d}
+2026-09-02T09:49:58.7763250Z   -> [Access Denied ]
+2026-09-02T09:49:58.9868060Z stage1^out1tail        NepCTF{3e1773436a93e6fa68c4f9ac558508ef}
+2026-09-02T09:49:58.9868480Z   -> [Access Denied ]
+2026-09-02T09:49:59.1799860Z uuid_arm^out1tail      NepCTF{6f70da047cc03f4bb296276ac79f5f30}
+2026-09-02T09:49:59.1800890Z   -> [Access Denied ]
+2026-09-02T09:49:59.4098660Z uuid_x86^out1tail      NepCTF{8b7ee47f528b2e3de9fa4bc324b8345d}
+2026-09-02T09:49:59.4099280Z   -> [Access Denied ]

@@ -1,0 +1,9 @@
+﻿2026-09-02T09:49:52.5115600Z ##[group]Run mkdir -p out
+2026-09-02T09:49:52.5116240Z [36;1mmkdir -p out[0m
+2026-09-02T09:49:52.5116700Z [36;1mxattr -cr bin/ 2>&1 || true[0m
+2026-09-02T09:49:52.5117430Z [36;1mcodesign -s - --force bin/challenge.bin 2>&1 || true[0m
+2026-09-02T09:49:52.5118210Z [36;1mchmod +x bin/challenge.bin[0m
+2026-09-02T09:49:52.5119220Z [36;1msudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true[0m
+2026-09-02T09:49:52.5155520Z shell: /bin/bash -e {0}
+2026-09-02T09:49:52.5156020Z ##[endgroup]
+2026-09-02T09:49:52.5586210Z bin/challenge.bin: replacing existing signature

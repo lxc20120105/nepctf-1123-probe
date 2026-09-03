@@ -19,15 +19,15 @@ jobs:
           chmod +x bin/challenge.bin
           sudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true
 
-      - name: 2 - 批量试候选
+      - name: 2 - 试第三批候选 (VM 输出与派生哈希)
         continue-on-error: true
         run: |
           set +e
           while IFS='|' read -r name flag; do
             [ -z "$name" ] && continue
             OUT=$(./bin/challenge.bin "$flag" < /dev/null 2>&1 | head -2 | tr '\n' ' ')
-            printf '%-22s %s  -> [%s]\n' "$name" "$flag" "$OUT"
-          done < candidates.txt | tee out/A0-candidates.txt
+            printf '%-16s %s -> [%s]\n' "$name" "$flag" "$OUT"
+          done < candidates2.txt | tee out/B0-cand2.txt
 
       - name: 3 - 上传
         if: always()
