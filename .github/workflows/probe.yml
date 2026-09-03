@@ -7,27 +7,45 @@ on:
 jobs:
   probe:
     runs-on: macos-15
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
       - name: 1 - 准备
         run: |
+          TC=$(command -v gtimeout || command -v timeout || echo "")
+          echo "TC=$TC" >> $GITHUB_ENV
           mkdir -p out
           xattr -cr bin/ 2>&1 || true
           codesign -s - --force bin/challenge.bin 2>&1 || true
           chmod +x bin/challenge.bin
           sudo softwareupdate --install-rosetta --agree-to-license >/dev/null 2>&1 || true
 
-      - name: 2 - 试第三批候选 (VM 输出与派生哈希)
+      - name: 2 - 线性探测
         continue-on-error: true
         run: |
           set +e
-          while IFS='|' read -r name flag; do
-            [ -z "$name" ] && continue
-            OUT=$(./bin/challenge.bin "$flag" < /dev/null 2>&1 | head -2 | tr '\n' ' ')
-            printf '%-16s %s -> [%s]\n' "$name" "$flag" "$OUT"
-          done < candidates2.txt | tee out/B0-cand2.txt
+          probe() {
+            LBL="$1"; FLAG="$2"
+            ${TC:+$TC 200} lldb -b \
+              -o "command script import bpcmd2.py" \
+              -o "target create bin/challenge.bin" \
+              -o "breakpoint set --name ptrace" \
+              -o "process launch -- '$FLAG'" \
+              -o "thread return 0" \
+              -o "breakpoint delete 1" \
+              -o "breakpoint set --name write" \
+              -o "breakpoint command add --script-type python -F bpcmd2.on_write 3" \
+              -o "continue" 2>&1 | grep -E "^WRITE n=29" | sed "s/^/${LBL} /"
+          }
+          {
+            probe "BASE1" 'NepCTF{00000000000000000000000000000000}'
+            probe "BASE2" 'NepCTF{00000000000000000000000000000000}'
+            probe "BASE3" 'NepCTF{00000000000000000000000000000000}'
+            probe "P00" 'NepCTF{10000000000000000000000000000000}'
+            probe "P01" 'NepCTF{01000000000000000000000000000000}'
+            probe "P31" 'NepCTF{00000000000000000000000000000001}'
+          } | tee out/C0-linear.txt
 
       - name: 3 - 上传
         if: always()
